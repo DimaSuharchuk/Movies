@@ -1,0 +1,9 @@
+name = CS Features: Views: Search
+description = Provides page with exposed filters for films. Used as homepage.
+core = 7.x
+package = CS Features: Views
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = cs_views_search
+features_exclude[dependencies][ctools] = ctools

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the CS Features: CT: Film feature.
+ */
+
+include_once 'cs_ct_film.features.inc';

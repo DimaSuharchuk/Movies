@@ -1,0 +1,27 @@
+name = Cinema Search core
+description = Feature for install, configure site and enabling modules automatically.
+core = 7.x
+package = CS Features: Core
+
+; Contrib modules.
+dependencies[] = admin_menu
+dependencies[] = adminimal_admin_menu
+dependencies[] = chosen
+dependencies[] = countries
+dependencies[] = entity
+dependencies[] = features
+dependencies[] = jquery_update
+;dependencies[] = lightbox2
+dependencies[] = module_filter
+dependencies[] = views
+dependencies[] = views_ui
+
+; Custom modules.
+dependencies[] = custom
+dependencies[] = films_parser
+
+; Features
+dependencies[] = cs_ct_film
+dependencies[] = cs_tax_genres
+dependencies[] = cs_tax_person
+dependencies[] = cs_views_search

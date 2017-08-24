@@ -1,0 +1,4 @@
+name = Films Parser
+description = Films Parser
+core = 7.x
+package = CS custom

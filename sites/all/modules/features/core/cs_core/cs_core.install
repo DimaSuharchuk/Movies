@@ -1,0 +1,66 @@
+<?php
+/**
+ * @file
+ *
+ * Site configs and updates.
+ */
+
+/**
+ * Defines user role "Moderator".
+ */
+define('USER_ROLE_MODERATOR', 'moderator');
+
+/**
+ * Implements hook_install().
+ */
+function cs_core_install() {
+  $roles = user_roles(TRUE);
+  if (!in_array(USER_ROLE_MODERATOR, $roles)) {
+    $moderator = new stdClass();
+    $moderator->name = 'Moderator';
+    user_role_save($moderator);
+  }
+}
+
+/**
+ * Implements hook_enable().
+ */
+function cs_core_enable() {
+  _set_global_site_variables();
+  _disable_useless_modules();
+}
+
+/**
+ * Helper function disable unnecessary drupal core modules.
+ */
+function _disable_useless_modules() {
+  $modules = [
+    'comment',
+    'overlay',
+    'toolbar',
+  ];
+
+  module_disable($modules);
+  drupal_uninstall_modules($modules);
+}
+
+/**
+ * Helper function for setting global variables.
+ */
+function _set_global_site_variables() {
+  // New users can be registered only by administrator.
+  variable_set('user_register', 0);
+
+  // Public files path.
+  variable_set('file_public_path', 'sites/default/files/public');
+  // Private files path.
+  variable_set('file_private_path', 'sites/default/files/private');
+  // Temporary files path.
+  variable_set('file_temporary_path', 'sites/default/files/tmp');
+
+  // Site name.
+  variable_set('site_name', t('Movies'));
+
+  // Site front page.
+  variable_set('site_frontpage', 'search');
+}

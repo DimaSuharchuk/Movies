@@ -1,0 +1,406 @@
+<?php
+/**
+ * @file
+ * Films Parser main file.
+ */
+
+/**
+ * Defines OMDB api key.
+ */
+define('OMDB_API_KEY', 'c6c0355');
+
+/**
+ * Defines path to file with IMDB ids of favorite films.
+ */
+define('FILMS_FILE_PATH', drupal_get_path('module', 'films_parser') . '/films.txt');
+
+/**
+ * Defines person type from taxonomy vocabulary "Person".
+ */
+define('TAXONOMY_PERSON_TYPE_DIRECTOR', 'director');
+define('TAXONOMY_PERSON_TYPE_ACTOR', 'actor');
+
+/**
+ * Defines OMDB placeholder for unknown records.
+ */
+define('OMDB_NONAME_PLACEHOLDER', 'N/A');
+
+/**
+ * Implements hook_menu().
+ */
+function films_parser_menu() {
+  $items = [];
+
+  $items['fetch-films'] = [
+    'title' => 'Fetch films',
+    'description' => 'Fetch json from imdb and create films nodes.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => ['films_parser_form'],
+    'access arguments' => ['fetch_films'],
+  ];
+
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function films_parser_permission() {
+  return [
+    'fetch_films' => [
+      'title' => t('Fetch films'),
+      'description' => t('Access to fetch films batch.'),
+    ],
+  ];
+}
+
+/**
+ * Implements hook_form().
+ *
+ * Film parser batch form.
+ */
+function films_parser_form($form, &$form_state) {
+  $form['container_1'] = [
+    '#type' => 'fieldset',
+    '#title' => t('Fetch new films'),
+  ];
+  $form['container_1']['imdb_ids'] = [
+    '#type' => 'textarea',
+    '#description' => t('Paste list of IMDB ID\'s in any format.'),
+  ];
+  $form['container_1']['start'] = [
+    '#type' => 'submit',
+    '#value' => t('Go'),
+    '#name' => 'op_input',
+  ];
+
+  $form['container_2'] = [
+    '#type' => 'fieldset',
+    '#title' => t('Fetch films from local file'),
+  ];
+  $form['container_2']['start'] = [
+    '#type' => 'submit',
+    '#value' => t('Go'),
+    '#name' => 'op_file',
+  ];
+
+  return $form;
+}
+
+/**
+ * Film parser batch form submit.
+ */
+function films_parser_form_submit($form, &$form_state) {
+  $operations = [];
+  $list_ids = [];
+  $input = '';
+
+  if (isset($form_state['values']['op_file'])) {
+    // Get ids from file.
+    $input = file_get_contents(FILMS_FILE_PATH);
+  }
+  if (isset($form_state['values']['op_input'])) {
+    // Get imdb ids from input.
+    $input = $form_state['values']['imdb_ids'];
+  }
+
+  preg_match_all("@tt\d{7}@", $input, $list_ids);
+  $list_ids = reset($list_ids);
+
+  // Select ids of all already created films.
+  $db_ids = db_select('field_data_field_imdb_id', 'i')
+    ->fields('i', ['field_imdb_id_value'])
+    ->execute()
+    ->fetchCol();
+
+  // Check for unique values and keep new ids.
+  $new_ids = array_diff($list_ids, $db_ids);
+
+  if (!empty($new_ids)) {
+    foreach ($new_ids as $i => $id) {
+      $operations[] = [
+        'films_parser_batch',
+        [
+          $id,
+          t('(Operation @operation)', ['@operation' => $i]),
+        ],
+      ];
+    }
+
+    $batch = [
+      'operations' => $operations,
+      'finished' => 'films_parser_batch_finished',
+    ];
+
+    batch_set($batch);
+  }
+  else {
+    drupal_set_message(t('All films already added.'));
+  }
+}
+
+/**
+ * Batch operations.
+ * Fetch JSON from IMDB and create films.
+ */
+function films_parser_batch($id, $operation_details, &$context) {
+  $json = _fetch_json_from_omdb($id);
+  _create_film($json);
+  $context['results']['count']++;
+}
+
+/**
+ * Batch finish function.
+ *
+ * @param $success
+ * @param $results
+ * @param $operations
+ */
+function films_parser_batch_finished($success, $results, $operations) {
+  if ($success) {
+    drupal_set_message(
+      format_plural(
+        $results['count'],
+        '1 film was created.',
+        '@count films was created.'
+      )
+    );
+  }
+  else {
+    $error_operation = reset($operations);
+    drupal_set_message(
+      t('An error occurred while processing @operation with arguments : @args',
+        [
+          '@operation' => $error_operation[0],
+          '@args' => print_r($error_operation[0], TRUE),
+        ]
+      ),
+      'error'
+    );
+  }
+}
+
+/**
+ * Helper function fetch JSON from omdbapi.com.
+ *
+ * @param $id
+ *  IMDB film ID.
+ *
+ * @return mixed
+ *  Decoded JSON with film parameters.
+ */
+function _fetch_json_from_omdb($id) {
+  $url = 'http://www.omdbapi.com/?i=' . $id . '&plot=full&apikey=' . OMDB_API_KEY;
+
+  $ch = curl_init();
+  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+  // Will return the response, if false it print the response
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+  curl_setopt($ch, CURLOPT_URL, $url);
+  $output = curl_exec($ch);
+  curl_close($ch);
+
+  return json_decode($output, TRUE);
+}
+
+/**
+ * Helper function creates film node and fill all parameters.
+ *
+ * @param $json
+ *  Decoded JSON from IMDB api.
+ *
+ * @throws \Exception
+ */
+function _create_film($json) {
+  if (!empty($json)) {
+    if (isset($json['Error'])) {
+      form_set_error('error', $json['Error']);
+      return;
+    }
+
+    $node = new stdClass();
+    $node->type = 'film';
+    $node->language = LANGUAGE_NONE;
+    node_object_prepare($node);
+    node_submit($node);
+    node_save($node);
+
+    $wrapper = entity_metadata_wrapper('node', $node);
+
+    /**
+     * Set properties.
+     *
+     * @properties:
+     *  text Title
+     *  text IMDB ID
+     *  text Poster link (link to image)
+     *  int Year
+     *  array Genre (taxonomy reference "genre")
+     *  float IMDB voting
+     *  int Runtime
+     *  array Country
+     *  text Director (taxonomy reference "person")
+     *  array Actors (taxonomy reference "person")
+     *  long text Description
+     */
+    // Set title.
+    $wrapper->title = $json['Title'];
+
+    // Set IMDB ID.
+    $wrapper->field_imdb_id = $json['imdbID'];
+
+    //Set release year.
+    $wrapper->field_year = (int) $json['Year'];
+
+    // Set genres with creating if not exists.
+    $genres = _get_array_from_string($json['Genre']);
+    $genres_ids = [];
+    foreach ($genres as $genre) {
+      $genres_ids[] = _get_tid_from_term_name('genres', $genre);
+    }
+    $wrapper->field_genre = $genres_ids;
+
+    // Set countries. Use countries api.
+    $countries = _get_array_from_string($json['Country']);
+    $countries_codes = [];
+    foreach ($countries as $country) {
+      if (countries_country_lookup($country, 'iso3')) {
+        $countries_codes[] = countries_country_lookup($country)->iso2;
+      }
+      // IMDB use "UK" code for United Kingdom, we simplify it for countries api
+      // and use "GB" means Great Britain.
+      if ($country == 'UK') {
+        $countries_codes[] = 'GB';
+      }
+    }
+    $wrapper->field_country = $countries_codes;
+
+    // Set film director.
+    $wrapper->field_director = [_get_tid_from_term_name('person', $json['Director'], TAXONOMY_PERSON_TYPE_DIRECTOR)];
+
+    // Set actors.
+    $actors = _get_array_from_string($json['Actors']);
+    $actors_ids = [];
+    foreach ($actors as $actor) {
+      $actors_ids[] = _get_tid_from_term_name('person', $actor, TAXONOMY_PERSON_TYPE_ACTOR);
+    }
+    $wrapper->field_actors = $actors_ids;
+
+    // Set IMDB rating.
+    $wrapper->field_imdb = (int) $json['imdbRating'];
+
+    // Set description.
+    $wrapper->field_description = $json['Plot'];
+
+    // Set runtime.
+    $wrapper->field_runtime = (int) $json['Runtime'];
+
+    // Save poster link.
+    if ($json['Poster'] != OMDB_NONAME_PLACEHOLDER) {
+      $wrapper->field_poster_link = $json['Poster'];
+    }
+
+    // Save filled node.
+    $wrapper->save();
+  }
+}
+
+/**
+ * Helper function get taxonomy term ID.
+ *
+ * @param $vocabulary
+ *  Taxonomy vocabulary name.
+ * @param $term_name
+ *  Searched term name.
+ * @param String|null $person_type
+ *  Person type for terms of vocabulary "Person".
+ *
+ * @return mixed Taxonomy term ID.
+ * Taxonomy term ID.
+ */
+function _get_tid_from_term_name($vocabulary, $term_name, $person_type = NULL) {
+  if ($term_name == OMDB_NONAME_PLACEHOLDER) {
+    return NULL;
+  }
+
+  $terms = taxonomy_get_term_by_name($term_name, $vocabulary);
+
+  if (empty($terms)) {
+    // Create new term.
+    $vobj = taxonomy_vocabulary_machine_name_load($vocabulary);
+    $term = new stdClass();
+    $term->name = $term_name;
+    $term->vid = $vobj->vid;
+
+    // Save person type. For this moment it used for terms of vocabulary
+    // "Person".
+    if (
+      !is_null($person_type)
+      && ($person_type == TAXONOMY_PERSON_TYPE_ACTOR || $person_type == TAXONOMY_PERSON_TYPE_DIRECTOR)
+    ) {
+      $term->field_person_type = [
+        LANGUAGE_NONE => [
+          0 => [
+            'value' => $person_type,
+          ],
+        ],
+      ];
+    }
+
+    taxonomy_term_save($term);
+  }
+  // Fetch term ID if exists.
+  else {
+    $term = reset($terms);
+
+    if (!is_null($person_type) && isset($term->field_person_type)) {
+      if (!empty($term->field_person_type)) {
+        $field_values = &$term->field_person_type[LANGUAGE_NONE];
+
+        $exist_types = [];
+        foreach ($field_values as $value) {
+          $exist_types[] = $value['value'];
+        }
+
+        if (!array_search($person_type, $exist_types)) {
+          $field_values[]['value'] = $person_type;
+          taxonomy_term_save($term);
+        }
+      }
+      else {
+        $term->field_person_type = [
+          LANGUAGE_NONE => [
+            0 => [
+              'value' => $person_type,
+            ],
+          ],
+        ];
+        taxonomy_term_save($term);
+      }
+    }
+
+  }
+
+  return $term->tid;
+}
+
+/**
+ * Helper function split string by delimiter.
+ *
+ * @param $string
+ *  String for splitting.
+ * @param string $delimiter
+ *  Delimiter for splitting. Default value comma with space.
+ *
+ * @return array
+ *  Array of values from $string splitted by $delimiter.
+ */
+function _get_array_from_string($string, $delimiter = ', ') {
+  $array = [];
+
+  if (!empty($string)) {
+    $array = explode($delimiter, $string);
+  }
+
+  return $array;
+}

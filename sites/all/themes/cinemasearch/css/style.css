@@ -1,0 +1,119 @@
+/*@import url('https://fonts.googleapis.com/css?family=Poiret+One');*/
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400|Poiret+One');
+@import url('https://fonts.googleapis.com/css?family=Mukta+Mahee');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+@font-face {
+  font-family: 'Pro Edit';
+  src: url('../fonts/Proffesional Edition.ttf');
+}
+body {
+  /*font-family: "Poiret One";*/
+  font-family: "Open Sans";
+  font-weight: 300;
+  background: radial-gradient(circle at right, #324754 50%, #17222b);
+  color: #fff;
+}
+.l-main {
+  max-width: 90%;
+}
+/**
+ * Homepage view.
+ */
+.view-cs-views-search {
+  margin-top: 30px;
+}
+.views-exposed-widgets {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-right: 20px;
+}
+.views-exposed-widgets > div {
+  width: 100%;
+  display: inline-block;
+}
+.views-exposed-form .views-exposed-widget {
+  padding: .5em .5em 0 .5em;
+}
+.views-exposed-widgets label {
+  color: #fff;
+}
+.chosen-container {
+  width: 100% !important;
+  color: rgba(0, 0, 0, 0.75);
+}
+.chosen-choices {
+  border: 1px solid #ccc !important;
+  background-image: none !important;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.search-field {
+  height: 35px;
+}
+.view-cs-views-search .view-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-left: 100px;
+  border-left: 1px solid rgba(255, 255, 255, .1);
+}
+.film-teaser-wrapper, .page-taxonomy-term .node-teaser {
+  position: relative;
+  margin-bottom: 50px !important;
+}
+.teaser-poster-wrapper {
+  height: 350px;
+  margin-bottom: 20px;
+}
+.teaser-poster {
+  max-width: 75%;
+  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.3);
+}
+.field-name-field-imdb {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-image: radial-gradient(at top left, #f78e01 50%, #d07906);
+  text-align: center;
+  line-height: 50px;
+  vertical-align: middle;
+  font-weight: 700;
+  box-shadow: 2px 2px 20px 5px rgba(0, 0, 0, 0.3);
+}
+.film-title-link {
+  font-family: 'Mukta Mahee';
+  font-size: larger;
+  word-wrap: break-word;
+  max-width: 220px;
+}
+.field-type-taxonomy-term-reference ul {
+  margin: 0;
+  list-style: none;
+}
+.field-type-taxonomy-term-reference ul li {
+  display: inline-block;
+  margin-right: 10px;
+
+  color: #aaa;
+  font-family: 'Open Sans Condensed';
+  font-size: large;
+}
+.views-submit-button {
+  clear: both;
+}
+/**
+ * Film page.
+ */
+#page-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.node-film.view-mode-full .field {
+  line-height: 30px;
+  font-size: large;
+}

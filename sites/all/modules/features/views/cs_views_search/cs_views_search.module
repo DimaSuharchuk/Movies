@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the CS Features: Views: Search feature.
+ */
+
+include_once 'cs_views_search.features.inc';
