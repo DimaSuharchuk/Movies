@@ -1,13 +1,7 @@
-/*@import url('https://fonts.googleapis.com/css?family=Poiret+One');*/
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400|Poiret+One');
 @import url('https://fonts.googleapis.com/css?family=Mukta+Mahee');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
-@font-face {
-  font-family: 'Pro Edit';
-  src: url('../fonts/Proffesional Edition.ttf');
-}
 body {
-  /*font-family: "Poiret One";*/
   font-family: "Open Sans";
   font-weight: 300;
   background: radial-gradient(circle at right, #324754 50%, #17222b);
@@ -98,7 +92,6 @@ body {
 .field-type-taxonomy-term-reference ul li {
   display: inline-block;
   margin-right: 10px;
-
   color: #aaa;
   font-family: 'Open Sans Condensed';
   font-size: large;

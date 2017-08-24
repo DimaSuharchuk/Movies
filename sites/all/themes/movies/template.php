@@ -3,19 +3,19 @@
 /**
  * Implements template_preprocess_html().
  */
-function cinemasearch_preprocess_html(&$variables) {
+function movies_preprocess_html(&$variables) {
 }
 
 /**
  * Implements template_preprocess_page.
  */
-function cinemasearch_preprocess_page(&$variables) {
+function movies_preprocess_page(&$variables) {
 }
 
 /**
  * Implements template_preprocess_node.
  */
-function cinemasearch_preprocess_node(&$variables) {
+function movies_preprocess_node(&$variables) {
   if (
     isset($variables['type']) && $variables['type'] == 'film'
     && isset($variables['view_mode']) && $variables['view_mode'] == 'teaser'
@@ -39,7 +39,7 @@ function cinemasearch_preprocess_node(&$variables) {
 /**
  * Implements template_preprocess_field.
  */
-function cinemasearch_preprocess_field(&$variables) {
+function movies_preprocess_field(&$variables) {
   if (isset($variables['element'])) {
     $element = &$variables['element'];
     if (isset($element['#bundle']) && $element['#bundle'] == 'film') {
@@ -57,7 +57,7 @@ function cinemasearch_preprocess_field(&$variables) {
 /**
  * Implements theme_field__field_type().
  */
-function cinemasearch_field__taxonomy_term_reference($variables) {
+function movies_field__taxonomy_term_reference($variables) {
   $output = '';
 
   // Render the label, if it's not hidden.
