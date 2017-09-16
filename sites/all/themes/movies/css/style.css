@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400|Poiret+One');
 @import url('https://fonts.googleapis.com/css?family=Mukta+Mahee');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
-body {
+.page-search {
   font-family: "Open Sans";
   font-weight: 300;
   background: radial-gradient(circle at right, #324754 50%, #17222b);
@@ -48,19 +48,20 @@ body {
 .view-cs-views-search .view-content {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  padding-left: 100px;
+  justify-content: start;
+  padding-left: 70px;
   border-left: 1px solid rgba(255, 255, 255, .1);
 }
 .film-teaser-wrapper, .page-taxonomy-term .node-teaser {
   position: relative;
   margin-bottom: 50px !important;
 }
-.teaser-poster-wrapper {
+.field-name-field-poster-image {
   height: 350px;
   margin-bottom: 20px;
 }
-.teaser-poster {
+.field-name-field-poster-image img {
+  width: 280px;
   max-width: 75%;
   box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.3);
 }
