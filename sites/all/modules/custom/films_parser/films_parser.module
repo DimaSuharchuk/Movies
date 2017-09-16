@@ -7,18 +7,12 @@
 /**
  * Defines OMDB api key.
  */
-define('OMDB_API_KEY', 'c6c0355');
+define('OMDB_API_KEY', 'BanMePls');
 
 /**
  * Defines path to file with IMDB ids of favorite films.
  */
 define('FILMS_FILE_PATH', drupal_get_path('module', 'films_parser') . '/films.txt');
-
-/**
- * Defines person type from taxonomy vocabulary "Person".
- */
-define('TAXONOMY_PERSON_TYPE_DIRECTOR', 'director');
-define('TAXONOMY_PERSON_TYPE_ACTOR', 'actor');
 
 /**
  * Defines OMDB placeholder for unknown records.
@@ -33,10 +27,12 @@ function films_parser_menu() {
 
   $items['fetch-films'] = [
     'title' => 'Fetch films',
+    'menu_name' => 'main-menu',
     'description' => 'Fetch json from imdb and create films nodes.',
     'page callback' => 'drupal_get_form',
     'page arguments' => ['films_parser_form'],
     'access arguments' => ['fetch_films'],
+    'weight' => 5,
   ];
 
   return $items;
@@ -233,7 +229,7 @@ function _create_film($json) {
      * @properties:
      *  text Title
      *  text IMDB ID
-     *  text Poster link (link to image)
+     *  image Poster
      *  int Year
      *  array Genre (taxonomy reference "genre")
      *  float IMDB voting
@@ -276,13 +272,13 @@ function _create_film($json) {
     $wrapper->field_country = $countries_codes;
 
     // Set film director.
-    $wrapper->field_director = [_get_tid_from_term_name('person', $json['Director'], TAXONOMY_PERSON_TYPE_DIRECTOR)];
+    $wrapper->field_director = _get_tid_from_term_name('directors', $json['Director']);
 
     // Set actors.
     $actors = _get_array_from_string($json['Actors']);
     $actors_ids = [];
     foreach ($actors as $actor) {
-      $actors_ids[] = _get_tid_from_term_name('person', $actor, TAXONOMY_PERSON_TYPE_ACTOR);
+      $actors_ids[] = _get_tid_from_term_name('actors', $actor);
     }
     $wrapper->field_actors = $actors_ids;
 
@@ -295,9 +291,10 @@ function _create_film($json) {
     // Set runtime.
     $wrapper->field_runtime = (int) $json['Runtime'];
 
-    // Save poster link.
+    // Save poster.
     if ($json['Poster'] != OMDB_NONAME_PLACEHOLDER) {
-      $wrapper->field_poster_link = $json['Poster'];
+      $file = file_save_data(file_get_contents($json['Poster']), file_default_scheme() . "://posters/" . basename($json['Poster']));
+      $wrapper->field_poster_image->set((array)$file);
     }
 
     // Save filled node.
@@ -312,13 +309,11 @@ function _create_film($json) {
  *  Taxonomy vocabulary name.
  * @param $term_name
  *  Searched term name.
- * @param String|null $person_type
- *  Person type for terms of vocabulary "Person".
  *
  * @return mixed Taxonomy term ID.
  * Taxonomy term ID.
  */
-function _get_tid_from_term_name($vocabulary, $term_name, $person_type = NULL) {
+function _get_tid_from_term_name($vocabulary, $term_name) {
   if ($term_name == OMDB_NONAME_PLACEHOLDER) {
     return NULL;
   }
@@ -332,53 +327,11 @@ function _get_tid_from_term_name($vocabulary, $term_name, $person_type = NULL) {
     $term->name = $term_name;
     $term->vid = $vobj->vid;
 
-    // Save person type. For this moment it used for terms of vocabulary
-    // "Person".
-    if (
-      !is_null($person_type)
-      && ($person_type == TAXONOMY_PERSON_TYPE_ACTOR || $person_type == TAXONOMY_PERSON_TYPE_DIRECTOR)
-    ) {
-      $term->field_person_type = [
-        LANGUAGE_NONE => [
-          0 => [
-            'value' => $person_type,
-          ],
-        ],
-      ];
-    }
-
     taxonomy_term_save($term);
   }
   // Fetch term ID if exists.
   else {
     $term = reset($terms);
-
-    if (!is_null($person_type) && isset($term->field_person_type)) {
-      if (!empty($term->field_person_type)) {
-        $field_values = &$term->field_person_type[LANGUAGE_NONE];
-
-        $exist_types = [];
-        foreach ($field_values as $value) {
-          $exist_types[] = $value['value'];
-        }
-
-        if (!array_search($person_type, $exist_types)) {
-          $field_values[]['value'] = $person_type;
-          taxonomy_term_save($term);
-        }
-      }
-      else {
-        $term->field_person_type = [
-          LANGUAGE_NONE => [
-            0 => [
-              'value' => $person_type,
-            ],
-          ],
-        ];
-        taxonomy_term_save($term);
-      }
-    }
-
   }
 
   return $term->tid;
