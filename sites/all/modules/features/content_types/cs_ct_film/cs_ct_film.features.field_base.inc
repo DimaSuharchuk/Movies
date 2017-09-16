@@ -27,7 +27,7 @@ function cs_ct_film_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(
         0 => array(
-          'vocabulary' => 'person',
+          'vocabulary' => 'actors',
           'parent' => 0,
         ),
       ),
@@ -82,7 +82,7 @@ function cs_ct_film_field_default_field_bases() {
   // Exported field_base: 'field_director'.
   $field_bases['field_director'] = array(
     'active' => 1,
-    'cardinality' => -1,
+    'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_director',
@@ -96,7 +96,7 @@ function cs_ct_film_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(
         0 => array(
-          'vocabulary' => 'person',
+          'vocabulary' => 'directors',
           'parent' => 0,
         ),
       ),
@@ -189,25 +189,6 @@ function cs_ct_film_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'image',
-  );
-
-  // Exported field_base: 'field_poster_link'.
-  $field_bases['field_poster_link'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_poster_link',
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'text',
-    'settings' => array(),
-    'translatable' => 0,
-    'type' => 'text_long',
   );
 
   // Exported field_base: 'field_runtime'.

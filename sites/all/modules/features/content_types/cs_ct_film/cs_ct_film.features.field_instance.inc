@@ -356,45 +356,6 @@ function cs_ct_film_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-film-field_poster_link'.
-  $field_instances['node-film-field_poster_link'] = array(
-    'bundle' => 'film',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 11,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 11,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_poster_link',
-    'label' => 'Poster link',
-    'required' => 0,
-    'settings' => array(
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'rows' => 5,
-      ),
-      'type' => 'text_textarea',
-      'weight' => 2,
-    ),
-  );
-
   // Exported field_instance: 'node-film-field_runtime'.
   $field_instances['node-film-field_runtime'] = array(
     'bundle' => 'film',
@@ -497,7 +458,6 @@ function cs_ct_film_field_default_field_instances() {
   t('IMDB ID');
   t('IMDB voting');
   t('Poster image');
-  t('Poster link');
   t('Runtime');
   t('Year');
 

@@ -181,7 +181,7 @@ function cs_views_search_views_default_views() {
   );
   $handler->display->display_options['filters']['field_director_tid']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['filters']['field_director_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_director_tid']['vocabulary'] = 'person';
+  $handler->display->display_options['filters']['field_director_tid']['vocabulary'] = 'directors';
   /* Filter criterion: Content: Actors (field_actors) */
   $handler->display->display_options['filters']['field_actors_tid']['id'] = 'field_actors_tid';
   $handler->display->display_options['filters']['field_actors_tid']['table'] = 'field_data_field_actors';
@@ -201,7 +201,7 @@ function cs_views_search_views_default_views() {
   );
   $handler->display->display_options['filters']['field_actors_tid']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['filters']['field_actors_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_actors_tid']['vocabulary'] = 'person';
+  $handler->display->display_options['filters']['field_actors_tid']['vocabulary'] = 'actors';
   /* Filter criterion: Content: Year (field_year) */
   $handler->display->display_options['filters']['field_year_value_1']['id'] = 'field_year_value_1';
   $handler->display->display_options['filters']['field_year_value_1']['table'] = 'field_data_field_year';

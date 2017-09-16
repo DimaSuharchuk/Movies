@@ -23,5 +23,6 @@ dependencies[] = films_parser
 ; Features
 dependencies[] = cs_ct_film
 dependencies[] = cs_tax_genres
-dependencies[] = cs_tax_person
+dependencies[] = cs_tax_actors
+dependencies[] = cs_tax_directors
 dependencies[] = cs_views_search

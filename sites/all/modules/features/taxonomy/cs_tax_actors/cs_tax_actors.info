@@ -1,0 +1,8 @@
+name = CS Features: Taxonomy: Actors
+description = Defines taxonomy vocabulary "Actors".
+core = 7.x
+package = CS Features: Taxonomy
+dependencies[] = features
+dependencies[] = taxonomy
+features[features_api][] = api:2
+features[taxonomy][] = actors
