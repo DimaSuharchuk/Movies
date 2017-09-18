@@ -16,6 +16,9 @@
 .view-cs-views-search {
   margin-top: 30px;
 }
+.view-filters {
+  margin-bottom: 30px;
+}
 .views-exposed-widgets {
   display: flex;
   flex-wrap: wrap;
@@ -36,6 +39,11 @@
 .chosen-container {
   width: 100% !important;
   color: rgba(0, 0, 0, 0.75);
+}
+.chosen-container-single .chosen-single {
+  height: 40px;
+  display: flex;
+  align-items: center;
 }
 .chosen-choices {
   border: 1px solid #ccc !important;
@@ -98,6 +106,37 @@
 }
 .views-submit-button {
   clear: both;
+}
+/**
+ * Filters toggle button.
+ */
+.filters-collapsed-button {
+  display: flex;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle at top right, #26a283 10%, #187961);
+  box-shadow: inset 1px -1px 1px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 100%;
+  align-items: center;
+  justify-content: center;
+  transition-duration: .3s;
+  margin-bottom: 20px;
+}
+.filters-collapsed-button img {
+  width: 25%;
+}
+.filters-collapsed-button:hover {
+  transform: scale(1.05, 1.05);
+  transition-duration: .3s;
+}
+.no-touch #views-exposed-form-cs-views-search-page {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s, opacity 0.5s;
+}
+.touch #views-exposed-form-cs-views-search-page {
+  /*Use for touchable devices.*/
+  display: none;
 }
 /**
  * Film page.

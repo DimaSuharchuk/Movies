@@ -41,6 +41,9 @@
 
   <?php if ($exposed): ?>
     <div class="view-filters large-3 column">
+        <div class="filters-collapsed-button" onclick="toggle_search_exposed('views-exposed-form-cs-views-search-page');">
+            <img src="<?php print drupal_get_path('theme', 'movies'); ?>/images/search-icon-white.png">
+        </div>
       <?php print $exposed; ?>
     </div>
   <?php endif; ?>
