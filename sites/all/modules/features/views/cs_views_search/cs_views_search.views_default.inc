@@ -107,6 +107,18 @@ function cs_views_search_views_default_views() {
   $handler->display->display_options['fields']['rendered_entity']['display'] = 'view';
   $handler->display->display_options['fields']['rendered_entity']['view_mode'] = 'teaser';
   $handler->display->display_options['fields']['rendered_entity']['bypass_access'] = 0;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: IMDB voting (field_imdb) */
+  $handler->display->display_options['sorts']['field_imdb_value']['id'] = 'field_imdb_value';
+  $handler->display->display_options['sorts']['field_imdb_value']['table'] = 'field_data_field_imdb';
+  $handler->display->display_options['sorts']['field_imdb_value']['field'] = 'field_imdb_value';
+  $handler->display->display_options['sorts']['field_imdb_value']['order'] = 'DESC';
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  $handler->display->display_options['sorts']['title']['order'] = 'DESC';
+  $handler->display->display_options['sorts']['title']['expose']['label'] = 'Title';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['filter_groups']['groups'] = array(
     1 => 'AND',
