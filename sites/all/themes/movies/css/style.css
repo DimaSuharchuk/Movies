@@ -58,7 +58,6 @@
 }
 .field-name-field-poster-image {
   height: 350px;
-  margin-bottom: 20px;
 }
 .field-name-field-poster-image img {
   width: 280px;
@@ -67,8 +66,8 @@
 }
 .field-name-field-imdb {
   position: absolute;
-  top: 50px;
-  right: 50px;
+  top: 40px;
+  right: 45px;
   display: block;
   width: 50px;
   height: 50px;
