@@ -326,7 +326,7 @@ function cs_ct_film_field_default_field_instances() {
           'image_style' => '',
         ),
         'type' => 'image',
-        'weight' => 1,
+        'weight' => -1,
       ),
     ),
     'entity_type' => 'node',
