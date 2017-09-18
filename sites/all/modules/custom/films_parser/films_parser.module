@@ -272,7 +272,12 @@ function _create_film($json) {
     $wrapper->field_country = $countries_codes;
 
     // Set film director.
-    $wrapper->field_director = _get_tid_from_term_name('directors', $json['Director']);
+    $directors = _get_array_from_string($json['Director']);
+    $director_ids = [];
+    foreach ($directors as $director) {
+      $director_ids[] = _get_tid_from_term_name('directors', $director);
+    }
+    $wrapper->field_director = $director_ids;
 
     // Set actors.
     $actors = _get_array_from_string($json['Actors']);
@@ -294,7 +299,7 @@ function _create_film($json) {
     // Save poster.
     if ($json['Poster'] != OMDB_NONAME_PLACEHOLDER) {
       $file = file_save_data(file_get_contents($json['Poster']), file_default_scheme() . "://posters/" . basename($json['Poster']));
-      $wrapper->field_poster_image->set((array)$file);
+      $wrapper->field_poster_image->set((array) $file);
     }
 
     // Save filled node.
