@@ -288,7 +288,7 @@ function _create_film($json) {
     $wrapper->field_actors = $actors_ids;
 
     // Set IMDB rating.
-    $wrapper->field_imdb = (int) $json['imdbRating'];
+    $wrapper->field_imdb = (float) $json['imdbRating'];
 
     // Set description.
     $wrapper->field_description = $json['Plot'];
