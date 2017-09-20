@@ -5,11 +5,6 @@
  */
 
 /**
- * Defines OMDB api key.
- */
-define('OMDB_API_KEY', 'BanMePls');
-
-/**
  * Defines path to file with IMDB ids of favorite films.
  */
 define('FILMS_FILE_PATH', drupal_get_path('module', 'films_parser') . '/films.txt');
@@ -25,13 +20,20 @@ define('OMDB_NONAME_PLACEHOLDER', 'N/A');
 function films_parser_menu() {
   $items = [];
 
+  $items['admin/settings/films-parser'] = [
+    'title' => 'Site configurations',
+    'description' => 'Manage site configurations for film parser, etc.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => ['films_parser_admin_settings'],
+    'access arguments' => ['access parser configs'],
+  ];
   $items['fetch-films'] = [
     'title' => 'Fetch films',
     'menu_name' => 'main-menu',
     'description' => 'Fetch json from imdb and create films nodes.',
     'page callback' => 'drupal_get_form',
     'page arguments' => ['films_parser_form'],
-    'access arguments' => ['fetch_films'],
+    'access arguments' => ['fetch films'],
     'weight' => 5,
   ];
 
@@ -43,11 +45,30 @@ function films_parser_menu() {
  */
 function films_parser_permission() {
   return [
-    'fetch_films' => [
+    'access parser configs' => [
+      'title' => t('Access to films parser configs page.'),
+    ],
+    'fetch films' => [
       'title' => t('Fetch films'),
       'description' => t('Access to fetch films batch.'),
     ],
   ];
+}
+
+/**
+ * Module's settings form.
+ */
+function films_parser_admin_settings() {
+  $form = [];
+
+  $form['omdb_api_key'] = [
+    '#type' => 'textfield',
+    '#title' => t('OMDB API key'),
+    '#default_value' => variable_get('omdb_api_key'),
+    '#required' => TRUE,
+  ];
+
+  return system_settings_form($form);
 }
 
 /**
@@ -79,6 +100,26 @@ function films_parser_form($form, &$form_state) {
     '#value' => t('Go'),
     '#name' => 'op_file',
   ];
+
+  if (!variable_get('omdb_api_key')) {
+    form_set_error('',
+      t(
+        'OMDB API key not defined. <a href="@link" target="_blank">Set</a> key.', [
+        '@link' => url('admin/settings/films-parser'),
+      ])
+    );
+
+    $form['container_1']['start']['#states'] = [
+      'disabled' => [
+        ':input[name="op_input"]' => ['filled' => TRUE],
+      ],
+    ];
+    $form['container_2']['start']['#states'] = [
+      'disabled' => [
+        ':input[name="op_file"]' => ['filled' => TRUE],
+      ],
+    ];
+  }
 
   return $form;
 }
@@ -186,7 +227,7 @@ function films_parser_batch_finished($success, $results, $operations) {
  *  Decoded JSON with film parameters.
  */
 function _fetch_json_from_omdb($id) {
-  $url = 'http://www.omdbapi.com/?i=' . $id . '&plot=full&apikey=' . OMDB_API_KEY;
+  $url = 'http://www.omdbapi.com/?i=' . $id . '&plot=full&apikey=' . variable_get('omdb_api_key');
 
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
