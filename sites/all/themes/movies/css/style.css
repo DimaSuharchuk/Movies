@@ -20,18 +20,20 @@
   margin-bottom: 30px;
 }
 .views-exposed-widgets {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-between;
-  padding-right: 20px;
+  margin-top: 30px;
 }
 .views-exposed-widgets > div {
   width: 100%;
   display: inline-block;
 }
 .views-exposed-form .views-exposed-widget {
-  padding: .5em .5em 0 .5em;
+  padding: 0;
+}
+.views-exposed-form .views-exposed-widget input {
+  margin-bottom: 0;
+}
+.views-exposed-form .views-widget {
+  margin-bottom: 5px;
 }
 .views-exposed-widgets label {
   color: #fff;
@@ -53,6 +55,13 @@
 .search-field {
   height: 35px;
 }
+.views-widget-filter-field_year_value .form-type-textfield {
+  padding: 0;
+}
+.form-item-field-year-range-max label {
+  display: none;
+}
+/* View content. */
 .view-cs-views-search .view-content {
   display: flex;
   flex-wrap: wrap;
@@ -129,14 +138,15 @@
   transform: scale(1.05, 1.05);
   transition-duration: .3s;
 }
-.no-touch #views-exposed-form-cs-views-search-page {
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0.5s, opacity 0.5s;
+@media screen and (min-width: 642px) {
+  .filters-collapsed-button {
+    display: none;
+  }
 }
-.touch #views-exposed-form-cs-views-search-page {
-  /*Use for touchable devices.*/
-  display: none;
+@media (max-width: 641px) {
+  .block-views-exp-cs-views-search-page {
+    display: none;
+  }
 }
 /**
  * Film page.

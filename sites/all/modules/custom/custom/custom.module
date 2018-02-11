@@ -5,3 +5,13 @@
  * Different custom configs for Cinema Search site.
  */
 
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function custom_form_views_exposed_form_alter(&$form, &$form_state) {
+  // Set placeholders to exposed search block.
+  $form['title']['#attributes'] = ['placeholder' => t('Title')];
+  $form['field_year_single']['#attributes'] = ['placeholder' => t('Single year')];
+  $form['field_year_range']['min']['#attributes'] = ['placeholder' => t('Min year')];
+  $form['field_year_range']['max']['#attributes'] = ['placeholder' => t('Max year')];
+}

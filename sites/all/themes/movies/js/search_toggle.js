@@ -1,20 +1,19 @@
-function toggle_search_exposed(id) {
-  var e = document.getElementById(id);
+(function ($) {
+  // Add extra classes to field "Year range".
+  Drupal.behaviors.exposedSearch = {
+    attach: function (context) {
+      $('.views-widget-filter-field_year_value', context)
+          .find('.form-type-textfield')
+          .addClass('large-6 medium-6 columns')
+    }
+  };
 
-  // Use for small screen.
-  if (e.style.display === 'block') {
-    e.style.display = 'none';
-  } else {
-    e.style.display = 'block';
-  }
-
-  // Use for screen larger than 1024px.
-  if (e.style.visibility === 'visible') {
-    e.style.visibility = 'hidden';
-    e.style.opacity = 0;
-  }
-  else {
-    e.style.visibility = 'visible';
-    e.style.opacity = 1;
-  }
-}
+  // Button for hide exposed filters for mobile.
+  Drupal.behaviors.collapsedButton = {
+    attach: function (context) {
+      $('.filters-collapsed-button', context).bind('click', function (context) {
+        $('.block-views-exp-cs-views-search-page').fadeToggle();
+      })
+    }
+  };
+})(jQuery);

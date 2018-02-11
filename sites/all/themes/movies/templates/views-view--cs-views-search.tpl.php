@@ -34,44 +34,41 @@
   <?php endif; ?>
   <?php print render($title_suffix); ?>
   <?php if ($header): ?>
-    <div class="view-header">
-      <?php print $header; ?>
-    </div>
+      <div class="view-header">
+        <?php print $header; ?>
+      </div>
   <?php endif; ?>
 
   <?php if ($exposed): ?>
-    <div class="view-filters large-3 column">
-        <div class="filters-collapsed-button" onclick="toggle_search_exposed('views-exposed-form-cs-views-search-page');">
-            <img src="<?php print drupal_get_path('theme', 'movies'); ?>/images/search-icon-white.png">
-        </div>
-      <?php print $exposed; ?>
-    </div>
+      <div class="view-filters">
+        <?php print $exposed; ?>
+      </div>
   <?php endif; ?>
 
   <?php if ($attachment_before): ?>
-    <div class="attachment attachment-before">
-      <?php print $attachment_before; ?>
-    </div>
+      <div class="attachment attachment-before">
+        <?php print $attachment_before; ?>
+      </div>
   <?php endif; ?>
 
   <?php if ($rows): ?>
-    <div class="view-content large-9 column">
-      <?php print $rows; ?>
-    </div>
-  <?php elseif ($empty): ?>
-    <div class="view-empty">
-      <?php print $empty; ?>
-    </div>
-  <?php endif; ?>
+      <div class="view-content large-9 medium-8 column">
+        <?php print $rows; ?>
 
-  <?php if ($pager): ?>
-    <?php print $pager; ?>
+        <?php if ($pager): ?>
+          <?php print $pager; ?>
+        <?php endif; ?>
+      </div>
+  <?php elseif ($empty): ?>
+      <div class="view-empty">
+        <?php print $empty; ?>
+      </div>
   <?php endif; ?>
 
   <?php if ($attachment_after): ?>
-    <div class="attachment attachment-after">
-      <?php print $attachment_after; ?>
-    </div>
+      <div class="attachment attachment-after">
+        <?php print $attachment_after; ?>
+      </div>
   <?php endif; ?>
 
   <?php if ($more): ?>
@@ -79,15 +76,15 @@
   <?php endif; ?>
 
   <?php if ($footer): ?>
-    <div class="view-footer">
-      <?php print $footer; ?>
-    </div>
+      <div class="view-footer">
+        <?php print $footer; ?>
+      </div>
   <?php endif; ?>
 
   <?php if ($feed_icon): ?>
-    <div class="feed-icon">
-      <?php print $feed_icon; ?>
-    </div>
+      <div class="feed-icon">
+        <?php print $feed_icon; ?>
+      </div>
   <?php endif; ?>
 
 </div><?php /* class view */ ?>
