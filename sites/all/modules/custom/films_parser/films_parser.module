@@ -27,9 +27,8 @@ function films_parser_menu() {
     'page arguments' => ['films_parser_admin_settings'],
     'access arguments' => ['access parser configs'],
   ];
-  $items['fetch-films'] = [
+  $items['admin/settings/fetch-films'] = [
     'title' => 'Fetch films',
-    'menu_name' => 'main-menu',
     'description' => 'Fetch json from imdb and create films nodes.',
     'page callback' => 'drupal_get_form',
     'page arguments' => ['films_parser_form'],
