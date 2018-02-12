@@ -6,6 +6,46 @@
  */
 
 /**
+ * Implements hook_menu().
+ */
+function custom_menu() {
+  return [
+    'ajax/node/random' => [
+      'page callback' => 'custom_ajax_random_node_callback',
+      'page arguments' => [2],
+      'type' => MENU_CALLBACK,
+      'delivery callback' => 'custom_ajax_delivery_callback',
+      'access callback' => TRUE,
+    ],
+  ];
+}
+
+/**
+ * Ajax callback returns random node.
+ */
+function custom_ajax_random_node_callback() {
+  $query = db_select('node', 'n')
+    ->fields('n', ['nid'])
+    ->orderRandom()
+    ->execute()
+    ->fetchObject();
+
+  $node = node_load($query->nid);
+
+  return node_view($node, 'teaser');
+}
+
+/**
+ * Ajax delivery callback render content.
+ *
+ * @param $content
+ */
+function custom_ajax_delivery_callback($content) {
+  print drupal_render($content);
+  drupal_page_footer();
+}
+
+/**
  * Implements hook_form_FORM_ID_alter().
  */
 function custom_form_views_exposed_form_alter(&$form, &$form_state) {

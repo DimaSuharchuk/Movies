@@ -16,4 +16,13 @@
       })
     }
   };
+
+  // Get random movie.
+  Drupal.behaviors.getRandomMovie = {
+    attach: function (context) {
+      $('.get-random-button', context).bind('click', function (context) {
+        $('.view-content').load(Drupal.settings.basePath + 'ajax/node/random');
+      });
+    }
+  };
 })(jQuery);
