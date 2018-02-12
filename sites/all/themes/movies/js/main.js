@@ -1,4 +1,11 @@
 (function ($) {
+  // Initialize nanoScroller.
+  Drupal.behaviors.nanoScrollerInit = {
+    attach: function () {
+      $('.nano').nanoScroller();
+    }
+  };
+
   // Add extra classes to field "Year range".
   Drupal.behaviors.exposedSearch = {
     attach: function (context) {

@@ -53,7 +53,11 @@
 
   <?php if ($rows): ?>
       <div class="view-content large-9 medium-8 column">
-        <?php print $rows; ?>
+          <div class="nano">
+              <div class="nano-content">
+                <?php print $rows; ?>
+              </div>
+          </div>
 
         <?php if ($pager): ?>
           <?php print $pager; ?>

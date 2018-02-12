@@ -8,11 +8,14 @@
   color: #fff;
 }
 .l-main {
-  max-width: 90%;
+  max-width: 100%;
 }
 /**
  * Homepage view.
  */
+.search-block-left {
+  padding-right: 30px;
+}
 .view-cs-views-search {
   margin-top: 30px;
 }
@@ -66,8 +69,17 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
-  padding-left: 70px;
+  padding-left: 30px;
   border-left: 1px solid rgba(255, 255, 255, .1);
+  height: calc(100vh - 100px);
+}
+.view-cs-views-search .view-content .nano-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+.view-cs-views-search .view-content .nano-content .row {
+  margin: 0;
 }
 .node-teaser {
   position: relative;
@@ -164,6 +176,10 @@
   .block-views-exp-cs-views-search-page {
     display: none;
   }
+}
+/* Pagination. */
+.pagination-centered {
+  margin-top: 20px;
 }
 /**
  * Film page.

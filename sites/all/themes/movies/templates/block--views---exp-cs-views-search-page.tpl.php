@@ -42,7 +42,7 @@
  */
 ?>
 
-<div class="large-3 medium-4 column">
+<div class="search-block-left large-3 medium-4 column">
     <div class="action-buttons">
         <div class="filters-collapsed-button">
             <img src="<?php print drupal_get_path('theme', 'movies'); ?>/images/search-icon-white.png">
