@@ -64,3 +64,15 @@ function _set_global_site_variables() {
   // Site front page.
   variable_set('site_frontpage', 'search');
 }
+
+/**
+ * Implements hook_update_N().
+ * Set custom favicon.
+ */
+function cs_core_update_7001() {
+  $theme_movies_settings = variable_get('theme_movies_settings');
+  $theme_movies_settings['toggle_favicon'] = TRUE;
+  $theme_movies_settings['default_favicon'] = FALSE;
+  $theme_movies_settings['favicon_path'] = 'sites/all/themes/movies/images/icon.png';
+  variable_set('theme_movies_settings', $theme_movies_settings);
+}
