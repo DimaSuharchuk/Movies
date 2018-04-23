@@ -55,3 +55,29 @@ function custom_form_views_exposed_form_alter(&$form, &$form_state) {
   $form['field_year_range']['min']['#attributes'] = ['placeholder' => t('Min year')];
   $form['field_year_range']['max']['#attributes'] = ['placeholder' => t('Max year')];
 }
+
+/**
+ * Implements hook_node_view_alter().
+ */
+function custom_node_view_alter(&$build) {
+  if ($build['#entity_type'] == 'node' && $build['#bundle'] == 'film' && $build['#view_mode'] == 'teaser') {
+    try {
+      if (!isset($build['field_poster_image'])) {
+        $build['field_poster_image'] = [
+          '#type' => 'container',
+          '#attributes' => [
+            'class' => [
+              'field-name-field-poster-image',
+            ],
+          ],
+        ];
+        $build['field_poster_image'][] = [
+          '#markup' => theme('image', [
+            'path' => drupal_get_path('theme', 'movies') . '/images/nopicture.gif',
+          ]),
+        ];
+      }
+    } catch (Exception $_) {
+    }
+  }
+}
