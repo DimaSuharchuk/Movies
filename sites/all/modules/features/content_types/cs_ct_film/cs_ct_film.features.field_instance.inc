@@ -236,7 +236,7 @@ function cs_ct_film_field_default_field_instances() {
         'settings' => array(
           'decimal_separator' => '.',
           'prefix_suffix' => TRUE,
-          'scale' => 2,
+          'scale' => 1,
           'thousand_separator' => '',
         ),
         'type' => 'number_decimal',
