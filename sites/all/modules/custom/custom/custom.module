@@ -17,6 +17,12 @@ function custom_menu() {
       'delivery callback' => 'custom_ajax_delivery_callback',
       'access callback' => TRUE,
     ],
+    'search/%/%ctools_js' => [
+      'page callback' => 'custom_film_popup',
+      'page arguments' => [1, 2],
+      'access callback' => TRUE,
+      'type' => MENU_CALLBACK,
+    ],
   ];
 }
 
@@ -80,4 +86,75 @@ function custom_node_view_alter(&$build) {
     } catch (Exception $_) {
     }
   }
+}
+
+/**
+ * Popup's content.
+ *
+ * @param $nid
+ *  Node ID.
+ * @param $js
+ *  Ctools parameter for check is javascript enabled on browser.
+ *
+ * @return array
+ */
+function custom_film_popup($nid, $js) {
+  $popup_content = node_view(node_load($nid), 'popup');
+
+  if (!$js) {
+    return $popup_content;
+  }
+
+  ctools_include('modal');
+  ctools_include('ajax');
+
+  $output = [];
+  $output[] = ctools_modal_command_display('', $popup_content);
+
+  print ajax_render($output);
+  drupal_exit();
+}
+
+/**
+ * Popup's settings function.
+ */
+function custom_film_popup_style() {
+  static $added = FALSE;
+  if ($added == FALSE) {
+    $added = TRUE;
+
+    ctools_include('modal');
+    ctools_include('ajax');
+    ctools_modal_add_js();
+
+    $popup_style = [
+      'film-popup-style' => [
+        'modalSize' => [
+          'type' => 'fixed',
+          'width' => 500,
+          'height' => 'auto',
+        ],
+        'modalOptions' => [
+          'opacity' => (float) 0.8,
+          'background-color' => '#17222b',
+        ],
+        'animation' => 'fadeIn',
+        'modalTheme' => 'filmTheme',
+        'animationSpeed' => 'slow',
+      ],
+    ];
+
+    drupal_add_js($popup_style, 'setting');
+    ctools_add_js('film_popup_style', 'custom');
+  }
+}
+
+/**
+ * Implements hook_entity_info_alter().
+ */
+function custom_entity_info_alter(&$entity_info) {
+  $entity_info['node']['view modes']['popup'] = [
+    'label' => t('Popup'),
+    'custom settings' => TRUE,
+  ];
 }

@@ -16,23 +16,35 @@ function movies_preprocess_page(&$variables) {
  * Implements template_preprocess_node.
  */
 function movies_preprocess_node(&$variables) {
-  if (
-    isset($variables['type']) && $variables['type'] == 'film'
-    && isset($variables['view_mode']) && $variables['view_mode'] == 'teaser'
-  ) {
-    // Hide regular teaser title link.
-    $variables['page'] = TRUE;
+  if (isset($variables['type']) && $variables['type'] == 'film') {
+    switch ($variables['view_mode']) {
+      case 'teaser':
+        // Hide regular teaser title link.
+        $variables['page'] = TRUE;
 
-    // Remove default node teaser's "Read more" link.
-    unset($variables['content']['links']['node']['#links']['node-readmore']);
+        // Remove default node teaser's "Read more" link.
+        unset($variables['content']['links']['node']['#links']['node-readmore']);
 
-    // Set custom link to content as title + year.
-    $year = $variables['field_year'][LANGUAGE_NONE][0]['value'];
-    $variables['content']['title'] = [
-      '#markup' => html_entity_decode($variables['title'], ENT_QUOTES) . ' (' . $year . ')',
-      '#prefix' => '<div class="film-title-link">',
-      '#suffix' => '</div>',
-    ];
+        // Set custom link to content as title + year.
+        $year = $variables['field_year'][LANGUAGE_NONE][0]['value'];
+        $variables['content']['title'] = [
+          '#markup' => html_entity_decode($variables['title'], ENT_QUOTES) . ' (' . $year . ')',
+          '#prefix' => '<div class="film-title-link">',
+          '#suffix' => '</div>',
+        ];
+        break;
+
+      case 'popup':
+        // Hide regular teaser title link.
+        $variables['page'] = TRUE;
+        $variables['content']['title'] = [
+          '#markup' => html_entity_decode($variables['title'], ENT_QUOTES),
+          '#prefix' => '<h3>',
+          '#suffix' => '</h3>',
+          '#weight' => -1,
+        ];
+        break;
+    }
   }
 }
 

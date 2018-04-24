@@ -24,6 +24,13 @@ function cs_ct_film_field_default_field_instances() {
         'type' => 'taxonomy_term_reference_link',
         'weight' => 7,
       ),
+      'popup' => array(
+        'label' => 'inline',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_plain',
+        'weight' => 6,
+      ),
       'teaser' => array(
         'label' => 'inline',
         'settings' => array(),
@@ -64,6 +71,13 @@ function cs_ct_film_field_default_field_instances() {
         'type' => 'country_default',
         'weight' => 8,
       ),
+      'popup' => array(
+        'label' => 'inline',
+        'module' => 'countries',
+        'settings' => array(),
+        'type' => 'country_default',
+        'weight' => 4,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -102,6 +116,13 @@ function cs_ct_film_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 9,
+      ),
+      'popup' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -143,6 +164,13 @@ function cs_ct_film_field_default_field_instances() {
         'type' => 'taxonomy_term_reference_link',
         'weight' => 6,
       ),
+      'popup' => array(
+        'label' => 'inline',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_plain',
+        'weight' => 5,
+      ),
       'teaser' => array(
         'label' => 'inline',
         'settings' => array(),
@@ -182,6 +210,13 @@ function cs_ct_film_field_default_field_instances() {
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
         'weight' => 3,
+      ),
+      'popup' => array(
+        'label' => 'inline',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_plain',
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -230,6 +265,18 @@ function cs_ct_film_field_default_field_instances() {
         'type' => 'number_decimal',
         'weight' => 4,
       ),
+      'popup' => array(
+        'label' => 'inline',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => 1,
+          'scale' => 1,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 1,
+      ),
       'teaser' => array(
         'label' => 'hidden',
         'module' => 'number',
@@ -276,6 +323,12 @@ function cs_ct_film_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 10,
       ),
+      'popup' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 8,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -317,6 +370,12 @@ function cs_ct_film_field_default_field_instances() {
         ),
         'type' => 'image',
         'weight' => 1,
+      ),
+      'popup' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 9,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -375,6 +434,18 @@ function cs_ct_film_field_default_field_instances() {
         'type' => 'number_integer',
         'weight' => 5,
       ),
+      'popup' => array(
+        'label' => 'inline',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 3,
+      ),
       'teaser' => array(
         'label' => 'inline',
         'settings' => array(),
@@ -420,6 +491,18 @@ function cs_ct_film_field_default_field_instances() {
         ),
         'type' => 'number_integer',
         'weight' => 2,
+      ),
+      'popup' => array(
+        'label' => 'inline',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'hidden',

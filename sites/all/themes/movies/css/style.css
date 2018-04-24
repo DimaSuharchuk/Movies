@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400|Poiret+One');
 @import url('https://fonts.googleapis.com/css?family=Mukta+Mahee');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+a:focus {
+  outline: none;
+}
 .page-search {
   font-family: "Open Sans";
   font-weight: 300;
@@ -96,7 +100,7 @@
   max-width: 75%;
   box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.3);
 }
-.field-name-field-imdb {
+.node-teaser .field-name-field-imdb {
   position: absolute;
   top: 40px;
   right: 45px;
@@ -191,4 +195,13 @@
 .node-film.view-mode-full .field {
   line-height: 30px;
   font-size: large;
+}
+/* Popup */
+#modalBackdrop .popup-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #ddd;
+  font-size: 50px;
+  cursor: pointer;
 }
