@@ -16,7 +16,7 @@
 
   Drupal.behaviors.addModalCloseIcon = {
     attach: function () {
-      $('#modalBackdrop').html('<i class="material-icons popup-close">close</i>');
+      $('#modalContent').append('<i class="material-icons popup-close">close</i>');
     }
   };
 
@@ -35,7 +35,10 @@
     attach: function () {
       $('#modalBackdrop').bind('click', function () {
         modalContentClose()
-      })
+      });
+      $('.popup-close').bind('click', function () {
+        modalContentClose()
+      });
     }
   }
 })(jQuery);

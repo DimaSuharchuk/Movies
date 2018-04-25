@@ -19,6 +19,7 @@ a:focus {
  */
 .search-block-left {
   padding-right: 30px;
+  padding-bottom: 20px;
 }
 .view-cs-views-search {
   margin-top: 30px;
@@ -190,6 +191,22 @@ a:focus {
   .block-views-exp-cs-views-search-page {
     display: none;
   }
+  .view-cs-views-search .view-content {
+    border: none;
+    height: calc(100vh - 248px);
+  }
+}
+@media (max-width: 500px) {
+  #modalContent {
+    top: -3px !important;
+    left: -3px !important;
+  }
+  div.ctools-modal-content {
+    width: calc(100% - 2px) !important;
+  }
+  #modal-content {
+    width: 100% !important;
+  }
 }
 /* Pagination. */
 .pagination-centered {
@@ -207,11 +224,14 @@ a:focus {
   font-size: large;
 }
 /* Popup */
-#modalBackdrop .popup-close {
+#modalContent .popup-close {
   position: absolute;
   top: 20px;
   right: 20px;
   color: #ddd;
   font-size: 50px;
   cursor: pointer;
+}
+.popup-film-title {
+  width: 85%;
 }

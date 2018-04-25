@@ -39,7 +39,7 @@ function movies_preprocess_node(&$variables) {
         $variables['page'] = TRUE;
         $variables['content']['title'] = [
           '#markup' => html_entity_decode($variables['title'], ENT_QUOTES),
-          '#prefix' => '<h3>',
+          '#prefix' => '<h3 class="popup-film-title">',
           '#suffix' => '</h3>',
           '#weight' => -1,
         ];
