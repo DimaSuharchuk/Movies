@@ -141,6 +141,10 @@ a:focus {
 .views-submit-button {
   clear: both;
 }
+/* Pager. */
+.view-cs-views-search .view-content .pager li:not(.current) a:hover {
+  color: black;
+}
 /* Filters toggle button. */
 .action-buttons {
   display: flex;
