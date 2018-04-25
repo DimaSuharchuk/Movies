@@ -69,6 +69,12 @@ a:focus {
   display: none;
 }
 /* View content. */
+.view-cs-views-search .view-content a {
+  color: lightskyblue;
+}
+.view-cs-views-search .view-content a:hover {
+  color: #fff;
+}
 .view-cs-views-search .view-content {
   display: flex;
   flex-wrap: wrap;
