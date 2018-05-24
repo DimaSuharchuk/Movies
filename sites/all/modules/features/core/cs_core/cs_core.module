@@ -5,3 +5,16 @@
  * Module's main file.
  */
 
+/**
+ * Implements hook_mail_alter().
+ */
+function cs_core_mail_alter(&$message) {
+  $message['send'] = FALSE;
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function cs_core_menu_alter(&$items) {
+  $items['user/password']['access callback'] = FALSE;
+}
