@@ -84,7 +84,7 @@ a:focus {
   border-left: 1px solid rgba(255, 255, 255, .1);
   height: calc(100vh - 100px);
 }
-.view-cs-views-search .view-content .nano-content {
+.view-cs-views-search .view-content #films-inner-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
@@ -169,6 +169,7 @@ a:focus {
 /* Random button. */
 .get-random-button {
   width: 80px;
+  height: 80px;
   background-color: plum;
   box-shadow: inset 1px -1px 1px 0 rgba(0, 0, 0, 0.5);
   border-radius: 100%;
@@ -177,6 +178,9 @@ a:focus {
   cursor: pointer;
   position: relative;
   right: 0;
+}
+.get-random-button input {
+  width: 60px;
 }
 .filters-collapsed-button:hover, .get-random-button:hover {
   transform: scale(1.05, 1.05);

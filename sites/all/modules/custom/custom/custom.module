@@ -10,13 +10,6 @@
  */
 function custom_menu() {
   return [
-    'ajax/node/random' => [
-      'page callback' => 'custom_ajax_random_node_callback',
-      'page arguments' => [2],
-      'type' => MENU_CALLBACK,
-      'delivery callback' => 'custom_ajax_delivery_callback',
-      'access callback' => TRUE,
-    ],
     'search/%/%ctools_js' => [
       'page callback' => 'custom_film_popup',
       'page arguments' => [1, 2],
@@ -27,9 +20,33 @@ function custom_menu() {
 }
 
 /**
- * Ajax callback returns random node.
+ * Provides form with button for random movie display.
  */
-function custom_ajax_random_node_callback() {
+function custom_get_random_form($form, &$form_state) {
+  $form['container'] = [
+    '#type' => 'container',
+    '#attributes' => [
+      'class' => ['get-random-button'],
+    ],
+  ];
+  $form['container']['random_button'] = [
+    '#type' => 'image_button',
+    '#button_type' => 'button',
+    '#src' => drupal_get_path('theme', 'movies') . '/images/dice.png',
+    '#ajax' => [
+      'callback' => 'custom_get_random_film_ajax_callback',
+      'wrapper' => 'films-inner-wrapper',
+      'progress' => FALSE,
+    ],
+  ];
+
+  return $form;
+}
+
+/**
+ * Replace view content by random node.
+ */
+function custom_get_random_film_ajax_callback() {
   $query = db_select('node', 'n')
     ->fields('n', ['nid'])
     ->orderRandom()
@@ -38,17 +55,22 @@ function custom_ajax_random_node_callback() {
 
   $node = node_load($query->nid);
 
-  return node_view($node, 'teaser');
-}
+  $details = [
+    '#type' => 'link',
+    '#title' => t('Details'),
+    '#href' => 'search/' . $query->nid . '/nojs',
+    '#attributes' => [
+      'class' => ['ctools-use-modal', 'ctools-modal-film-popup-style'],
+    ],
+    '#weight' => 10,
+  ];
 
-/**
- * Ajax delivery callback render content.
- *
- * @param $content
- */
-function custom_ajax_delivery_callback($content) {
-  print drupal_render($content);
-  drupal_page_footer();
+  $render = node_view($node, 'teaser') + [$details];
+
+  $commands = [];
+  $commands[] = ajax_command_html('#films-inner-wrapper', drupal_render($render));
+
+  return ['#type' => 'ajax', '#commands' => $commands];
 }
 
 /**

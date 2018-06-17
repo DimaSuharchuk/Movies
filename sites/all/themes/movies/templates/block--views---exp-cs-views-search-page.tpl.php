@@ -47,11 +47,10 @@
         <div class="filters-collapsed-button">
             <img src="<?php print drupal_get_path('theme', 'movies'); ?>/images/search-icon-white.png">
         </div>
-        <div class="get-random-button">
-            <span data-tooltip title="<?php print t('Get random movie'); ?>">
-            <img src="<?php print drupal_get_path('theme', 'movies'); ?>/images/dice.png">
-            </span>
-        </div>
+      <?php
+      $random_form = drupal_get_form('custom_get_random_form');
+      print drupal_render($random_form);
+      ?>
     </div>
     <section class="<?php print $classes; ?>"<?php print $attributes; ?>>
 
