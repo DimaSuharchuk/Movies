@@ -53,18 +53,18 @@
 
   <?php if ($rows): ?>
       <div class="view-content large-9 medium-8 column">
-          <div class="nano">
-              <div class="nano-content">
-                  <div id="films-inner-wrapper">
+          <div id="films-inner-wrapper">
+              <div class="nano">
+                  <div class="nano-content">
                     <?php custom_film_popup_style(); ?>
                     <?php print $rows; ?>
                   </div>
               </div>
-          </div>
 
-        <?php if ($pager): ?>
-          <?php print $pager; ?>
-        <?php endif; ?>
+            <?php if ($pager): ?>
+              <?php print $pager; ?>
+            <?php endif; ?>
+          </div>
       </div>
   <?php elseif ($empty): ?>
       <div class="view-empty">

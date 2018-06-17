@@ -80,37 +80,44 @@ a:focus {
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
-  padding-left: 30px;
   border-left: 1px solid rgba(255, 255, 255, .1);
   height: calc(100vh - 100px);
 }
 .view-cs-views-search .view-content #films-inner-wrapper {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: start;
+  justify-content: center;
+  align-items: center;
+}
+.view-cs-views-search .view-content .nano-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-gap: 1em;
+  padding: 0 30px;
 }
 .view-cs-views-search .view-content .nano-content .row {
   margin: 0;
 }
 .node-teaser {
   position: relative;
+  max-width: 270px;
 }
 .film-teaser-wrapper, .page-taxonomy-term .node-teaser {
   position: relative;
-  margin-bottom: 50px !important;
 }
 .field-name-field-poster-image {
-  height: 350px;
+  max-width: 270px;
+  margin-bottom: 25px;
 }
 .field-name-field-poster-image img {
-  width: 280px;
-  max-width: 75%;
+  width: calc(100% - 25px);
   box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.3);
 }
 .node-teaser .field-name-field-imdb {
   position: absolute;
   top: 40px;
-  right: 45px;
+  right: 0;
   display: block;
   width: 50px;
   height: 50px;
@@ -141,6 +148,20 @@ a:focus {
 }
 .views-submit-button {
   clear: both;
+}
+@media screen and (max-width: 934px) {
+  .view-cs-views-search .view-content .nano-content .views-field-rendered-entity {
+    display: grid;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 430px) {
+  .view-cs-views-search .view-content {
+    padding: 0;
+  }
+  .view-cs-views-search .view-content .nano-content {
+    padding: 0;
+  }
 }
 /* Pager. */
 .view-cs-views-search .view-content .pager li:not(.current) a:hover {
@@ -215,6 +236,8 @@ a:focus {
 /* Pagination. */
 .pagination-centered {
   margin-top: 20px;
+  width: 100%;
+  display: flex;
 }
 /**
  * Film page.
