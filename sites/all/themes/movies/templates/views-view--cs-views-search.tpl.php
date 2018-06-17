@@ -53,11 +53,13 @@
 
   <?php if ($rows): ?>
       <div class="view-content large-9 medium-8 column">
-          <div id="films-inner-wrapper">
+          <div id="films-outer-wrapper">
               <div class="nano">
                   <div class="nano-content">
-                    <?php custom_film_popup_style(); ?>
-                    <?php print $rows; ?>
+                      <div id="films-inner-wrapper">
+                        <?php custom_film_popup_style(); ?>
+                        <?php print $rows; ?>
+                      </div>
                   </div>
               </div>
 
