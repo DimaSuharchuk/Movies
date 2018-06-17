@@ -6,6 +6,26 @@
  */
 
 /**
+ * Implements hook_block_info_alter().
+ */
+function cs_core_block_info_alter(&$blocks, $theme, $code_blocks) {
+  switch ($theme) {
+    case 'movies':
+      $blocks['system']['help']['status'] = 0;
+      $blocks['system']['navigation']['status'] = 0;
+      $blocks['user']['login']['visibility'] = BLOCK_VISIBILITY_LISTED;
+      $blocks['user']['login']['pages'] = 'user';
+      $blocks['views']['-exp-cs_views_search-page']['status'] = 1;
+      $blocks['views']['-exp-cs_views_search-page']['region'] = 'content';
+      $blocks['views']['-exp-cs_views_search-page']['weight'] = -1;
+      $blocks['views']['-exp-cs_views_search-page']['visibility'] = BLOCK_VISIBILITY_LISTED;
+      $blocks['views']['-exp-cs_views_search-page']['pages'] = 'search';
+      $blocks['system']['powered-by']['status'] = 0;
+      break;
+  }
+}
+
+/**
  * Implements hook_mail_alter().
  */
 function cs_core_mail_alter(&$message) {

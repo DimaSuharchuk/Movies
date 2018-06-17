@@ -1,7 +1,7 @@
 name = Cinema Search core
 description = Feature for install, configure site and enabling modules automatically.
 core = 7.x
-package = CS Features: Core
+package = ACore
 
 ; Contrib modules.
 dependencies[] = admin_menu

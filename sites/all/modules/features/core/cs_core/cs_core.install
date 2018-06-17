@@ -14,29 +14,34 @@ define('USER_ROLE_MODERATOR', 'moderator');
  * Implements hook_install().
  */
 function cs_core_install() {
+  _uninstall_core_modules();
+  _movies_theme_enable();
+  _update_global_variables();
+  // Remove orphaned actions.
+  actions_synchronize(TRUE);
   $roles = user_roles(TRUE);
   if (!in_array(USER_ROLE_MODERATOR, $roles)) {
     $moderator = new stdClass();
     $moderator->name = 'Moderator';
     user_role_save($moderator);
   }
-}
-
-/**
- * Implements hook_enable().
- */
-function cs_core_enable() {
-  _set_global_site_variables();
-  _disable_useless_modules();
+  // Create directory for posters.
+  $posters_dir = file_default_scheme() . '://posters/';
+  file_prepare_directory($posters_dir, FILE_CREATE_DIRECTORY);
 }
 
 /**
  * Helper function disable unnecessary drupal core modules.
  */
-function _disable_useless_modules() {
+function _uninstall_core_modules() {
   $modules = [
+    'color',
     'comment',
+    'help',
     'overlay',
+    'rdf',
+    'search',
+    'shortcut',
     'toolbar',
   ];
 
@@ -45,34 +50,45 @@ function _disable_useless_modules() {
 }
 
 /**
- * Helper function for setting global variables.
+ * Helper function for custom theme enabling.
  */
-function _set_global_site_variables() {
-  // New users can be registered only by administrator.
-  variable_set('user_register', 0);
+function _movies_theme_enable() {
+  theme_enable(['movies']);
+  variable_set('theme_default', 'movies');
 
-  // Public files path.
-  variable_set('file_public_path', 'sites/default/files/public');
-  // Private files path.
-  variable_set('file_private_path', 'sites/default/files/private');
-  // Temporary files path.
-  variable_set('file_temporary_path', 'sites/default/files/tmp');
-
-  // Site name.
-  variable_set('site_name', t('Movies'));
-
-  // Site front page.
-  variable_set('site_frontpage', 'search');
-}
-
-/**
- * Implements hook_update_N().
- * Set custom favicon.
- */
-function cs_core_update_7001() {
+  // Set favicon.
   $theme_movies_settings = variable_get('theme_movies_settings');
   $theme_movies_settings['toggle_favicon'] = TRUE;
   $theme_movies_settings['default_favicon'] = FALSE;
   $theme_movies_settings['favicon_path'] = 'sites/all/themes/movies/images/icon.png';
   variable_set('theme_movies_settings', $theme_movies_settings);
+
+  // Disable unnecessary theme.
+  theme_disable(['bartik']);
+}
+
+/**
+ * Helper function for setting global variables.
+ */
+function _update_global_variables() {
+  // Site name.
+  variable_set('site_name', t('Movies'));
+  // Remove default home link.
+  menu_link_delete(NULL, '<front>');
+  // Set frontpage path.
+  variable_set('site_frontpage', 'search');
+  // Account settings.
+  variable_set('user_register', 0);
+  variable_set('user_pictures', FALSE);
+  variable_set('user_email_verification', FALSE);
+  // Locale.
+  variable_set('configurable_timezones', FALSE);
+  variable_set('date_first_day', '1');
+  // Chosen.
+  variable_set('chosen_disable_search_threshold', 20);
+  variable_set('chosen_minimum_multiple', 0);
+  variable_set('chosen_minimum_single', 0);
+  variable_set('chosen_minimum_width', 270);
+  // Don't display author information of node.
+  variable_set('node_submitted_film', 0);
 }
