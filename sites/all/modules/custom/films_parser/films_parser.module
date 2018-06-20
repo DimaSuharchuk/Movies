@@ -4,10 +4,9 @@
  * Films Parser main file.
  */
 
-/**
- * Defines path to file with IMDB ids of favorite films.
- */
-define('FILMS_FILE_PATH', drupal_get_path('module', 'films_parser') . '/films.txt');
+$this_module_path = drupal_get_path('module', 'films_parser');
+require_once "{$this_module_path}/includes/fetch_films.batch.inc";
+require_once "{$this_module_path}/includes/translations.batch.inc";
 
 /**
  * Defines OMDB placeholder for unknown records.
@@ -32,7 +31,7 @@ function films_parser_menu() {
     'description' => 'Fetch json from imdb and create films nodes.',
     'page callback' => 'drupal_get_form',
     'page arguments' => ['films_parser_form'],
-    'access arguments' => ['fetch films'],
+    'access arguments' => ['fetch films page'],
     'weight' => 5,
   ];
 
@@ -47,9 +46,17 @@ function films_parser_permission() {
     'access parser configs' => [
       'title' => t('Access to films parser configs page.'),
     ],
+    'fetch films page' => [
+      'title' => t('Fetch films page'),
+      'description' => t('Access to fetch films batch.'),
+    ],
     'fetch films' => [
       'title' => t('Fetch films'),
-      'description' => t('Access to fetch films batch.'),
+      'description' => t('Access to add eng films.'),
+    ],
+    'add translations' => [
+      'title' => t('Add translations'),
+      'description' => t('Access to add translations for films.'),
     ],
   ];
 }
@@ -79,6 +86,7 @@ function films_parser_form($form, &$form_state) {
   $form['container_1'] = [
     '#type' => 'fieldset',
     '#title' => t('Fetch new films'),
+    '#access' => user_access('fetch films'),
   ];
   $form['container_1']['imdb_ids'] = [
     '#type' => 'textarea',
@@ -87,17 +95,39 @@ function films_parser_form($form, &$form_state) {
   $form['container_1']['start'] = [
     '#type' => 'submit',
     '#value' => t('Go'),
-    '#name' => 'op_input',
+    '#submit' => ['films_parser_fetch_films_from_omdb'],
+    '#name' => 'fetch_films',
   ];
 
   $form['container_2'] = [
     '#type' => 'fieldset',
-    '#title' => t('Fetch films from local file'),
+    '#title' => t('Add translations'),
+    '#access' => user_access('add translations'),
+  ];
+  $form['container_2']['csv'] = [
+    '#type' => "managed_file",
+    '#title' => 'CSV file',
+    '#description' => t('Load file with translations for films. Fields: IMDB ID, Title, Description.'),
+    "#upload_validators" => [
+      'file_validate_extensions' => ['csv'],
+    ],
+    '#progress_indicator' => 'bar',
+    '#upload_location' => "public://",
+  ];
+  $form['container_2']['tr_settings'] = [
+    '#type' => 'radios',
+    '#options' => [
+      'replace' => t('Replace existing translated nodes and add new.'),
+      'add_new' => t('Only add new translations (old translations will not be affected).'),
+    ],
+    '#default_value' => 'add_new',
   ];
   $form['container_2']['start'] = [
     '#type' => 'submit',
     '#value' => t('Go'),
-    '#name' => 'op_file',
+    '#submit' => ['films_parser_add_translated_films'],
+    '#validate' => ['films_parser_add_translated_films_validate'],
+    '#name' => 'translate_films',
   ];
 
   if (!variable_get('omdb_api_key')) {
@@ -108,112 +138,11 @@ function films_parser_form($form, &$form_state) {
       ])
     );
 
-    $form['container_1']['start']['#states'] = [
-      'disabled' => [
-        ':input[name="op_input"]' => ['filled' => TRUE],
-      ],
-    ];
-    $form['container_2']['start']['#states'] = [
-      'disabled' => [
-        ':input[name="op_file"]' => ['filled' => TRUE],
-      ],
-    ];
+    $form['container_1']['start']['#disabled'] = TRUE;
+    $form['container_1']['imdb_ids']['#disabled'] = TRUE;
   }
 
   return $form;
-}
-
-/**
- * Film parser batch form submit.
- */
-function films_parser_form_submit($form, &$form_state) {
-  $operations = [];
-  $list_ids = [];
-  $input = '';
-
-  if (isset($form_state['values']['op_file'])) {
-    // Get ids from file.
-    $input = file_get_contents(FILMS_FILE_PATH);
-  }
-  if (isset($form_state['values']['op_input'])) {
-    // Get imdb ids from input.
-    $input = $form_state['values']['imdb_ids'];
-  }
-
-  preg_match_all("@tt\d{7}@", $input, $list_ids);
-  $list_ids = reset($list_ids);
-
-  // Select ids of all already created films.
-  $db_ids = db_select('field_data_field_imdb_id', 'i')
-    ->fields('i', ['field_imdb_id_value'])
-    ->execute()
-    ->fetchCol();
-
-  // Check for unique values and keep new ids.
-  $new_ids = array_diff($list_ids, $db_ids);
-
-  if (!empty($new_ids)) {
-    foreach ($new_ids as $i => $id) {
-      $operations[] = [
-        'films_parser_batch',
-        [
-          $id,
-          t('(Operation @operation)', ['@operation' => $i]),
-        ],
-      ];
-    }
-
-    $batch = [
-      'operations' => $operations,
-      'finished' => 'films_parser_batch_finished',
-    ];
-
-    batch_set($batch);
-  }
-  else {
-    drupal_set_message(t('All films already added.'));
-  }
-}
-
-/**
- * Batch operations.
- * Fetch JSON from IMDB and create films.
- */
-function films_parser_batch($id, $operation_details, &$context) {
-  $json = _fetch_json_from_omdb($id);
-  _create_film($json);
-  $context['results']['count']++;
-}
-
-/**
- * Batch finish function.
- *
- * @param $success
- * @param $results
- * @param $operations
- */
-function films_parser_batch_finished($success, $results, $operations) {
-  if ($success) {
-    drupal_set_message(
-      format_plural(
-        $results['count'],
-        '1 film was created.',
-        '@count films was created.'
-      )
-    );
-  }
-  else {
-    $error_operation = reset($operations);
-    drupal_set_message(
-      t('An error occurred while processing @operation with arguments : @args',
-        [
-          '@operation' => $error_operation[0],
-          '@args' => print_r($error_operation[0], TRUE),
-        ]
-      ),
-      'error'
-    );
-  }
 }
 
 /**
@@ -256,7 +185,7 @@ function _create_film($json) {
 
     $node = new stdClass();
     $node->type = 'film';
-    $node->language = LANGUAGE_NONE;
+    $node->language = 'en';
     node_object_prepare($node);
     node_submit($node);
     node_save($node);

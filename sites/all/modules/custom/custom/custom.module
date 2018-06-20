@@ -82,6 +82,18 @@ function custom_form_views_exposed_form_alter(&$form, &$form_state) {
   $form['field_year_single']['#attributes'] = ['placeholder' => t('Single year')];
   $form['field_year_range']['min']['#attributes'] = ['placeholder' => t('Min year')];
   $form['field_year_range']['max']['#attributes'] = ['placeholder' => t('Max year')];
+
+  // Multilingual select lists.
+  $select_list_fields = [
+    'field_genre_tid',
+    'field_director_tid',
+    'field_actors_tid',
+  ];
+  foreach ($select_list_fields as $field_name) {
+    foreach ($form[$field_name]['#options'] as $key => $value) {
+      $form[$field_name]['#options'][$key] = t($value);
+    }
+  }
 }
 
 /**

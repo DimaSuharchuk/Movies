@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400|Poiret+One');
-@import url('https://fonts.googleapis.com/css?family=Mukta+Mahee');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 a:focus {
@@ -131,8 +130,8 @@ a:focus {
   box-shadow: 2px 2px 20px 5px rgba(0, 0, 0, 0.3);
 }
 .film-title-link {
-  font-family: 'Mukta Mahee';
-  font-size: larger;
+  font-family: 'Open Sans';
+  font-weight: 400;
   word-wrap: break-word;
   max-width: 220px;
 }

@@ -28,7 +28,7 @@ function movies_preprocess_node(&$variables) {
         // Set custom link to content as title + year.
         $year = $variables['field_year'][LANGUAGE_NONE][0]['value'];
         $variables['content']['title'] = [
-          '#markup' => html_entity_decode($variables['title'], ENT_QUOTES) . ' (' . $year . ')',
+          '#markup' => "$variables[title] ($year)",
           '#prefix' => '<div class="film-title-link">',
           '#suffix' => '</div>',
         ];
@@ -38,7 +38,7 @@ function movies_preprocess_node(&$variables) {
         // Hide regular teaser title link.
         $variables['page'] = TRUE;
         $variables['content']['title'] = [
-          '#markup' => html_entity_decode($variables['title'], ENT_QUOTES),
+          '#markup' => $variables['title'],
           '#prefix' => '<h3 class="popup-film-title">',
           '#suffix' => '</h3>',
           '#weight' => -1,
@@ -74,18 +74,18 @@ function movies_field__taxonomy_term_reference($variables) {
 
   // Render the label, if it's not hidden.
   if (!$variables['label_hidden']) {
-    $output .= '<span class="field-label">' . $variables['label'] . ': </span>';
+    $output .= '<span class="field-label">' . t($variables['label']) . ': </span>';
   }
 
   // Render the items.
   $output .= ($variables['element']['#label_display'] == 'inline') ? '<ul class="links inline">' : '<ul class="links">';
   foreach ($variables['items'] as $delta => $item) {
-    $output .= '<li class="taxonomy-term-reference-' . $delta . '"' . $variables['item_attributes'][$delta] . '>' . drupal_render($item) . '</li>';
+    $output .= '<li class="taxonomy-term-reference-' . $delta . '"' . $variables['item_attributes'][$delta] . '>' . t(drupal_render($item)) . '</li>';
   }
   $output .= '</ul>';
 
   // Render the top-level DIV.
-  $output = '<div class="' . $variables['classes'] . (!in_array('clearfix', $variables['classes_array']) ? ' clearfix' : '') . '">' . $output . '</div>';
+  $output = '<div class="' . $variables['classes'] . (!in_array('clearfix', $variables['classes_array']) ? ' clearfix' : '') . '">' . t($output) . '</div>';
 
   return $output;
 }
