@@ -11,6 +11,7 @@ dependencies[] = countries
 dependencies[] = entity
 dependencies[] = features
 dependencies[] = jquery_update
+dependencies[] = i18n
 ;dependencies[] = lightbox2
 dependencies[] = module_filter
 dependencies[] = views
