@@ -8,91 +8,89 @@
  * Film add translations form submit.
  */
 function films_parser_add_translated_films($form, &$form_state) {
-  if (!empty($form_state['values']['csv'])) {
-    $file = file_load($form_state['values']['csv']);
-    $content = file_get_contents($file->uri);
-    $csv_strings = explode("\n", $content);
+  $file = file_load($form_state['values']['csv']);
+  $content = file_get_contents($file->uri);
+  $csv_strings = explode("\n", $content);
 
-    $translations_from_file = [];
-    foreach ($csv_strings as $string) {
-      list($imdb_id, $title, $description) = str_getcsv($string);
-      $translations_from_file[$imdb_id] = [
-        'title' => $title,
-        'description' => $description,
-      ];
+  $translations_from_file = [];
+  foreach ($csv_strings as $string) {
+    list($imdb_id, $title, $description) = str_getcsv($string);
+    $translations_from_file[$imdb_id] = [
+      'title' => $title,
+      'description' => $description,
+    ];
+  }
+
+  // Select all eng films to accordance with ids from file.
+  $query = db_select('node', 'n');
+  $query->innerJoin('field_data_field_imdb_id', 'id', 'n.nid = id.entity_id');
+  $query
+    ->fields('id', ['field_imdb_id_value'])
+    ->fields('n', ['nid'])
+    ->condition('id.field_imdb_id_value', array_keys($translations_from_file), 'in')
+    ->condition('n.language', 'en');
+  $en_node_ids = $query->execute()->fetchAllKeyed(0, 1);
+  // Existing eng films ids.
+  $isset_en_imdb_ids = array_keys($en_node_ids);
+
+  // Already added rus films.
+  $query = db_select('node', 'n');
+  $query->innerJoin('field_data_field_imdb_id', 'id', 'n.nid = id.entity_id');
+  $query
+    ->fields('id', ['field_imdb_id_value'])
+    ->fields('n', ['nid'])
+    ->condition('id.field_imdb_id_value', array_keys($translations_from_file), 'in')
+    ->condition('n.language', 'ru');
+  $ru_node_ids = $query->execute()->fetchAllKeyed(0, 1);
+  $isset_ru_imdb_ids = array_keys($ru_node_ids);
+
+  // Filter from undefined items translations from file.
+  foreach ($translations_from_file as $imdb_id => $item) {
+    if (!in_array($imdb_id, $isset_en_imdb_ids)) {
+      drupal_set_message(t('@id not found in DB.', ['@id' => $imdb_id]), 'warning');
+      unset($translations_from_file[$imdb_id]);
     }
+  }
 
-    // Select all eng films to accordance with ids from file.
-    $query = db_select('node', 'n');
-    $query->innerJoin('field_data_field_imdb_id', 'id', 'n.nid = id.entity_id');
-    $query
-      ->fields('id', ['field_imdb_id_value'])
-      ->fields('n', ['nid'])
-      ->condition('id.field_imdb_id_value', array_keys($translations_from_file), 'in')
-      ->condition('n.language', 'en');
-    $en_node_ids = $query->execute()->fetchAllKeyed(0, 1);
-    // Existing eng films ids.
-    $isset_en_imdb_ids = array_keys($en_node_ids);
+  // Prepared node ids is array [imdb_id => nid].
+  $prepared_ids = [];
+  $tr_settings = $form_state['values']['tr_settings'];
+  switch ($tr_settings) {
+    case 'add_new':
+      // Filter from already translated films.
+      $translations_from_file = array_filter($translations_from_file, function ($key) use ($isset_ru_imdb_ids) {
+        return !in_array($key, $isset_ru_imdb_ids);
+      }, ARRAY_FILTER_USE_KEY);
+      $prepared_ids = $en_node_ids;
+      break;
 
-    // Already added rus films.
-    $query = db_select('node', 'n');
-    $query->innerJoin('field_data_field_imdb_id', 'id', 'n.nid = id.entity_id');
-    $query
-      ->fields('id', ['field_imdb_id_value'])
-      ->fields('n', ['nid'])
-      ->condition('id.field_imdb_id_value', array_keys($translations_from_file), 'in')
-      ->condition('n.language', 'ru');
-    $ru_node_ids = $query->execute()->fetchAllKeyed(0, 1);
-    $isset_ru_imdb_ids = array_keys($ru_node_ids);
+    case 'add_update':
+      // If exists rus film keep ru nid, else use eng nid.
+      $prepared_ids = $ru_node_ids + $en_node_ids;
+      break;
+  }
 
-    // Filter from undefined items translations from file.
+  // Batch items.
+  if (!empty($translations_from_file)) {
+    $operations = [];
     foreach ($translations_from_file as $imdb_id => $item) {
-      if (!in_array($imdb_id, $isset_en_imdb_ids)) {
-        drupal_set_message(t('@id not found in DB.', ['@id' => $imdb_id]), 'warning');
-        unset($translations_from_file[$imdb_id]);
-      }
-    }
-
-    // Prepared node ids is array [imdb_id => nid].
-    $prepared_ids = [];
-    $tr_settings = $form_state['values']['tr_settings'];
-    switch ($tr_settings) {
-      case 'add_new':
-        // Filter from already translated films.
-        $translations_from_file = array_filter($translations_from_file, function ($key) use ($isset_ru_imdb_ids) {
-          return !in_array($key, $isset_ru_imdb_ids);
-        }, ARRAY_FILTER_USE_KEY);
-        $prepared_ids = $en_node_ids;
-        break;
-
-      case 'add_update':
-        // If exists rus film keep ru nid, else use eng nid.
-        $prepared_ids = $ru_node_ids + $en_node_ids;
-        break;
-    }
-
-    // Batch items.
-    if (!empty($translations_from_file)) {
-      $operations = [];
-      foreach ($translations_from_file as $imdb_id => $item) {
-        $operations[] = [
-          'films_parser_batch_translate',
-          [
-            $prepared_ids[$imdb_id],
-            $item,
-          ],
-        ];
-      }
-
-      $batch = [
-        'operations' => $operations,
-        'finished' => 'films_parser_translate_batch_finished',
+      $operations[] = [
+        'films_parser_batch_translate',
+        [
+          $prepared_ids[$imdb_id],
+          $item,
+        ],
       ];
-      batch_set($batch);
     }
-    else {
-      drupal_set_message(t('Already up-to-date.'));
-    }
+
+    $batch = [
+      'operations' => $operations,
+      'finished' => 'films_parser_translate_batch_finished',
+    ];
+    batch_set($batch);
+  }
+  else {
+    drupal_set_message(t('Already up-to-date.'));
   }
 }
 
