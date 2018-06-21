@@ -21,6 +21,8 @@ function cs_core_block_info_alter(&$blocks, $theme, $code_blocks) {
       $blocks['views']['-exp-cs_views_search-page']['visibility'] = BLOCK_VISIBILITY_LISTED;
       $blocks['views']['-exp-cs_views_search-page']['pages'] = 'search';
       $blocks['system']['powered-by']['status'] = 0;
+      $blocks['locale']['language']['status'] = 1;
+      $blocks['locale']['language']['region'] = 'header';
       break;
   }
 }

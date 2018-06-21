@@ -28,6 +28,8 @@ function cs_core_install() {
   // Create directory for posters.
   $posters_dir = file_default_scheme() . '://posters/';
   file_prepare_directory($posters_dir, FILE_CREATE_DIRECTORY);
+  // Add russian language.
+  locale_add_language('ru');
 }
 
 /**
@@ -91,4 +93,26 @@ function _update_global_variables() {
   variable_set('chosen_minimum_width', 270);
   // Don't display author information of node.
   variable_set('node_submitted_film', 0);
+  // Locale and language settings.
+  variable_set('language_negotiation_language', [
+    'locale-session' =>
+      [
+        'callbacks' =>
+          [
+            'language' => 'locale_language_from_session',
+            'switcher' => 'locale_language_switcher_session',
+            'url_rewrite' => 'locale_language_url_rewrite_session',
+          ],
+        'file' => 'includes/locale.inc',
+      ],
+    'language-default' =>
+      [
+        'callbacks' =>
+          [
+            'language' => 'language_from_default',
+          ],
+      ],
+  ]);
+  // Language icons.
+  variable_set('languageicons_placement', 'replace');
 }
