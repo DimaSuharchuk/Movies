@@ -23,6 +23,8 @@ function cs_core_block_info_alter(&$blocks, $theme, $code_blocks) {
       $blocks['system']['powered-by']['status'] = 0;
       $blocks['locale']['language']['status'] = 1;
       $blocks['locale']['language']['region'] = 'header';
+      $blocks['locale']['language']['visibility'] = BLOCK_VISIBILITY_LISTED;
+      $blocks['locale']['language']['pages'] = 'search';
       break;
   }
 }
