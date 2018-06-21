@@ -28,6 +28,55 @@ function cs_core_block_info_alter(&$blocks, $theme, $code_blocks) {
 }
 
 /**
+ * Implements hook_user_view_alter().
+ */
+function cs_core_user_view_alter(&$build) {
+  $en_films_count = db_select('node', 'n')
+    ->fields('n', ['nid'])
+    ->condition('n.language', 'en')
+    ->execute()
+    ->rowCount();
+  $ru_films_count = db_select('node', 'n')
+    ->fields('n', ['nid'])
+    ->condition('n.language', 'ru')
+    ->execute()
+    ->rowCount();
+
+  $build['stats'] = [
+    '#type' => 'container',
+  ];
+  $build['stats']['films_info'] = [
+    '#type' => 'fieldset',
+    '#title' => t('Films info'),
+  ];
+  $build['stats']['films_info']['en'] = [
+    '#type' => 'item',
+    '#markup' => t('Films in english: @count', ['@count' => $en_films_count]),
+  ];
+  $build['stats']['films_info']['ru'] = [
+    '#type' => 'item',
+    '#markup' => t('Films in russian: @count', ['@count' => $ru_films_count]),
+  ];
+  $build['stats']['films_info']['diff'] = [
+    '#type' => 'item',
+    '#markup' => t('Need to translate: @count', ['@count' => $en_films_count - $ru_films_count]),
+  ];
+
+  $build['stats']['links'] = [
+    '#type' => 'fieldset',
+    '#title' => t('Links'),
+  ];
+  $build['stats']['links']['add_translations'] = [
+    '#type' => 'link',
+    '#href' => 'admin/settings/fetch-films',
+    '#title' => 'Add translations',
+  ];
+
+  // Hide default user info.
+  $build['summary']['#access'] = FALSE;
+}
+
+/**
  * Implements hook_mail_alter().
  */
 function cs_core_mail_alter(&$message) {

@@ -6,9 +6,9 @@
  */
 
 /**
- * Defines user role "Moderator".
+ * Defines user role "Translator".
  */
-define('USER_ROLE_MODERATOR', 'moderator');
+define('USER_ROLE_TRANSLATOR', 'translator');
 
 /**
  * Implements hook_install().
@@ -20,10 +20,14 @@ function cs_core_install() {
   // Remove orphaned actions.
   actions_synchronize(TRUE);
   $roles = user_roles(TRUE);
-  if (!in_array(USER_ROLE_MODERATOR, $roles)) {
-    $moderator = new stdClass();
-    $moderator->name = 'Moderator';
-    user_role_save($moderator);
+  if (!in_array(USER_ROLE_TRANSLATOR, $roles)) {
+    $translator = new stdClass();
+    $translator->name = 'Translator';
+    user_role_save($translator);
+    user_role_grant_permissions($translator->rid, [
+      'fetch films page',
+      'add translations',
+    ]);
   }
   // Create directory for posters.
   $posters_dir = file_default_scheme() . '://posters/';
