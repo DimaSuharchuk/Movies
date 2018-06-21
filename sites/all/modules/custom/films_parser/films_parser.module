@@ -117,7 +117,7 @@ function films_parser_form($form, &$form_state) {
   $form['container_2']['tr_settings'] = [
     '#type' => 'radios',
     '#options' => [
-      'replace' => t('Replace existing translated nodes and add new.'),
+      'add_update' => t('Add new translations and update old.'),
       'add_new' => t('Only add new translations (old translations will not be affected).'),
     ],
     '#default_value' => 'add_new',
