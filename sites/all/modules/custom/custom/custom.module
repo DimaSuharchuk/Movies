@@ -47,8 +47,11 @@ function custom_get_random_form($form, &$form_state) {
  * Replace view content by random node.
  */
 function custom_get_random_film_ajax_callback() {
+  global $language;
+
   $query = db_select('node', 'n')
     ->fields('n', ['nid'])
+    ->condition('language', $language->language)
     ->orderRandom()
     ->execute()
     ->fetchObject();
