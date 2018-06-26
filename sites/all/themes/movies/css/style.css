@@ -26,22 +26,22 @@ section .block-locale-language {
   align-items: center;
   margin-bottom: 5px;
 }
-.language-switcher-locale-session {
+.language-switcher-locale-url {
   display: flex;
   margin: 0;
 }
-.language-switcher-locale-session li {
+.language-switcher-locale-url li {
   list-style: none;
   margin-left: 10px;
 }
-.language-switcher-locale-session li:hover {
+.language-switcher-locale-url li:hover {
   transform: scale(1.1);
 }
-.language-switcher-locale-session img {
+.language-switcher-locale-url img {
   height: 12px;
   padding: 1px;
 }
-.language-switcher-locale-session a.session-active img {
+.language-switcher-locale-url a.active img {
   outline: 1px solid rgba(255, 255, 0, .8);
 }
 /**

@@ -98,14 +98,15 @@ function _update_global_variables() {
   // Don't display author information of node.
   variable_set('node_submitted_film', 0);
   // Locale and language settings.
+  variable_set('language_default', (object) ['language' => 'ru']);
   variable_set('language_negotiation_language', [
     'locale-session' =>
       [
         'callbacks' =>
           [
-            'language' => 'locale_language_from_session',
-            'switcher' => 'locale_language_switcher_session',
-            'url_rewrite' => 'locale_language_url_rewrite_session',
+            'language' => 'locale_language_from_url',
+            'switcher' => 'locale_language_switcher_url',
+            'url_rewrite' => 'locale_language_url_rewrite_url',
           ],
         'file' => 'includes/locale.inc',
       ],
