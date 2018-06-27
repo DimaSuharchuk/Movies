@@ -33,6 +33,8 @@ function cs_core_block_info_alter(&$blocks, $theme, $code_blocks) {
  * Implements hook_user_view_alter().
  */
 function cs_core_user_view_alter(&$build) {
+  drupal_add_library('system', 'drupal.collapse');
+
   $en_films_count = db_select('node', 'n')
     ->fields('n', ['nid'])
     ->condition('n.language', 'en')
@@ -47,6 +49,8 @@ function cs_core_user_view_alter(&$build) {
   $build['stats'] = [
     '#type' => 'container',
   ];
+
+  // Films.
   $build['stats']['films_info'] = [
     '#type' => 'fieldset',
     '#title' => t('Films info'),
@@ -63,6 +67,65 @@ function cs_core_user_view_alter(&$build) {
     '#type' => 'item',
     '#markup' => t('Need to translate: @count', ['@count' => $en_films_count - $ru_films_count]),
   ];
+
+
+  // Display info about translations of vocabularies.
+  $vocabularies = [
+    'Genres',
+    'Directors',
+    'Actors',
+  ];
+  foreach ($vocabularies as $vocabulary_name) {
+    $vocabulary = taxonomy_vocabulary_machine_name_load($vocabulary_name);
+    $terms = entity_load('taxonomy_term', FALSE, ['vid' => $vocabulary->vid]);
+
+    $non_translated = [];
+    $translated = 0;
+    foreach ($terms as $term) {
+      if (t($term->name, [], ['language' => 'ru']) === $term->name) {
+        $non_translated[] = $term->name;
+      }
+      else {
+        $translated++;
+      }
+    }
+
+    $en_count = count($terms);
+    $non_translated_count = count($non_translated);
+
+    $build['stats']["{$vocabulary_name}_info"] = [
+      '#type' => 'fieldset',
+      '#title' => t("{$vocabulary_name} info"),
+    ];
+    $build['stats']["{$vocabulary_name}_info"]['en'] = [
+      '#type' => 'item',
+      '#markup' => t("{$vocabulary_name} in english: @count", ['@count' => $en_count]),
+    ];
+    $build['stats']["{$vocabulary_name}_info"]['ru'] = [
+      '#type' => 'item',
+      '#markup' => t("{$vocabulary_name} in russian: @count", ['@count' => $translated]),
+    ];
+    $build['stats']["{$vocabulary_name}_info"]['diff'] = [
+      '#type' => 'item',
+      '#markup' => t('Need to translate: @count', ['@count' => $non_translated_count]),
+    ];
+    if ($non_translated_count) {
+      $build['stats']["{$vocabulary_name}_info"]["non_translated_{$vocabulary_name}_wrapper"] = [
+        '#type' => 'fieldset',
+        '#title' => t("{$vocabulary_name} list for translate"),
+        '#attributes' => [
+          'class' => [
+            'collapsible',
+            'collapsed',
+          ],
+        ],
+      ];
+      $build['stats']["{$vocabulary_name}_info"]["non_translated_{$vocabulary_name}_wrapper"]["non_tra{$vocabulary_name}d_genres"] = [
+        '#markup' => implode(', ', $non_translated),
+      ];
+    }
+  }
+
 
   $build['stats']['links'] = [
     '#type' => 'fieldset',
