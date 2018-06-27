@@ -4,9 +4,11 @@
  * Films Parser main file.
  */
 
-$this_module_path = drupal_get_path('module', 'films_parser');
-require_once "{$this_module_path}/includes/fetch_films.batch.inc";
-require_once "{$this_module_path}/includes/translations.batch.inc";
+define('FILMS_PARSER_MODULE_PATH', drupal_get_path('module', 'films_parser'));
+
+require_once FILMS_PARSER_MODULE_PATH . '/includes/fetch_films.batch.inc';
+require_once FILMS_PARSER_MODULE_PATH . '/includes/translations.batch.inc';
+require_once FILMS_PARSER_MODULE_PATH . '/includes/get_prepared_string.inc';
 
 /**
  * Defines OMDB placeholder for unknown records.
@@ -83,28 +85,63 @@ function films_parser_admin_settings() {
  * Film parser batch form.
  */
 function films_parser_form($form, &$form_state) {
-  $form['container_1'] = [
+  $form['fetch_films'] = [
     '#type' => 'fieldset',
     '#title' => t('Fetch new films'),
     '#access' => user_access('fetch films'),
   ];
-  $form['container_1']['imdb_ids'] = [
+  $form['fetch_films']['imdb_ids'] = [
     '#type' => 'textarea',
     '#description' => t('Paste list of IMDB ID\'s in any format.'),
   ];
-  $form['container_1']['start'] = [
+  $form['fetch_films']['start'] = [
     '#type' => 'submit',
     '#value' => t('Go'),
     '#submit' => ['films_parser_fetch_films_from_omdb'],
     '#name' => 'fetch_films',
   ];
 
-  $form['container_2'] = [
+  $form['get_name_year'] = [
+    '#type' => 'fieldset',
+    '#title' => t('Get string for search in internet'),
+    '#access' => user_access('add translations'),
+  ];
+  $form['get_name_year']['field'] = [
+    '#type' => 'container',
+    '#attributes' => [
+      'id' => 'prepared-string',
+    ],
+  ];
+  $form['get_name_year']['imdb_id'] = [
+    '#type' => 'textfield',
+    '#title' => t('IMDB ID'),
+    '#description' => t('Paste IMDB ID to prepare string for search in internet.'),
+    '#attributes' => [
+      'autocomplete' => 'off',
+    ],
+  ];
+  $form['get_name_year']['button'] = [
+    '#type' => 'button',
+    '#value' => t('Go'),
+    '#name' => 'prepare_string',
+    '#ajax' => [
+      'wrapper' => 'prepared-string',
+      'callback' => 'films_parser_get_prepared_string_ajax_callback',
+      'progress' => '',
+    ],
+    '#states' => [
+      'disabled' => [
+        'input[name=imdb_id]' => ['filled' => FALSE],
+      ],
+    ],
+  ];
+
+  $form['add_translations'] = [
     '#type' => 'fieldset',
     '#title' => t('Add translations'),
     '#access' => user_access('add translations'),
   ];
-  $form['container_2']['csv'] = [
+  $form['add_translations']['csv'] = [
     '#type' => "managed_file",
     '#title' => 'CSV file',
     '#description' => t('Load file with translations for films. Fields: IMDB ID, Title, Description.'),
@@ -114,7 +151,7 @@ function films_parser_form($form, &$form_state) {
     '#progress_indicator' => 'bar',
     '#upload_location' => "public://",
   ];
-  $form['container_2']['tr_settings'] = [
+  $form['add_translations']['tr_settings'] = [
     '#type' => 'radios',
     '#options' => [
       'add_update' => t('Add new translations and update old.'),
@@ -122,7 +159,7 @@ function films_parser_form($form, &$form_state) {
     ],
     '#default_value' => 'add_new',
   ];
-  $form['container_2']['start'] = [
+  $form['add_translations']['start'] = [
     '#type' => 'submit',
     '#value' => t('Go'),
     '#submit' => ['films_parser_add_translated_films'],
@@ -138,8 +175,8 @@ function films_parser_form($form, &$form_state) {
       ])
     );
 
-    $form['container_1']['start']['#disabled'] = TRUE;
-    $form['container_1']['imdb_ids']['#disabled'] = TRUE;
+    $form['fetch_films']['start']['#disabled'] = TRUE;
+    $form['fetch_films']['imdb_ids']['#disabled'] = TRUE;
   }
 
   return $form;
