@@ -37,8 +37,19 @@ function movies_preprocess_node(&$variables) {
       case 'popup':
         // Hide regular teaser title link.
         $variables['page'] = TRUE;
+
+        // Get original movie title.
+        $imdb_id = $variables['field_imdb_id'][LANGUAGE_NONE][0]['value'];
+        $query = db_select('node', 'n');
+        $query->innerJoin('field_data_field_imdb_id', 'id', 'n.nid = id.entity_id');
+        $query
+          ->fields('n', ['title'])
+          ->condition('id.field_imdb_id_value', $imdb_id)
+          ->condition('n.language', 'en');
+        $en_title = $query->execute()->fetchObject();
+
         $variables['content']['title'] = [
-          '#markup' => $variables['title'],
+          '#markup' => $variables['title'] . ' / ' . $en_title->title,
           '#prefix' => '<h3 class="popup-film-title">',
           '#suffix' => '</h3>',
           '#weight' => -1,

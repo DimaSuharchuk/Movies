@@ -281,6 +281,7 @@ section .block-locale-language {
 /* Popup */
 div.ctools-modal-content .modal-content {
   max-height: 99vh;
+  padding: 1em;
 }
 #modalContent .popup-close {
   position: absolute;
