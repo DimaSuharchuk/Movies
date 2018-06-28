@@ -79,6 +79,12 @@ function movies_preprocess_field(&$variables) {
           break;
       }
     }
+
+    // Correct field "Runtime".
+    if ($element['#title'] == 'Runtime') {
+      preg_match('/\d+/', $variables['items'][0]['#markup'], $matches);
+      $variables['items'][0]['#markup'] = format_plural($matches[0], '1 minute', '@count minutes');
+    }
   }
 }
 
