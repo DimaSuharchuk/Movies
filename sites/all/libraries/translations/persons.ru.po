@@ -2844,9 +2844,6 @@ msgstr "Джон Кьюсак"
 msgid "Myleene Klass"
 msgstr "Майлин Класс"
 
-msgid "Matt McKenna"
-msgstr "Мэтт Маккенна"
-
 msgid "Ben Tibber"
 msgstr "Бен Тиббер"
 
@@ -2900,9 +2897,6 @@ msgstr "Майкл Шеннон Дженкинс"
 
 msgid "Mark Ivanir"
 msgstr "Марк Иванир"
-
-msgid "Matt McKenna"
-msgstr "Мэтт Маккенна"
 
 msgid "Teodora Duhovnikova"
 msgstr "Теодора Духовникова"
@@ -3596,9 +3590,6 @@ msgstr "Софи Нелисс"
 
 msgid "Heike Makatsch"
 msgstr "Хайке Макатч"
-
-msgid "Julian Lehmann"
-msgstr "Julian Lehmann"
 
 msgid "Sarah Hyland"
 msgstr "Сара Хайленд"
@@ -4586,9 +4577,6 @@ msgstr "Майкл Дорман"
 
 msgid "Jaeden Lieberher"
 msgstr "Джейден Либерер"
-
-msgid "Jeremy Ray Taylor"
-msgstr "Джереми Рэй Тейлор"
 
 msgid "Sophia Lillis"
 msgstr "София Лиллис"
