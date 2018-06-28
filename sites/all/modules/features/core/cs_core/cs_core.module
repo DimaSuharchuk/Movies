@@ -120,8 +120,41 @@ function cs_core_user_view_alter(&$build) {
           ],
         ],
       ];
-      $build['stats']["{$vocabulary_name}_info"]["non_translated_{$vocabulary_name}_wrapper"]["non_tra{$vocabulary_name}d_genres"] = [
-        '#markup' => implode(', ', $non_translated),
+      // For copy to file.
+      $build['stats']["{$vocabulary_name}_info"]["non_translated_{$vocabulary_name}_wrapper"]['for_file_wrapper'] = [
+        '#type' => 'fieldset',
+        '#title' => t('For copy to file'),
+        '#attributes' => [
+          'class' => [
+            'collapsible',
+            'collapsed',
+          ],
+        ],
+      ];
+      $prepared_for_copy = [];
+      foreach ($non_translated as $value) {
+        $prepared_for_copy[] = 'msgid "' . $value . '"<br>msgstr ""';
+      }
+      $build['stats']["{$vocabulary_name}_info"]["non_translated_{$vocabulary_name}_wrapper"]['for_file_wrapper']['for_file'] = [
+        '#markup' => implode('<br>', $prepared_for_copy),
+      ];
+      // List separated by comma.
+      $build['stats']["{$vocabulary_name}_info"]["non_translated_{$vocabulary_name}_wrapper"]['list_wrapper'] = [
+        '#type' => 'fieldset',
+        '#title' => t('List'),
+        '#attributes' => [
+          'class' => [
+            'collapsible',
+            'collapsed',
+          ],
+        ],
+      ];
+      $prepared_for_copy = [];
+      foreach ($non_translated as $value) {
+        $prepared_for_copy[] = "\"{$value}\"";
+      }
+      $build['stats']["{$vocabulary_name}_info"]["non_translated_{$vocabulary_name}_wrapper"]['list_wrapper']['list'] = [
+        '#markup' => '[' . implode(',', $prepared_for_copy) . ']',
       ];
     }
   }

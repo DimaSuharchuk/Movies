@@ -9,6 +9,7 @@ define('FILMS_PARSER_MODULE_PATH', drupal_get_path('module', 'films_parser'));
 require_once FILMS_PARSER_MODULE_PATH . '/includes/fetch_films.batch.inc';
 require_once FILMS_PARSER_MODULE_PATH . '/includes/translations.batch.inc';
 require_once FILMS_PARSER_MODULE_PATH . '/includes/get_prepared_string.inc';
+require_once FILMS_PARSER_MODULE_PATH . '/includes/translate_persons.batch.inc';
 
 /**
  * Defines OMDB placeholder for unknown records.
@@ -165,6 +166,37 @@ function films_parser_form($form, &$form_state) {
     '#submit' => ['films_parser_add_translated_films'],
     '#validate' => ['films_parser_add_translated_films_validate'],
     '#name' => 'translate_films',
+  ];
+
+  $directors = _get_taxonomy_terms_translations_by_vocabulary_name('Directors');
+  $actors = _get_taxonomy_terms_translations_by_vocabulary_name('Actors');
+  $form['persons'] = [
+    '#type' => 'value',
+    '#value' => $directors['non_translated'] + $actors['non_translated'],
+  ];
+  $form['translate_persons'] = [
+    '#type' => 'fieldset',
+    '#title' => t('Translate persons'),
+  ];
+  $form['translate_persons']['info_en'] = [
+    '#type' => 'item',
+    '#markup' => t('Translated &d and &a.', [
+      '&d' => format_plural($directors['translated_count'], '1 director', '@count directors'),
+      '&a' => format_plural($actors['translated_count'], '1 actor', '@count actors'),
+    ]),
+  ];
+  $form['translate_persons']['info_ru'] = [
+    '#type' => 'item',
+    '#markup' => t('Non-translated &d and &a.', [
+      '&d' => format_plural(count($directors['non_translated']), '1 director', '@count directors'),
+      '&a' => format_plural(count($actors['non_translated']), '1 actor', '@count actors'),
+    ]),
+  ];
+  $form['translate_persons']['translate_button'] = [
+    '#type' => 'submit',
+    '#value' => t('Translate'),
+    '#submit' => ['films_parser_translate_persons'],
+    '#name' => 'translate_persons',
   ];
 
   if (!variable_get('omdb_api_key')) {
@@ -367,4 +399,69 @@ function _get_array_from_string($string, $delimiter = ', ') {
   }
 
   return $array;
+}
+
+/**
+ * Returns array with count of translated movies and list of non-translated
+ * terms.
+ *
+ * @param $vocabulary_name
+ *  Taxonomy vocabulary name.
+ *
+ * @return array
+ */
+function _get_taxonomy_terms_translations_by_vocabulary_name($vocabulary_name) {
+  $vocabulary = taxonomy_vocabulary_machine_name_load($vocabulary_name);
+  $terms = entity_load('taxonomy_term', FALSE, ['vid' => $vocabulary->vid]);
+
+  $non_translated = [];
+  $translated_count = 0;
+  foreach ($terms as $term) {
+    if (t($term->name, [], ['language' => 'ru']) === $term->name) {
+      $non_translated[] = $term->name;
+    }
+    else {
+      $translated_count++;
+    }
+  }
+
+  return [
+    'translated_count' => $translated_count,
+    'non_translated' => $non_translated,
+  ];
+}
+
+/**
+ * Search in google eng name of person and translate it to rus.
+ *
+ * @param $en_name
+ *  Name of person on english.
+ *
+ * @return string
+ *  Name of person on russian or empty string if not found.
+ */
+function _get_person_rus($en_name) {
+  $co_director = FALSE;
+  if (strpos($en_name, '(co-director)')) {
+    $co_director = TRUE;
+    $en_name = str_replace('(co-director)', '', $en_name);
+  }
+
+  $search_name = str_replace(' ', '+', $en_name);
+
+  $ch = curl_init();
+  $url = 'https://www.google.ru/search?q=' . $search_name . '&hl=ru';
+  curl_setopt($ch, CURLOPT_URL, $url);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+  $response = curl_exec($ch);
+  curl_close($ch);
+  $response = iconv('windows-1251', 'UTF-8', $response);
+
+  $found = preg_match('/<div class="FSP1Dd">(\D*)<\/div>/i', $response, $matches);
+
+  if ($found) {
+    return $co_director ? $matches[1] . ' (сорежиcсёр)' : $matches[1];
+  }
+
+  return '';
 }
