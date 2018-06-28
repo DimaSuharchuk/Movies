@@ -63,6 +63,11 @@ function movies_preprocess_node(&$variables) {
  * Implements template_preprocess_field.
  */
 function movies_preprocess_field(&$variables) {
+  // Translate field label.
+  if (isset($variables['label'])) {
+    $variables['label'] = t($variables['label']);
+  }
+
   if (isset($variables['element'])) {
     $element = &$variables['element'];
     if (isset($element['#bundle']) && $element['#bundle'] == 'film') {
