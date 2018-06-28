@@ -198,6 +198,9 @@ function films_parser_form($form, &$form_state) {
     '#submit' => ['films_parser_translate_persons'],
     '#name' => 'translate_persons',
   ];
+  if (!$directors['translated_count'] + $actors['translated_count']) {
+    $form['translate_persons']['translate_button']['#disabled'] = TRUE;
+  }
 
   if (!variable_get('omdb_api_key')) {
     form_set_error('',
@@ -417,7 +420,7 @@ function _get_taxonomy_terms_translations_by_vocabulary_name($vocabulary_name) {
   $non_translated = [];
   $translated_count = 0;
   foreach ($terms as $term) {
-    if (t($term->name, [], ['language' => 'ru']) === $term->name) {
+    if (t($term->name, [], ['langcode' => 'ru']) === $term->name) {
       $non_translated[] = $term->name;
     }
     else {

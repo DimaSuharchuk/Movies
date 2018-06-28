@@ -12,7 +12,8 @@
  * @param $form_state
  */
 function films_parser_translate_persons($form, &$form_state) {
-  $persons = $form_state['values']['persons'];
+  $persons = array_slice($form_state['values']['persons'], 0, 100);
+
   $operations = [];
 
   foreach ($persons as $person) {
@@ -49,6 +50,7 @@ function translate_person_batch($person, &$context) {
     ];
     _locale_import_one_string_db($report, 'ru', '', $person, $name, 'default', '', LOCALE_IMPORT_KEEP);
 
+    $context['results']['names'][$person] = $name;
     $context['results']['count']++;
   }
 }
@@ -71,6 +73,13 @@ function translate_person_batch_finished($success, $results, $operations) {
         '@count persons translated.'
       )
     );
+
+    $prepared_for_copy = [];
+    foreach ($results['names'] as $en => $ru) {
+      $prepared_for_copy[] = 'msgid "' . $en . '"<br>msgstr "' . $ru . '"';
+    }
+    drupal_set_message(implode('<br>', $prepared_for_copy));
+
     // Clear locale cache.
     cache_clear_all('locale:', 'cache', TRUE);
   }

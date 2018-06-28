@@ -76,22 +76,10 @@ function cs_core_user_view_alter(&$build) {
     'Actors',
   ];
   foreach ($vocabularies as $vocabulary_name) {
-    $vocabulary = taxonomy_vocabulary_machine_name_load($vocabulary_name);
-    $terms = entity_load('taxonomy_term', FALSE, ['vid' => $vocabulary->vid]);
+    $terms = _get_taxonomy_terms_translations_by_vocabulary_name($vocabulary_name);
 
-    $non_translated = [];
-    $translated = 0;
-    foreach ($terms as $term) {
-      if (t($term->name, [], ['language' => 'ru']) === $term->name) {
-        $non_translated[] = $term->name;
-      }
-      else {
-        $translated++;
-      }
-    }
-
-    $en_count = count($terms);
-    $non_translated_count = count($non_translated);
+    $non_translated_count = count($terms['non_translated']);
+    $en_count = $terms['translated_count'] + $non_translated_count;
 
     $build['stats']["{$vocabulary_name}_info"] = [
       '#type' => 'fieldset',
@@ -103,7 +91,7 @@ function cs_core_user_view_alter(&$build) {
     ];
     $build['stats']["{$vocabulary_name}_info"]['ru'] = [
       '#type' => 'item',
-      '#markup' => t("{$vocabulary_name} in russian: @count", ['@count' => $translated]),
+      '#markup' => t("{$vocabulary_name} in russian: @count", ['@count' => $terms['translated_count']]),
     ];
     $build['stats']["{$vocabulary_name}_info"]['diff'] = [
       '#type' => 'item',
@@ -132,7 +120,7 @@ function cs_core_user_view_alter(&$build) {
         ],
       ];
       $prepared_for_copy = [];
-      foreach ($non_translated as $value) {
+      foreach ($terms['non_translated'] as $value) {
         $prepared_for_copy[] = 'msgid "' . $value . '"<br>msgstr ""';
       }
       $build['stats']["{$vocabulary_name}_info"]["non_translated_{$vocabulary_name}_wrapper"]['for_file_wrapper']['for_file'] = [
@@ -150,7 +138,7 @@ function cs_core_user_view_alter(&$build) {
         ],
       ];
       $prepared_for_copy = [];
-      foreach ($non_translated as $value) {
+      foreach ($terms['non_translated'] as $value) {
         $prepared_for_copy[] = "\"{$value}\"";
       }
       $build['stats']["{$vocabulary_name}_info"]["non_translated_{$vocabulary_name}_wrapper"]['list_wrapper']['list'] = [
