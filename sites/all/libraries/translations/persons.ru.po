@@ -382,7 +382,7 @@ msgid "Jeffrey Hornaday"
 msgstr "Джеффри Хорнадей"
 
 msgid "Jeong-beom Lee"
-msgstr "Lee Jung-beom"
+msgstr "Ли Джон-бом"
 
 msgid "Jerry Zucker"
 msgstr "Джерри Цукер"
@@ -483,9 +483,6 @@ msgstr "Кирстен Шеридан"
 msgid "Kôji Morimoto"
 msgstr "Кодзи Моримото"
 
-msgid "Kresten Vestbjerg Andersen"
-msgstr "Kresten Vestbjerg Andersen"
-
 msgid "Lee Kirk"
 msgstr "Ли Кирк"
 
@@ -570,9 +567,6 @@ msgstr "Майкл Даус"
 msgid "Michael Mann"
 msgstr "Майкл Манн"
 
-msgid "Michael O. Sajbel"
-msgstr "Michael O. Sajbel"
-
 msgid "Michel Gondry"
 msgstr "Мишель Гондри"
 
@@ -629,9 +623,6 @@ msgstr "Пол Верховен"
 
 msgid "Penelope Spheeris"
 msgstr "Пенелопа Сфирис"
-
-msgid "Pete Riski"
-msgstr "Pete Riski"
 
 msgid "Peter Berg"
 msgstr "Питер Берг"
@@ -791,9 +782,6 @@ msgstr "Тимур Бекмамбетов"
 
 msgid "Todd Phillips"
 msgstr "Тодд Филлипс"
-
-msgid "Todor Chapkanov"
-msgstr "Todor Chapkanov"
 
 msgid "Tom Dey"
 msgstr "Том Дей"
@@ -1450,7 +1438,7 @@ msgid "Lynn Collins"
 msgstr "Линн Коллинз"
 
 msgid "Mako"
-msgstr "Mako"
+msgstr "Мако"
 
 msgid "Malin Akerman"
 msgstr "Малин Акерман"
@@ -1540,7 +1528,7 @@ msgid "Miriam Shor"
 msgstr "Мириам Шор"
 
 msgid "Mo Tse"
-msgstr "Tse Miu"
+msgstr "Чун-то Це"
 
 msgid "Morjana Alaoui"
 msgstr "Морьяна Алауи"
@@ -1606,7 +1594,7 @@ msgid "Rachel Weisz"
 msgstr "Рэйчел Вайс"
 
 msgid "Raymond Lam"
-msgstr "Доминик Лэм"
+msgstr "Рэймонд Лам"
 
 msgid "Rebecca Romijn"
 msgstr "Ребекка Ромейн"
@@ -1690,7 +1678,7 @@ msgid "Shengyi Huang"
 msgstr "Ева Хуан"
 
 msgid "Shia LaBeouf"
-msgstr "Лабаф, Шайа"
+msgstr "Шайа ЛаБаф"
 
 msgid "Shyann McClure"
 msgstr "Шянн Мак-Клур"
@@ -1726,7 +1714,7 @@ msgid "Tae-hoon Kim"
 msgstr "Ким Тэ Хун"
 
 msgid "Tasha de Vasconcelos"
-msgstr "Ди Вашконселуш, Таша"
+msgstr "Таша ди Вашконселуш"
 
 msgid "Tate Donovan"
 msgstr "Тейт Донован"
@@ -1750,7 +1738,7 @@ msgid "Thomas Lennon"
 msgstr "Томас Леннон"
 
 msgid "Tim Haars"
-msgstr "Tim Haars"
+msgstr "Тим Харс"
 
 msgid "Timothy Dalton"
 msgstr "Тимоти Далтон"
@@ -1801,7 +1789,7 @@ msgid "Wes Bentley"
 msgstr "Уэс Бентли"
 
 msgid "Wesley van Gaalen"
-msgstr "Wesley van Gaalen"
+msgstr "Весли ван Гален"
 
 msgid "Whitney Houston"
 msgstr "Уитни Хьюстон"
@@ -1895,9 +1883,6 @@ msgstr "Джо Джонстон"
 
 msgid "Michael Sucsy"
 msgstr "Майкл Сакси"
-
-msgid "Western"
-msgstr "Вестерн"
 
 msgid "Christian Alvart"
 msgstr "Кристиан Альварт"
@@ -2138,3 +2123,2946 @@ msgstr "Уолт Беккер"
 
 msgid "Yarrow Cheney(co-director)"
 msgstr "Ярроу Чейни (сорежиcсёр)"
+
+msgid "Gerard Butler"
+msgstr "Джерард Батлер"
+
+msgid "Lena Headey"
+msgstr "Лена Хеди"
+
+msgid "Dominic West"
+msgstr "Доминик Уэст"
+
+msgid "David Wenham"
+msgstr "Дэвид Уэнэм"
+
+msgid "Kresten Vestbjerg Andersen"
+msgstr "Крестен Вестбьерг Андерсен"
+
+msgid "Michael O. Sajbel"
+msgstr "Майкл О. Саджбел"
+
+msgid "Oriol Paulo"
+msgstr "Ориол Паоло"
+
+msgid "Pete Riski"
+msgstr "Пете Риски"
+
+msgid "Todor Chapkanov"
+msgstr "Тодор Чапканов"
+
+msgid "Emma Watson"
+msgstr "Эмма Уотсон"
+
+msgid "Richard Griffiths"
+msgstr "Ричард Гриффитс"
+
+msgid "Pam Ferris"
+msgstr "Пэм Феррис"
+
+msgid "Fiona Shaw"
+msgstr "Фиона Шоу"
+
+msgid "Eric Sykes"
+msgstr "Эрик Сайкс"
+
+msgid "Timothy Spall"
+msgstr "Тимоти Сполл"
+
+msgid "David Tennant"
+msgstr "Дэвид Теннант"
+
+msgid "Harry Melling"
+msgstr "Гарри Меллинг"
+
+msgid "Jason Boyd"
+msgstr "Джейсон Бойд"
+
+msgid "Michael Gambon"
+msgstr "Майкл Гэмбон"
+
+msgid "Dave Legeno"
+msgstr "Дейв Леджено"
+
+msgid "Elarica Johnson"
+msgstr "Эларика Галлахер"
+
+msgid "Bill Nighy"
+msgstr "Билл Найи"
+
+msgid "Ralph Fiennes"
+msgstr "Рэйф Файнс"
+
+msgid "Alan Rickman"
+msgstr "Алан Рикман"
+
+msgid "Tobey Maguire"
+msgstr "Тоби Магуайр"
+
+msgid "Willem Dafoe"
+msgstr "Уиллем Дефо"
+
+msgid "Kirsten Dunst"
+msgstr "Кирстен Данст"
+
+msgid "James Franco"
+msgstr "Джеймс Франко"
+
+msgid "Thomas Haden Church"
+msgstr "Томас Хейден Чёрч"
+
+msgid "Carla Gugino"
+msgstr "Карла Гуджино"
+
+msgid "Delroy Lindo"
+msgstr "Делрой Линдо"
+
+msgid "Jason Statham"
+msgstr "Джейсон Стейтем"
+
+msgid "Julian Sands"
+msgstr "Джулиан Сэндз"
+
+msgid "Eamonn Walker"
+msgstr "Имонн Уокер"
+
+msgid "Dante Basco"
+msgstr "Данте Баско"
+
+msgid "Jay Baruchel"
+msgstr "Джей Барушель"
+
+msgid "Craig Ferguson"
+msgstr "Крейг Фергюсон"
+
+msgid "America Ferrera"
+msgstr "Америка Феррера"
+
+msgid "Yuriy Berkun"
+msgstr "Юрий Григорьевич Беркун"
+
+msgid "Sergey Bezrukov"
+msgstr "Сергей Витальевич Безруков"
+
+msgid "Irina Bezrukova"
+msgstr "Ирина Владимировна Безрукова"
+
+msgid "Vladimir Gostyukhin"
+msgstr "Владимир Васильевич Гостюхин"
+
+msgid "Scott Mechlowicz"
+msgstr "Скотт Мекловиц"
+
+msgid "Nick Nolte"
+msgstr "Ник Нолти"
+
+msgid "Amy Smart"
+msgstr "Эми Смарт"
+
+msgid "Tim DeKay"
+msgstr "Тим ДиКей"
+
+msgid "Will Smith"
+msgstr "Уилл Смит"
+
+msgid "Rosario Dawson"
+msgstr "Розарио Доусон"
+
+msgid "Woody Harrelson"
+msgstr "Вуди Харрельсон"
+
+msgid "Michael Ealy"
+msgstr "Майкл Или"
+
+msgid "Josh Brolin"
+msgstr "Джош Бролин"
+
+msgid "John Malkovich"
+msgstr "Джон Малкович"
+
+msgid "Megan Fox"
+msgstr "Меган Фокс"
+
+msgid "Michael Fassbender"
+msgstr "Майкл Фассбендер"
+
+msgid "Leonardo DiCaprio"
+msgstr "Леонардо Ди Каприо"
+
+msgid "Joseph Gordon-Levitt"
+msgstr "Джозеф Гордон-Левитт"
+
+msgid "Ellen Page"
+msgstr "Эллен Пейдж"
+
+msgid "Tom Hardy"
+msgstr "Том Харди"
+
+msgid "Simon Pegg"
+msgstr "Саймон Пегг"
+
+msgid "Martin Freeman"
+msgstr "Мартин Фримен"
+
+msgid "Robert Popper"
+msgstr "Роберт Поппер"
+
+msgid "Viggo Mortensen"
+msgstr "Вигго Мортенсен"
+
+msgid "Kodi Smit-McPhee"
+msgstr "Коди Смит-Макфи"
+
+msgid "Robert Duvall"
+msgstr "Роберт Дюваль"
+
+msgid "Guy Pearce"
+msgstr "Гай Пирс"
+
+msgid "Denzel Washington"
+msgstr "Дензел Вашингтон"
+
+msgid "Gary Oldman"
+msgstr "Гэри Олдмен"
+
+msgid "Mila Kunis"
+msgstr "Мила Кунис"
+
+msgid "Ray Stevenson"
+msgstr "Рэй Стивенсон"
+
+msgid "Mark Ruffalo"
+msgstr "Марк Руффало"
+
+msgid "Max von Sydow"
+msgstr "Макс фон Сюдов"
+
+msgid "Sean Connery"
+msgstr "Шон Коннери"
+
+msgid "Nicolas Cage"
+msgstr "Николас Кейдж"
+
+msgid "Ed Harris"
+msgstr "Эд Харрис"
+
+msgid "John Spencer"
+msgstr "Джон Спенсер"
+
+msgid "John Travolta"
+msgstr "Джон Траволта"
+
+msgid "Joan Allen"
+msgstr "Джоан Аллен"
+
+msgid "Alessandro Nivola"
+msgstr "Алессандро Нивола"
+
+msgid "Shane West"
+msgstr "Шейн Уэст"
+
+msgid "Mandy Moore"
+msgstr "Мэнди Мур"
+
+msgid "Peter Coyote"
+msgstr "Питер Койот"
+
+msgid "Daryl Hannah"
+msgstr "Дэрил Ханна"
+
+msgid "John Ashker"
+msgstr "Джон Ашкер"
+
+msgid "Max Beesley"
+msgstr "Макс Бизли"
+
+msgid "Dane Cook"
+msgstr "Дейн Кук"
+
+msgid "Ice Cube"
+msgstr "Айс Кьюб"
+
+msgid "Adam Sandler"
+msgstr "Адам Сэндлер"
+
+msgid "John Turturro"
+msgstr "Джон Туртурро"
+
+msgid "Emmanuelle Chriqui"
+msgstr "Эммануэль Шрики"
+
+msgid "Nick Swardson"
+msgstr "Ник Свардсон"
+
+msgid "Bradley Cooper"
+msgstr "Брэдли Купер"
+
+msgid "Ed Helms"
+msgstr "Эд Хелмс"
+
+msgid "Zach Galifianakis"
+msgstr "Зак Галифианакис"
+
+msgid "Justin Bartha"
+msgstr "Джастин Барта"
+
+msgid "Corey Burton"
+msgstr "Кори Бертон"
+
+msgid "Maggie Smith"
+msgstr "Мэгги Смит"
+
+msgid "Robbie Coltrane"
+msgstr "Робби Колтрейн"
+
+msgid "Saunders Triplets"
+msgstr "Джакоб Сондерс"
+
+msgid "Daniel Radcliffe"
+msgstr "Дэниэл Рэдклифф"
+
+msgid "Rupert Grint"
+msgstr "Руперт Гринт"
+
+msgid "Claudia Christian"
+msgstr "Клаудия Кристиан"
+
+msgid "Michael J. Fox"
+msgstr "Майкл Джей Фокс"
+
+msgid "James Garner"
+msgstr "Джеймс Гарнер"
+
+msgid "Louise Bourgoin"
+msgstr "Луиза Бургуэн"
+
+msgid "Mathieu Amalric"
+msgstr "Матьё Амальрик"
+
+msgid "Gilles Lellouche"
+msgstr "Жиль Леллуш"
+
+msgid "Jean-Paul Rouve"
+msgstr "Жан-Поль Рув"
+
+msgid "Emily Barclay"
+msgstr "Эмили Барклай"
+
+msgid "Abbie Cornish"
+msgstr "Эбби Корниш"
+
+msgid "Essie Davis"
+msgstr "Эсси Дэвис"
+
+msgid "Adrienne DeFaria"
+msgstr "Адриенна Дефария"
+
+msgid "Hayden Christensen"
+msgstr "Хейден Кристенсен"
+
+msgid "Jessica Alba"
+msgstr "Джессика Альба"
+
+msgid "Terrence Howard"
+msgstr "Терренс Ховард"
+
+msgid "Lena Olin"
+msgstr "Лена Олин"
+
+msgid "Anthony Anderson"
+msgstr "Энтони Андерсон"
+
+msgid "Kelly Hu"
+msgstr "Келли Ху"
+
+msgid "Morgan Freeman"
+msgstr "Морган Фримен"
+
+msgid "Bob Hoskins"
+msgstr "Боб Хоскинс"
+
+msgid "Kerry Condon"
+msgstr "Керри Кондон"
+
+msgid "Teresa Palmer"
+msgstr "Тереза Палмер"
+
+msgid "Kevin Costner"
+msgstr "Кевин Костнер"
+
+msgid "Ashton Kutcher"
+msgstr "Эштон Кутчер"
+
+msgid "Sela Ward"
+msgstr "Сила Уорд"
+
+msgid "Melissa Sagemiller"
+msgstr "Мелисса Сейджмиллер"
+
+msgid "Nicole de Boer"
+msgstr "Николь де Боер"
+
+msgid "Nicky Guadagni"
+msgstr "Никки Гуаданьи"
+
+msgid "David Hewlett"
+msgstr "Дэвид Хьюлетт"
+
+msgid "Andrew Miller"
+msgstr "Адам Миллер"
+
+msgid "William Hope"
+msgstr "Уильям Хоуп"
+
+msgid "Leon Herbert"
+msgstr "Леон Херберт"
+
+msgid "Ronald Pickup"
+msgstr "Роналд Пикап"
+
+msgid "Philip Bretherton"
+msgstr "Филип Бретертон"
+
+msgid "Noah Ringer"
+msgstr "Ноа Рингер"
+
+msgid "Dev Patel"
+msgstr "Дев Патель"
+
+msgid "Nicola Peltz"
+msgstr "Никола Пельтц"
+
+msgid "Jackson Rathbone"
+msgstr "Джексон Рэтбоун"
+
+msgid "Johnny Depp"
+msgstr "Джонни Депп"
+
+msgid "Isla Fisher"
+msgstr "Айла Фишер"
+
+msgid "Abigail Breslin"
+msgstr "Эбигейл Бреслин"
+
+msgid "Ned Beatty"
+msgstr "Нед Битти"
+
+msgid "Robert De Niro"
+msgstr "Роберт Де Ниро"
+
+msgid "Andrew Howard"
+msgstr "Эндрю Ховард"
+
+msgid "Konstantin Khabenskiy"
+msgstr "Константин Хабенский"
+
+msgid "Milla Jovovich"
+msgstr "Милла Йовович"
+
+msgid "Ivan Urgant"
+msgstr "Иван Ургант"
+
+msgid "Sergey Garmash"
+msgstr "Сергей Гармаш"
+
+msgid "Jim Carrey"
+msgstr "Джим Керри"
+
+msgid "Matthew Broderick"
+msgstr "Мэттью Бродерик"
+
+msgid "Leslie Mann"
+msgstr "Лесли Манн"
+
+msgid "Jack Black"
+msgstr "Джек Блэк"
+
+msgid "Jerry Seinfeld"
+msgstr "Джерри Сайнфелд"
+
+msgid "Renée Zellweger"
+msgstr "Рене Зеллвегер"
+
+msgid "Patrick Warburton"
+msgstr "Патрик Уобертон"
+
+msgid "Julianne Moore"
+msgstr "Джулианна Мур"
+
+msgid "Jessica Biel"
+msgstr "Джессика Бил"
+
+msgid "Thomas Kretschmann"
+msgstr "Томас Кречман"
+
+msgid "Dwayne Johnson"
+msgstr "Дуэйн Джонсон"
+
+msgid "Jim Gaines"
+msgstr "Джим Гейнс"
+
+msgid "Tom Berenger"
+msgstr "Том Беренджер"
+
+msgid "Kareem Abdul-Jabbar"
+msgstr "Карим Абдул-Джаббар"
+
+msgid "Peter Archer"
+msgstr "Питер Арчер"
+
+msgid "Eddie Baroo"
+msgstr "Эдди Бару"
+
+msgid "Ray Barrett"
+msgstr "Рей Барретт"
+
+msgid "Tony Barry"
+msgstr "Тони Барри"
+
+msgid "Freddie Highmore"
+msgstr "Фредди Хаймор"
+
+msgid "Keri Russell"
+msgstr "Кери Расселл"
+
+msgid "Jonathan Rhys Meyers"
+msgstr "Джонатан Рис-Майерс"
+
+msgid "Tom Cruise"
+msgstr "Том Круз"
+
+msgid "Cameron Diaz"
+msgstr "Камерон Диас"
+
+msgid "Peter Sarsgaard"
+msgstr "Питер Сарсгаард"
+
+msgid "Jordi Mollà"
+msgstr "Жорди Молья"
+
+msgid "Karen Disher"
+msgstr "Карен Дишер"
+
+msgid "Jason Fricchione"
+msgstr "Джейсон Фрайсчен"
+
+msgid "Sofia Scarpa Saldanha"
+msgstr "София Скарпа Салдана"
+
+msgid "Russell Crowe"
+msgstr "Рассел Кроу"
+
+msgid "Jennifer Connelly"
+msgstr "Дженнифер Коннелли"
+
+msgid "Christopher Plummer"
+msgstr "Кристофер Пламмер"
+
+msgid "Amber Heard"
+msgstr "Эмбер Хёрд"
+
+msgid "William Fichtner"
+msgstr "Уильям Фихтнер"
+
+msgid "Billy Burke"
+msgstr "Билли Бёрк"
+
+msgid "Emily Browning"
+msgstr "Эмили Браунинг"
+
+msgid "Jena Malone"
+msgstr "Джена Мэлоун"
+
+msgid "Vanessa Hudgens"
+msgstr "Ванесса Хадженс"
+
+msgid "Steven Brand"
+msgstr "Стивен Брэнд"
+
+msgid "Michael Clarke Duncan"
+msgstr "Майкл Кларк Дункан"
+
+msgid "Michael Copon"
+msgstr "Майкл Копон"
+
+msgid "Karen David"
+msgstr "Карен Шенас-Дэвид"
+
+msgid "Simon Quarterman"
+msgstr "Саймон Куотерман"
+
+msgid "Tom Wu"
+msgstr "Том Ву"
+
+msgid "Chris Hemsworth"
+msgstr "Крис Хемсворт"
+
+msgid "Natalie Portman"
+msgstr "Натали Портман"
+
+msgid "Tom Hiddleston"
+msgstr "Том Хиддлстон"
+
+msgid "Anthony Hopkins"
+msgstr "Энтони Хопкинс"
+
+msgid "Paul Bettany"
+msgstr "Пол Беттани"
+
+msgid "Karl Urban"
+msgstr "Карл Урбан"
+
+msgid "Cam Gigandet"
+msgstr "Кэм Жиганде"
+
+msgid "Maggie Q"
+msgstr "Мэгги Кью"
+
+msgid "Dakota Fanning"
+msgstr "Дакота Фэннинг"
+
+msgid "Radha Mitchell"
+msgstr "Рада Митчелл"
+
+msgid "Christopher Walken"
+msgstr "Кристофер Уокен"
+
+msgid "Patrick Wilson"
+msgstr "Патрик Уилсон"
+
+msgid "Rose Byrne"
+msgstr "Роуз Бирн"
+
+msgid "Ty Simpkins"
+msgstr "Тай Симпкинс"
+
+msgid "Lin Shaye"
+msgstr "Лин Шэй"
+
+msgid "Mia Stallard"
+msgstr "Миа Сталлард"
+
+msgid "Nick Frost"
+msgstr "Ник Фрост"
+
+msgid "Liam Neeson"
+msgstr "Лиам Нисон"
+
+msgid "Diane Kruger"
+msgstr "Диана Крюгер"
+
+msgid "January Jones"
+msgstr "Дженьюари Джонс"
+
+msgid "Aidan Quinn"
+msgstr "Айдан Куинн"
+
+msgid "Brendan Fraser"
+msgstr "Брендан Фрэйзер"
+
+msgid "Alicia Silverstone"
+msgstr "Алисия Сильверстоун"
+
+msgid "Sissy Spacek"
+msgstr "Сисси Спейсек"
+
+msgid "Rudy Youngblood"
+msgstr "Руди Янгблад"
+
+msgid "Dalia Hernández"
+msgstr "Далия Эрнандез"
+
+msgid "Jonathan Brewer"
+msgstr "Джонатан Брюэр"
+
+msgid "Morris Birdyellowhead"
+msgstr "Моррис Бердйеллоухед"
+
+msgid "Zooey Deschanel"
+msgstr "Зоуи Дешанель"
+
+msgid "John Michael Higgins"
+msgstr "Джон Майкл Хиггинс"
+
+msgid "Jim Caviezel"
+msgstr "Джеймс Кэвизел"
+
+msgid "Maia Morgenstern"
+msgstr "Майя Моргенштерн"
+
+msgid "Christo Jivkov"
+msgstr "Христо Живков"
+
+msgid "Francesco De Vito"
+msgstr "Франческо Де Вито"
+
+msgid "Aamir Khan"
+msgstr "Аамир Хан"
+
+msgid "Madhavan"
+msgstr "Мадхаван"
+
+msgid "Sharman Joshi"
+msgstr "Шарман Джоши"
+
+msgid "Kareena Kapoor Khan"
+msgstr "Карина Капур"
+
+msgid "Patrick Dempsey"
+msgstr "Патрик Демпси"
+
+msgid "Ashley Judd"
+msgstr "Эшли Джадд"
+
+msgid "Tim Blake Nelson"
+msgstr "Тим Блейк Нельсон"
+
+msgid "Mekhi Phifer"
+msgstr "Мекай Файфер"
+
+msgid "Tom Hanks"
+msgstr "Том Хэнкс"
+
+msgid "Sally Field"
+msgstr "Салли Филд"
+
+msgid "Michael Conner Humphreys"
+msgstr "Майкл Коннер Хэмпфри"
+
+msgid "Ryan Reynolds"
+msgstr "Райан Рейнольдс"
+
+msgid "Jason Bateman"
+msgstr "Джейсон Бейтман"
+
+msgid "Olivia Wilde"
+msgstr "Оливия Уайлд"
+
+msgid "John Cusack"
+msgstr "Джон Кьюсак"
+
+msgid "Myleene Klass"
+msgstr "Майлин Класс"
+
+msgid "Matt McKenna"
+msgstr "Мэтт Маккенна"
+
+msgid "Ben Tibber"
+msgstr "Бен Тиббер"
+
+msgid "Hristo Shopov"
+msgstr "Христо Шопов"
+
+msgid "Nora Tschirner"
+msgstr "Нора Чирнер"
+
+msgid "Matthias Schweighöfer"
+msgstr "Маттиас Швайгхёфер"
+
+msgid "Alwara Höfels"
+msgstr "Алвара Хёфельс"
+
+msgid "Tom Beck"
+msgstr "Том Бек"
+
+msgid "Annika Blendl"
+msgstr "Анника Бленд"
+
+msgid "Yvonne Catterfeld"
+msgstr "Ивонн Каттерфельд"
+
+msgid "Ken Duken"
+msgstr "Кен Дюкен"
+
+msgid "Wesley Snipes"
+msgstr "Уэсли Снайпс"
+
+msgid "Ving Rhames"
+msgstr "Рэймс, Винг"
+
+msgid "Peter Falk"
+msgstr "Питер Фальк"
+
+msgid "Michael Rooker"
+msgstr "Майкл Рукер"
+
+msgid "Scott Adkins"
+msgstr "Скотт Эдкинс"
+
+msgid "Ben Cross"
+msgstr "Бен Кросс"
+
+msgid "Eli Danker"
+msgstr "Эли Данкер"
+
+msgid "Mykel Shannon Jenkins"
+msgstr "Майкл Шеннон Дженкинс"
+
+msgid "Mark Ivanir"
+msgstr "Марк Иванир"
+
+msgid "Matt McKenna"
+msgstr "Мэтт Маккенна"
+
+msgid "Teodora Duhovnikova"
+msgstr "Теодора Духовникова"
+
+msgid "Alon Aboutboul"
+msgstr "Алон Абутбул"
+
+msgid "Julian Vergov"
+msgstr "Юлиан Вергов"
+
+msgid "Justin Chatwin"
+msgstr "Джастин Чэтвин"
+
+msgid "Margarita Levieva"
+msgstr "Маргарита Владимировна Левиева"
+
+msgid "Marcia Gay Harden"
+msgstr "Марша Гей Харден"
+
+msgid "Chris Marquette"
+msgstr "Крис Маркетт"
+
+msgid "Valeriy Zolotukhin"
+msgstr "Валерий Сергеевич Золотухин"
+
+msgid "Mariya Poroshina"
+msgstr "Мария Михайловна Порошина"
+
+msgid "Sean Faris"
+msgstr "Шон Фэрис"
+
+msgid "Evan Peters"
+msgstr "Эван Питерс"
+
+msgid "Dean Geyer"
+msgstr "Дин Джайер"
+
+msgid "Alex Meraz"
+msgstr "Алекс Мераз"
+
+msgid "Todd Duffee"
+msgstr "Тодд Даффи"
+
+msgid "Samuel L. Jackson"
+msgstr "Сэмюэл Лерой Джексон"
+
+msgid "John Heard"
+msgstr "Джон Херд"
+
+msgid "Kelly Rowan"
+msgstr "Келли Роуэн"
+
+msgid "Clifton Collins Jr."
+msgstr "Клифтон Коллинз"
+
+msgid "Richard E. Grant"
+msgstr "Ричард Грант"
+
+msgid "Catherine O'Hara"
+msgstr "Кэтрин О’Хара"
+
+msgid "Michael Feast"
+msgstr "Майкл Феаст"
+
+msgid "Qi Shu"
+msgstr "Шу Ци"
+
+msgid "Matt Schulze"
+msgstr "Мэтт Шульц"
+
+msgid "François Berléand"
+msgstr "Франсуа Берлеан"
+
+msgid "Brad Davis"
+msgstr "Брэд Дэвис"
+
+msgid "Irene Miracle"
+msgstr "Айрин Миракл"
+
+msgid "Bo Hopkins"
+msgstr "Бо Хопкинс"
+
+msgid "Paolo Bonacelli"
+msgstr "Паоло Боначелли"
+
+msgid "Matt Damon"
+msgstr "Мэтт Деймон"
+
+msgid "James Cromwell"
+msgstr "Джеймс Кромвелл"
+
+msgid "Daniel Studi"
+msgstr "Дэниел Студи"
+
+msgid "Chopper Bernet"
+msgstr "Чоппер Бернет"
+
+msgid "Helena Bonham Carter"
+msgstr "Хелена Бонэм Картер"
+
+msgid "Emily Watson"
+msgstr "Эмили Уотсон"
+
+msgid "Tracey Ullman"
+msgstr "Трейси Ульман"
+
+msgid "Chris Rock"
+msgstr "Крис Рок"
+
+msgid "Burt Reynolds"
+msgstr "Рейнольдс, Бёрт"
+
+msgid "Brad Pitt"
+msgstr "Брэд Питт"
+
+msgid "Claire Forlani"
+msgstr "Клэр Форлани"
+
+msgid "Jake Weber"
+msgstr "Джейк Уэбер"
+
+msgid "Chris Massoglia"
+msgstr "Крис Массолиа"
+
+msgid "Haley Bennett"
+msgstr "Хейли Беннетт"
+
+msgid "Nathan Gamble"
+msgstr "Натан Гэмбл"
+
+msgid "Teri Polo"
+msgstr "Тери Поло"
+
+msgid "David Hasselhoff"
+msgstr "Дэвид Хассельхофф"
+
+msgid "Christopher Lloyd"
+msgstr "Кристофер Ллойд"
+
+msgid "Lea Thompson"
+msgstr "Лиа Томпсон"
+
+msgid "Crispin Glover"
+msgstr "Криспин Гловер"
+
+msgid "Thomas F. Wilson"
+msgstr "Томас Фрэнсис Уилсон"
+
+msgid "Mary Steenburgen"
+msgstr "Мэри Стинбёрген"
+
+msgid "David Kelly"
+msgstr "Дэвид Келли"
+
+msgid "Alice Braga"
+msgstr "Алисе Брага"
+
+msgid "Charlie Tahan"
+msgstr "Чарли Тахан"
+
+msgid "Salli Richardson-Whitfield"
+msgstr "Салли Ричардсон"
+
+msgid "Ryan Phillippe"
+msgstr "Райан Филлипп"
+
+msgid "Bruce Willis"
+msgstr "Брюс Уиллис"
+
+msgid "Rory Markham"
+msgstr "Рори Маркхам"
+
+msgid "Steve Harris"
+msgstr "Стив Харрис"
+
+msgid "Neal McDonough"
+msgstr "Нил МакДонаф"
+
+msgid "Justin Timberlake"
+msgstr "Джастин Тимберлейк"
+
+msgid "Shyloh Oostwald"
+msgstr "Шайло Уствальд"
+
+msgid "Jeffrey Wright"
+msgstr "Джеффри Райт"
+
+msgid "Chris Evans"
+msgstr "Крис Эванс"
+
+msgid "Gump Gumpanart"
+msgstr "Гумпанарт Ямвимол"
+
+msgid "Aleksandr Katunov"
+msgstr "Александр Григорьевич Катунов"
+
+msgid "Cleo King"
+msgstr "Клео Кинг"
+
+msgid "Kevin Spacey"
+msgstr "Кевин Спейси"
+
+msgid "Emma Stone"
+msgstr "Эмма Стоун"
+
+msgid "Penn Badgley"
+msgstr "Пенн Бэджли"
+
+msgid "Matt McKenna"
+msgstr "Мэтт Маккенна"
+
+msgid "Dan Byrd"
+msgstr "Дэн Бёрд"
+
+msgid "Tara Reid"
+msgstr "Тара Рид"
+
+msgid "Tim Matheson"
+msgstr "Тим Мэтисон"
+
+msgid "Kal Penn"
+msgstr "Кэл Пенн"
+
+msgid "Jean Reno"
+msgstr "Жан Рено"
+
+msgid "Danny Aiello"
+msgstr "Дэнни Айелло"
+
+msgid "Alan David"
+msgstr "Алан Дэвид"
+
+msgid "Sophie Okonedo"
+msgstr "Софи Оконедо"
+
+msgid "Zoë Kravitz"
+msgstr "Зои Кравиц"
+
+msgid "Jenna Fischer"
+msgstr "Дженна Фишер"
+
+msgid "Rich Sommer"
+msgstr "Рич Соммер"
+
+msgid "Sophie Marceau"
+msgstr "Софи Марсо"
+
+msgid "Vincent Perez"
+msgstr "Венсан Перес"
+
+msgid "Marine Delterme"
+msgstr "Марин Дельтерм"
+
+msgid "Gérard Séty"
+msgstr "Жерар Сети"
+
+msgid "Adrien Brody"
+msgstr "Эдриен Броуди"
+
+msgid "Topher Grace"
+msgstr "Тофер Грейс"
+
+msgid "Walton Goggins"
+msgstr "Уолтон Гоггинс"
+
+msgid "Jeremy Piven"
+msgstr "Джереми Пивен"
+
+msgid "Bridget Moynahan"
+msgstr "Бриджит Мойнахан"
+
+msgid "Matthew Lillard"
+msgstr "Мэттью Лиллард"
+
+msgid "Bryce Dallas Howard"
+msgstr "Брайс Даллас Ховард"
+
+msgid "Octavia Spencer"
+msgstr "Октавия Спенсер"
+
+msgid "Caroline Goodall"
+msgstr "Кэролайн Гудолл"
+
+msgid "Peter Riegert"
+msgstr "Питер Ригерт"
+
+msgid "Peter Greene"
+msgstr "Питер Грин"
+
+msgid "Amy Yasbeck"
+msgstr "Эми Ясбек"
+
+msgid "Sarah Butler"
+msgstr "Сара Батлер"
+
+msgid "Jeff Branson"
+msgstr "Джефф Брэнсон"
+
+msgid "Daniel Franzese"
+msgstr "Дэниел Фрэнзиси"
+
+msgid "Patrick Stewart"
+msgstr "Патрик Стюарт"
+
+msgid "Ian McKellen"
+msgstr "Иэн Маккеллен"
+
+msgid "Halle Berry"
+msgstr "Хэлли Берри"
+
+msgid "James McAvoy"
+msgstr "Джеймс Макэвой"
+
+msgid "Laurence Belcher"
+msgstr "Лоренс Белчер"
+
+msgid "Bill Milner"
+msgstr "Билл Милнер"
+
+msgid "Danny Huston"
+msgstr "Дэнни Хьюстон"
+
+msgid "Will.i.am"
+msgstr "will.i.am"
+
+msgid "Joaquin Phoenix"
+msgstr "Хоакин Феникс"
+
+msgid "Connie Nielsen"
+msgstr "Конни Нильсен"
+
+msgid "Oliver Reed"
+msgstr "Оливер Рид"
+
+msgid "Jackie Chan"
+msgstr "Джеки Чан"
+
+msgid "Owen Wilson"
+msgstr "Оуэн Уилсон"
+
+msgid "Brandon Merrill"
+msgstr "Брандон Меррилл"
+
+msgid "Meryl Streep"
+msgstr "Мерил Стрип"
+
+msgid "Goldie Hawn"
+msgstr "Голди Хоун"
+
+msgid "Isabella Rossellini"
+msgstr "Изабелла Росселлини"
+
+msgid "Maura Tierney"
+msgstr "Мора Тирни"
+
+msgid "Justin Cooper"
+msgstr "Джастин Купер"
+
+msgid "Cary Elwes"
+msgstr "Кэри Элвес"
+
+msgid "David Carradine"
+msgstr "Дэвид Кэррадин"
+
+msgid "Jennifer Morrison"
+msgstr "Дженнифер Моррисон"
+
+msgid "Scott Wilson"
+msgstr "Скотт Уилсон"
+
+msgid "Paris Hilton"
+msgstr "Пэрис Хилтон"
+
+msgid "Joel David Moore"
+msgstr "Джоэль Мур"
+
+msgid "Christine Lakin"
+msgstr "Кристин Лэйкин"
+
+msgid "Johann Urb"
+msgstr "Йохан Урб"
+
+msgid "Miguel Ferrer"
+msgstr "Мигель Феррер"
+
+msgid "Harvey Fierstein"
+msgstr "Харви Файерстин"
+
+msgid "Freda Foh Shen"
+msgstr "Фреда Фо Шэнь"
+
+msgid "June Foray"
+msgstr "Джун Форей"
+
+msgid "Ming-Na Wen"
+msgstr "Минг-На Вен"
+
+msgid "BD Wong"
+msgstr "Брэдли Дэррил Вонг"
+
+msgid "Mark Moseley"
+msgstr "Марк Мосли"
+
+msgid "Adriana Ugarte"
+msgstr "Адриана Угарте"
+
+msgid "Álex González"
+msgstr "Алекс Гонсалес"
+
+msgid "Juan Pablo Shuk"
+msgstr "Хуан Пабло Шук"
+
+msgid "Frank Aldridge"
+msgstr "Франк Олдридж"
+
+msgid "Amitabh Bachchan"
+msgstr "Амитабх Баччан"
+
+msgid "Steve Bisley"
+msgstr "Стив Бисли"
+
+msgid "George Clooney"
+msgstr "Джордж Клуни"
+
+msgid "Orto Ignatiussen"
+msgstr "Орто Игнатиуссен"
+
+msgid "Vince Vaughn"
+msgstr "Винс Вон"
+
+msgid "Chris Pratt"
+msgstr "Крис Прэтт"
+
+msgid "Cobie Smulders"
+msgstr "Коби Смолдерс"
+
+msgid "Andrzej Blumenfeld"
+msgstr "Анджей Блюменфельд"
+
+msgid "Kane Kosugi"
+msgstr "Кейн Косуги"
+
+msgid "Mika Hijii"
+msgstr "Хидзии, Мика"
+
+msgid "Markus Waldow"
+msgstr "Маркус Вальдов"
+
+msgid "Camilla Belle"
+msgstr "Камилла Белль"
+
+msgid "Cliff Curtis"
+msgstr "Клифф Кёртис"
+
+msgid "Joel Virgel"
+msgstr "Джоэл Вирджел"
+
+msgid "Emile Hirsch"
+msgstr "Эмиль Хирш"
+
+msgid "William Hurt"
+msgstr "Уильям Хёрт"
+
+msgid "Emmanuelle Béart"
+msgstr "Эммануэль Беар"
+
+msgid "Henry Czerny"
+msgstr "Генри Черни"
+
+msgid "Dougray Scott"
+msgstr "Дюгрэй Скотт"
+
+msgid "Philip Seymour Hoffman"
+msgstr "Филип Сеймур Хоффман"
+
+msgid "Billy Crudup"
+msgstr "Билли Крудап"
+
+msgid "Paula Patton"
+msgstr "Пола Паттон"
+
+msgid "Jeff Bridges"
+msgstr "Джефф Бриджес"
+
+msgid "Missy Peregrym"
+msgstr "Мисси Перегрим"
+
+msgid "Vanessa Lengies"
+msgstr "Ванесса Ленгиз"
+
+msgid "Nikki SooHoo"
+msgstr "Никки Сооу"
+
+msgid "Jason Isaacs"
+msgstr "Джейсон Айзекс"
+
+msgid "Greg Germann"
+msgstr "Грег Джерманн"
+
+msgid "Gary Busey"
+msgstr "Гэри Бьюзи"
+
+msgid "Lori Petty"
+msgstr "Лори Петти"
+
+msgid "Ewan McGregor"
+msgstr "Юэн Макгрегор"
+
+msgid "Albert Finney"
+msgstr "Альберт Финни"
+
+msgid "Jessica Lange"
+msgstr "Джессика Лэнг"
+
+msgid "Craig Reay"
+msgstr "Крейг Реей"
+
+msgid "Vance Johnson"
+msgstr "Ванс Джонсон"
+
+msgid "Kelly Lynch"
+msgstr "Келли Линч"
+
+msgid "Sam Elliott"
+msgstr "Сэм Эллиотт"
+
+msgid "Ben Gazzara"
+msgstr "Бен Газзара"
+
+msgid "James Robinson"
+msgstr "Джеймс Робинсон"
+
+msgid "Sean Lawlor"
+msgstr "Шон Лоулор"
+
+msgid "Sandy Nelson"
+msgstr "Санди Нельсон"
+
+msgid "James Cosmo"
+msgstr "Джеймс Космо"
+
+msgid "Alexander Skarsgård"
+msgstr "Александр Скарсгорд"
+
+msgid "Rihanna"
+msgstr "Рианна"
+
+msgid "Brooklyn Decker"
+msgstr "Бруклин Деккер"
+
+msgid "François Cluzet"
+msgstr "Франсуа Клюзе"
+
+msgid "Omar Sy"
+msgstr "Омар Си"
+
+msgid "Anne Le Ny"
+msgstr "Анн Ле Ни"
+
+msgid "Audrey Fleurot"
+msgstr "Одри Флеро"
+
+msgid "Corey Haim"
+msgstr "Кори Хэйм"
+
+msgid "Corey Feldman"
+msgstr "Кори Фельдман"
+
+msgid "Carol Kane"
+msgstr "Кэрол Кейн"
+
+msgid "Richard Masur"
+msgstr "Ричард Мазур"
+
+msgid "Christian Clavier"
+msgstr "Кристиан Клавье"
+
+msgid "Isabelle Nanty"
+msgstr "Изабель Нанти"
+
+msgid "Kev Adams"
+msgstr "Кев Адамс"
+
+msgid "Dennis Quaid"
+msgstr "Деннис Куэйд"
+
+msgid "Louis Gossett Jr."
+msgstr "Луис Госсетт"
+
+msgid "Brion James"
+msgstr "Брайон Говард Джеймс"
+
+msgid "David Morse"
+msgstr "Дэвид Морс"
+
+msgid "Bonnie Hunt"
+msgstr "Бонни Хант"
+
+msgid "Kevin Michael Richardson"
+msgstr "Кевин Майкл Ричардсон"
+
+msgid "Pamela Adlon"
+msgstr "Памела Эдлон"
+
+msgid "John DiMaggio"
+msgstr "Джон Димаджио"
+
+msgid "Mel City(co-director)"
+msgstr "Мельбурн Сити (сорежиcсёр)"
+
+msgid "Tom Kenny"
+msgstr "Томас Кенни"
+
+msgid "Ryan Gosling"
+msgstr "Райан Гослинг"
+
+msgid "David Strathairn"
+msgstr "Дэвид Стрэтэйрн"
+
+msgid "Rosamund Pike"
+msgstr "Розамунд Пайк"
+
+msgid "Anne Bancroft"
+msgstr "Энн Бэнкрофт"
+
+msgid "Jason Beghe"
+msgstr "Джейсон Бех"
+
+msgid "Tatsuya Fujiwara"
+msgstr "Тацуя Фудзивара"
+
+msgid "Aki Maeda"
+msgstr "Аки Маэда"
+
+msgid "Tarô Yamamoto"
+msgstr "Ямамото, Таро"
+
+msgid "Takeshi Kitano"
+msgstr "Такэси Китано"
+
+msgid "Jack Nicholson"
+msgstr "Джек Николсон"
+
+msgid "Mark Wahlberg"
+msgstr "Марк Уолберг"
+
+msgid "Ryan Stiles"
+msgstr "Райан Стайлс"
+
+msgid "Eugene Levy"
+msgstr "Юджин Леви"
+
+msgid "Boris Kodjoe"
+msgstr "Борис Коджо"
+
+msgid "Ron Perlman"
+msgstr "Рон Перлман"
+
+msgid "Stephen Campbell Moore"
+msgstr "Стивен Кэмпбелл Мур"
+
+msgid "Stephen Graham"
+msgstr "Стивен Грэм"
+
+msgid "Barry Pepper"
+msgstr "Барри Пеппер"
+
+msgid "Jon Bernthal"
+msgstr "Джон Бернтал"
+
+msgid "Susan Sarandon"
+msgstr "Сьюзан Сарандон"
+
+msgid "Iko Uwais"
+msgstr "Ико Ювайс"
+
+msgid "Joe Taslim"
+msgstr "Джо Таслим"
+
+msgid "Donny Alamsyah"
+msgstr "Донни Аламшя"
+
+msgid "Yayan Ruhian"
+msgstr "Яян Рухьян"
+
+msgid "Roger Allam"
+msgstr "Роджер Аллам"
+
+msgid "Sophie Nélisse"
+msgstr "Софи Нелисс"
+
+msgid "Heike Makatsch"
+msgstr "Хайке Макатч"
+
+msgid "Julian Lehmann"
+msgstr "Julian Lehmann"
+
+msgid "Sarah Hyland"
+msgstr "Сара Хайленд"
+
+msgid "Matt Prokop"
+msgstr "Мэтт Прокоп"
+
+msgid "Sasha Pieterse"
+msgstr "Саша Питерс"
+
+msgid "Jordan Nichols"
+msgstr "Джордан Николс"
+
+msgid "Lexi Ainsworth"
+msgstr "Лекси Эйнсуорт"
+
+msgid "Shelby Young"
+msgstr "Шелби Янг"
+
+msgid "Johnny Pacar"
+msgstr "Джонни Пакар"
+
+msgid "Emmy Rossum"
+msgstr "Россум, Эмми"
+
+msgid "Miranda Richardson"
+msgstr "Миранда Ричардсон"
+
+msgid "Emily Blunt"
+msgstr "Эмили Блант"
+
+msgid "Brendan Gleeson"
+msgstr "Брендан Глисон"
+
+msgid "Bill Paxton"
+msgstr "Билл Пэкстон"
+
+msgid "Dennis Alexio"
+msgstr "Деннис Алексио"
+
+msgid "Dennis Chan"
+msgstr "Деннис Чан"
+
+msgid "Michel Qissi"
+msgstr "Мишель Кисси"
+
+msgid "Harrison Page"
+msgstr "Харрисон Пейдж"
+
+msgid "Deborah Rennard"
+msgstr "Дебора Реннард"
+
+msgid "Lisa Pelikan"
+msgstr "Лиза Пеликан"
+
+msgid "JeeJa Yanin"
+msgstr "Яанин Висмитананда"
+
+msgid "Hiroshi Abe"
+msgstr "Абэ, Хироси"
+
+msgid "Pongpat Wachirabunjong"
+msgstr "Понгпат Вачирабунджонг"
+
+msgid "Saurabh Shukla"
+msgstr "Саурабх Шукла"
+
+msgid "Anil Kapoor"
+msgstr "Анил Капур"
+
+msgid "Raj Zutshi"
+msgstr "Рахендранат Зутши"
+
+msgid "Harrison Gilbertson"
+msgstr "Харрисон Гилбертсон"
+
+msgid "Liana Liberato"
+msgstr "Лиана Либерато"
+
+msgid "Jacki Weaver"
+msgstr "Джеки Уивер"
+
+msgid "Ione Skye"
+msgstr "Айони Скай"
+
+msgid "Kelsey Grammer"
+msgstr "Келси Грэммер"
+
+msgid "Carlos Nuñez"
+msgstr "Карлос Нунез"
+
+msgid "Christopher Smith"
+msgstr "Кристофер Смит"
+
+msgid "John Little"
+msgstr "Джон Литтл"
+
+msgid "Kike Maíllo"
+msgstr "Кике Маильо"
+
+msgid "Mike Johnson"
+msgstr "Майк Джонсон"
+
+msgid "Stéphane Rybojad"
+msgstr "Стефан Рибожад"
+
+msgid "Thorbjørn Christoffersen"
+msgstr "Торбьорн Кристофферсен"
+
+msgid "Jake Gyllenhaal"
+msgstr "Джейк Джилленхол"
+
+msgid "Gemma Arterton"
+msgstr "Джемма Артертон"
+
+msgid "Ben Kingsley"
+msgstr "Бен Кингсли"
+
+msgid "Alfred Molina"
+msgstr "Альфред Молина"
+
+msgid "Hugh Jackman"
+msgstr "Хью Джекман"
+
+msgid "Kate Beckinsale"
+msgstr "Кэйт Бекинсэйл"
+
+msgid "Richard Roxburgh"
+msgstr "Ричард Роксбург"
+
+msgid "Richard Harris"
+msgstr "Ричард Харрис"
+
+msgid "Julian Lehmann"
+msgstr "Джулиан Леманн"
+
+msgid "Stephen Dorff"
+msgstr "Стивен Дорфф"
+
+msgid "Kris Kristofferson"
+msgstr "Крис Кристофферсон"
+
+msgid "N'Bushe Wright"
+msgstr "Н'Буш Райт"
+
+msgid "Leonor Varela"
+msgstr "Леонор Варела"
+
+msgid "Dominic Purcell"
+msgstr "Доминик Перселл"
+
+msgid "Cate Blanchett"
+msgstr "Кейт Бланшетт"
+
+msgid "Julia Ormond"
+msgstr "Джулия Ормонд"
+
+msgid "Faune Chambers Watkins"
+msgstr "Фон Чэмберс-Уоткинс"
+
+msgid "David Lee Smith"
+msgstr "Дэвид Ли Смит"
+
+msgid "Tony Todd"
+msgstr "Тони Тодд"
+
+msgid "John Billingsley"
+msgstr "Джон Биллингсли"
+
+msgid "Ellen Crawford"
+msgstr "Эллен Крофорд"
+
+msgid "Ben Burtt"
+msgstr "Бен Бёртт"
+
+msgid "Elissa Knight"
+msgstr "Элисса Найт"
+
+msgid "Jeff Garlin"
+msgstr "Джефф Гарлин"
+
+msgid "Fred Willard"
+msgstr "Фред Уиллард"
+
+msgid "Charlie Hunnam"
+msgstr "Чарли Ханнэм"
+
+msgid "Marc Warren"
+msgstr "Марк Уоррен"
+
+msgid "Asa Butterfield"
+msgstr "Эйса Баттерфилд"
+
+msgid "Harrison Ford"
+msgstr "Харрисон Форд"
+
+msgid "Hailee Steinfeld"
+msgstr "Хейли Стейнфилд"
+
+msgid "Adriano Celentano"
+msgstr "Адриано Челентано"
+
+msgid "Ornella Muti"
+msgstr "Орнелла Мути"
+
+msgid "Adolfo Celi"
+msgstr "Адольфо Чели"
+
+msgid "Milla Sannoner"
+msgstr "Милла Саннонер"
+
+msgid "Danny Elfman"
+msgstr "Дэниел Роберт Эльфман"
+
+msgid "Chris Sarandon"
+msgstr "Крис Сарандон"
+
+msgid "William Hickey"
+msgstr "Уильям Хикки"
+
+msgid "Tony Chiu-Wai Leung"
+msgstr "Тони Люн Чу Вай"
+
+msgid "Emil Chau"
+msgstr "Эмиль Чжоу"
+
+msgid "DJ Qualls"
+msgstr "Дональд Джозеф Куоллс"
+
+msgid "Eliza Dushku"
+msgstr "Элайза Душку"
+
+msgid "Jerod Mixon"
+msgstr "Джерод Миксон"
+
+msgid "David Thewlis"
+msgstr "Дэвид Тьюлис"
+
+msgid "Sunil Dutt"
+msgstr "Сунил Датт"
+
+msgid "Sanjay Dutt"
+msgstr "Санджай Датт"
+
+msgid "Arshad Warsi"
+msgstr "Аршад Варси"
+
+msgid "Gracy Singh"
+msgstr "Грейси Сингх"
+
+msgid "Rick D. Wasserman"
+msgstr "Рик Д. Вассерман"
+
+msgid "Lisa Ann Beley"
+msgstr "Лиза Энн Бели"
+
+msgid "Mark Hildreth"
+msgstr "Марк Хилдрет"
+
+msgid "Liam O'Brien"
+msgstr "Лайам О’Брайэн"
+
+msgid "Tim Robbins"
+msgstr "Тим Роббинс"
+
+msgid "Bob Gunton"
+msgstr "Боб Гантон"
+
+msgid "William Sadler"
+msgstr "Уильям Сэдлер"
+
+msgid "Max Minghella"
+msgstr "Макс Мингелла"
+
+msgid "Joe Anderson"
+msgstr "Джо Андерсон"
+
+msgid "Juno Temple"
+msgstr "Джуно Темпл"
+
+msgid "Luke Evans"
+msgstr "Люк Эванс"
+
+msgid "Sarah Gadon"
+msgstr "Сара Гадон"
+
+msgid "Dominic Cooper"
+msgstr "Доминик Купер"
+
+msgid "Art Parkinson"
+msgstr "Арт Паркинсон"
+
+msgid "Dylan O'Brien"
+msgstr "Дилан О’Брайен"
+
+msgid "Aml Ameen"
+msgstr "Амл Амэн"
+
+msgid "Ki Hong Lee"
+msgstr "Ки Хон Ли"
+
+msgid "Blake Cooper"
+msgstr "Блэйк Купер"
+
+msgid "Alexis Bledel"
+msgstr "Алексис Бледел"
+
+msgid "Powers Boothe"
+msgstr "Пауэрс Бут"
+
+msgid "Mickey Rourke"
+msgstr "Микки Рурк"
+
+msgid "Neil Patrick Harris"
+msgstr "Нил Патрик Харрис"
+
+msgid "Taphon Phopwandee"
+msgstr "Тапхон Пхопванди"
+
+msgid "Tyler Perry"
+msgstr "Тайлер Перри"
+
+msgid "Ray Liotta"
+msgstr "Рэй Лиотта"
+
+msgid "Amanda Peet"
+msgstr "Аманда Пит"
+
+msgid "John Hawkes"
+msgstr "Джон Хоукс"
+
+msgid "Roy Scheider"
+msgstr "Рой Шайдер"
+
+msgid "Robert Shaw"
+msgstr "Роберт Шоу"
+
+msgid "Richard Dreyfuss"
+msgstr "Ричард Дрейфус"
+
+msgid "Lorraine Gary"
+msgstr "Лоррейн Гэри"
+
+msgid "Michael Nyqvist"
+msgstr "Микаэль Нюквист"
+
+msgid "Alfie Allen"
+msgstr "Альфи Аллен"
+
+msgid "Winona Ryder"
+msgstr "Вайнона Райдер"
+
+msgid "Clea DuVall"
+msgstr "Клеа Дювалл"
+
+msgid "Brittany Murphy"
+msgstr "Бриттани Мерфи"
+
+msgid "Mikhail Galustyan"
+msgstr "Михаил Сергеевич Галустян"
+
+msgid "Artyom Fadeev"
+msgstr "Артём Фадеев"
+
+msgid "Fedor Bondarchuk"
+msgstr "Фёдор Бондарчук"
+
+msgid "Ekaterina Klimova"
+msgstr "Екатерина Александровна Климова"
+
+msgid "Anushka Sharma"
+msgstr "Анушка Шарма"
+
+msgid "Boman Irani"
+msgstr "Боман Ирани"
+
+msgid "Alisa Freyndlikh"
+msgstr "Алиса Фрейндлих"
+
+msgid "Andrey Myagkov"
+msgstr "Андрей Васильевич Мягков"
+
+msgid "Svetlana Nemolyaeva"
+msgstr "Светлана Владимировна Немоляева"
+
+msgid "Oleg Basilashvili"
+msgstr "Олег Валерианович Басилашвили"
+
+msgid "Danielle Panabaker"
+msgstr "Даниэль Панабэйкер"
+
+msgid "Matt O'Leary"
+msgstr "Мэтью О’Лири"
+
+msgid "George Finn"
+msgstr "Джордж Финн"
+
+msgid "John Rhys-Davies"
+msgstr "Джон Рис-Дэвис"
+
+msgid "Miles Teller"
+msgstr "Майлз Теллер"
+
+msgid "J.K. Simmons"
+msgstr "Джонатан Кимбл Симмонс"
+
+msgid "Paul Reiser"
+msgstr "Пол Райзер"
+
+msgid "Melissa Benoist"
+msgstr "Мелисса Бенойст"
+
+msgid "Rachel McAdams"
+msgstr "Рэйчел Макадамс"
+
+msgid "Channing Tatum"
+msgstr "Ченнинг Татум"
+
+msgid "Jonathan Hyde"
+msgstr "Джонатан Хайд"
+
+msgid "Bradley Pierce"
+msgstr "Брэдли Пирс"
+
+msgid "Sienna Guillory"
+msgstr "Сиенна Гиллори"
+
+msgid "Eliza Bennett"
+msgstr "Элиза Беннетт"
+
+msgid "Richard Strange"
+msgstr "Ричард Стрейндж"
+
+msgid "Sean Hayes"
+msgstr "Шон Хейс"
+
+msgid "Beverly Todd"
+msgstr "Беверли Тодд"
+
+msgid "Lucas Black"
+msgstr "Лукас Блэк"
+
+msgid "Tyrese Gibson"
+msgstr "Тайриз Гибсон"
+
+msgid "Adrianne Palicki"
+msgstr "Эдрианн Палики"
+
+msgid "Lee Van Cleef"
+msgstr "Ли Ван Клиф"
+
+msgid "Gian Maria Volontè"
+msgstr "Джан Мария Волонте"
+
+msgid "Mario Brega"
+msgstr "Марио Брега"
+
+msgid "Dash Mihok"
+msgstr "Дэш Михок"
+
+msgid "Ben Foster"
+msgstr "Бен Фостер"
+
+msgid "Antje Traue"
+msgstr "Антье Трауэ"
+
+msgid "Paul Walker"
+msgstr "Пол Уокер"
+
+msgid "Michelle Rodriguez"
+msgstr "Мишель Родригес"
+
+msgid "Jordana Brewster"
+msgstr "Джордана Брюстер"
+
+msgid "Eva Mendes"
+msgstr "Ева Мендес"
+
+msgid "Damien Marzette"
+msgstr "Дэмиен Марцетт"
+
+msgid "Trula M. Marcus"
+msgstr "Трула М. Маркус"
+
+msgid "Zachery Ty Bryan"
+msgstr "Закери Тай Брайан"
+
+msgid "Heath Ledger"
+msgstr "Хит Леджер"
+
+msgid "Rufus Sewell"
+msgstr "Руфус Сьюэлл"
+
+msgid "Shannyn Sossamon"
+msgstr "Шэннин Соссамон"
+
+msgid "Marilyn Monroe"
+msgstr "Мэрилин Монро"
+
+msgid "Tony Curtis"
+msgstr "Тони Кёртис"
+
+msgid "Jack Lemmon"
+msgstr "Джек Леммон"
+
+msgid "George Raft"
+msgstr "Джордж Рафт"
+
+msgid "Helen Hunt"
+msgstr "Хелен Хант"
+
+msgid "Marisa Tomei"
+msgstr "Мариса Томей"
+
+msgid "Alan Alda"
+msgstr "Алан Алда"
+
+msgid "Hugh Keays-Byrne"
+msgstr "Хью Кияс-Бёрн"
+
+msgid "Nicoletta Braschi"
+msgstr "Николетта Браски"
+
+msgid "Giorgio Cantarini"
+msgstr "Джорджио Кантарини"
+
+msgid "Giustino Durano"
+msgstr "Джустино Дурано"
+
+msgid "Erin Bethea"
+msgstr "Эрин Бетея"
+
+msgid "Bailey Cave"
+msgstr "Бейли Кейв"
+
+msgid "Shannen Fields"
+msgstr "Шеннен Филдс"
+
+msgid "Christian Bale"
+msgstr "Кристиан Бэйл"
+
+msgid "Sean Bean"
+msgstr "Шон Бин"
+
+msgid "Christian Kahrmann"
+msgstr "Кристиан Карманн"
+
+msgid "Elisha Cuthbert"
+msgstr "Элиша Катберт"
+
+msgid "Timothy Olyphant"
+msgstr "Тимоти Олифант"
+
+msgid "Gregor Fisher"
+msgstr "Грегор Фишер"
+
+msgid "Rory MacGregor"
+msgstr "Рори Макгрегор"
+
+msgid "Colin Firth"
+msgstr "Колин Ферт"
+
+msgid "Eva Green"
+msgstr "Ева Грин"
+
+msgid "Jessica Chastain"
+msgstr "Джессика Честейн"
+
+msgid "Kristen Wiig"
+msgstr "Кристен Уиг"
+
+msgid "Jeff Daniels"
+msgstr "Джефф Дэниэлс"
+
+msgid "Daveigh Chase"
+msgstr "Дэйви Чейз"
+
+msgid "Tia Carrere"
+msgstr "Тиа Каррере"
+
+msgid "David Ogden Stiers"
+msgstr "Дэвид Огден Стайерз"
+
+msgid "Forest Whitaker"
+msgstr "Форест Уитакер"
+
+msgid "Oona Laurence"
+msgstr "Уна Лоуренс"
+
+msgid "Richard Gere"
+msgstr "Ричард Гир"
+
+msgid "Ralph Bellamy"
+msgstr "Ральф Беллами"
+
+msgid "Jason Alexander"
+msgstr "Джейсон Александер"
+
+msgid "Tom Sizemore"
+msgstr "Том Сайзмор"
+
+msgid "Edward Burns"
+msgstr "Эдвард Фицджеральд Бёрнс"
+
+msgid "Gemma Jones"
+msgstr "Джемма Джонс"
+
+msgid "Celia Imrie"
+msgstr "Селия Имри"
+
+msgid "James Faulkner"
+msgstr "Джеймс Фолкнер"
+
+msgid "Domhnall Gleeson"
+msgstr "Донал Глисон"
+
+msgid "Alicia Vikander"
+msgstr "Алисия Викандер"
+
+msgid "Oscar Isaac"
+msgstr "Оскар Айзек"
+
+msgid "Sonoya Mizuno"
+msgstr "Соноя Мидзуно"
+
+msgid "Aleksandr Peskov"
+msgstr "Александр Васильевич Песков"
+
+msgid "Craig Bierko"
+msgstr "Крэйг Бирко"
+
+msgid "Armin Mueller-Stahl"
+msgstr "Армин Мюллер-Шталь"
+
+msgid "Gretchen Mol"
+msgstr "Гретхен Мол"
+
+msgid "Vincent D'Onofrio"
+msgstr "Винсент Д’Онофрио"
+
+msgid "Keira Knightley"
+msgstr "Кира Найтли"
+
+msgid "Jennifer Jason Leigh"
+msgstr "Дженнифер Джейсон Ли"
+
+msgid "Karan Soni"
+msgstr "Каран Сони"
+
+msgid "Ed Skrein"
+msgstr "Эд Скрейн"
+
+msgid "Michael Benyaer"
+msgstr "Майкл Бенэйр"
+
+msgid "Jodelle Ferland"
+msgstr "Джодель Ферланд"
+
+msgid "Ian McShane"
+msgstr "Иэн МакШейн"
+
+msgid "Geoffrey Rush"
+msgstr "Джеффри Раш"
+
+msgid "Orlando Bloom"
+msgstr "Орландо Блум"
+
+msgid "Jack Davenport"
+msgstr "Джек Дэвенпорт"
+
+msgid "Armin Rohde"
+msgstr "Армин Роде"
+
+msgid "Jemima Rooper"
+msgstr "Джемайма Рупер"
+
+msgid "David Oyelowo"
+msgstr "Дэвид Ойелоуо"
+
+msgid "Sylvester Stallone"
+msgstr "Сильвестр Сталлоне"
+
+msgid "Arnold Schwarzenegger"
+msgstr "Арнольд Шварценеггер"
+
+msgid "Faran Tahir"
+msgstr "Фаран Таир"
+
+msgid "Lance Henriksen"
+msgstr "Лэнс Хенриксен"
+
+msgid "Jeff Goldblum"
+msgstr "Джефф Голдблюм"
+
+msgid "Morris Chestnut"
+msgstr "Моррис Честнат"
+
+msgid "Michael Eklund"
+msgstr "Майкл Эклунд"
+
+msgid "Adar Beck"
+msgstr "Адар Бек"
+
+msgid "Gemma Chan"
+msgstr "Джемма Чан"
+
+msgid "Nathalie Cox"
+msgstr "Натали Кокс"
+
+msgid "John Lloyd Fillingham"
+msgstr "Джон Ллойд Филлингем"
+
+msgid "Jared Padalecki"
+msgstr "Джаред Падалеки"
+
+msgid "Amanda Righetti"
+msgstr "Аманда Ригетти"
+
+msgid "Travis Van Winkle"
+msgstr "Тревис Ван Винкл"
+
+msgid "Yuliya Peresild"
+msgstr "Юлия Сергеевна Пересильд"
+
+msgid "Evgeniy Tsyganov"
+msgstr "Евгений Эдуардович Цыганов"
+
+msgid "Joan Blackham"
+msgstr "Джоан Блэкхем"
+
+msgid "Anatoliy Kot"
+msgstr "Анатолий Леонидович Кот"
+
+msgid "Felicity Jones"
+msgstr "Фелисити Джонс"
+
+msgid "Irrfan Khan"
+msgstr "Ирфан Хан"
+
+msgid "John C. Reilly"
+msgstr "Джон Кристофер Рейли"
+
+msgid "Michael Douglas"
+msgstr "Майкл Дуглас"
+
+msgid "Corey Stoll"
+msgstr "Кори Столл"
+
+msgid "Dylan Minnette"
+msgstr "Дилан Миннетт"
+
+msgid "Ryan Lee"
+msgstr "Райан Ли"
+
+msgid "Lynn Adrianna"
+msgstr "Линн А. Фридман"
+
+msgid "Lisa Renee Pitts"
+msgstr "Лиза Рени Питтс"
+
+msgid "Benedict Cumberbatch"
+msgstr "Бенедикт Камбербэтч"
+
+msgid "Chiwetel Ejiofor"
+msgstr "Чиветел Эджиофор"
+
+msgid "Benedict Wong"
+msgstr "Бенедикт Вонг"
+
+msgid "Julia Stiles"
+msgstr "Джулия Стайлз"
+
+msgid "Scott Glenn"
+msgstr "Скотт Гленн"
+
+msgid "Trini Alvarado"
+msgstr "Трини Альварадо"
+
+msgid "Peter Dobson"
+msgstr "Питер Добсон"
+
+msgid "John Astin"
+msgstr "Джон Эстин"
+
+msgid "Hugh Laurie"
+msgstr "Хью Лори"
+
+msgid "Mark Addy"
+msgstr "Марк Эдди"
+
+msgid "Phyllida Law"
+msgstr "Филлида Ло"
+
+msgid "Thomas Jane"
+msgstr "Томас Джейн"
+
+msgid "Laurie Holden"
+msgstr "Лори Холден"
+
+msgid "Michael Sheen"
+msgstr "Майкл Шин"
+
+msgid "Laurence Fishburne"
+msgstr "Лоуренс Фишборн"
+
+msgid "Brie Larson"
+msgstr "Бри Ларсон"
+
+msgid "Aaron Eckhart"
+msgstr "Аарон Экхарт"
+
+msgid "Andrew Kevin Walker"
+msgstr "Эндрю Кевин Уокер"
+
+msgid "Daniel Zacapa"
+msgstr "Даниэль Сакапа"
+
+msgid "Luke de Lacey"
+msgstr "Люк Де Лейси"
+
+msgid "Phillipa Peak"
+msgstr "Филлипа Пик"
+
+msgid "Karl Glenn Stimpson"
+msgstr "Карл Гленн Стимпсон"
+
+msgid "Michelle Coverley"
+msgstr "Мишел Коверли"
+
+msgid "Chandler Canterbury"
+msgstr "Чандлер Кентербери"
+
+msgid "Lara Robinson"
+msgstr "Лара Робинсон"
+
+msgid "Zoe Saldana"
+msgstr "Зои Салдана"
+
+msgid "Dave Bautista"
+msgstr "Дэйв Батиста"
+
+msgid "Katherine Waterston"
+msgstr "Кэтрин Уотерстон"
+
+msgid "Danny McBride"
+msgstr "Дэнни Макбрайд"
+
+msgid "Alec Baldwin"
+msgstr "Алек Болдуин"
+
+msgid "Steve Buscemi"
+msgstr "Стив Бушеми"
+
+msgid "Jimmy Kimmel"
+msgstr "Джимми Киммел"
+
+msgid "Lisa Kudrow"
+msgstr "Лиза Кудроу"
+
+msgid "Christoph Waltz"
+msgstr "Кристоф Вальц"
+
+msgid "Kerry Washington"
+msgstr "Керри Вашингтон"
+
+msgid "Vera Alentova"
+msgstr "Вера Валентиновна Алентова"
+
+msgid "Aleksey Batalov"
+msgstr "Алексей Баталов"
+
+msgid "Irina Muravyova"
+msgstr "Ирина Вадимовна Муравьёва"
+
+msgid "Raisa Ryazanova"
+msgstr "Раиса Ивановна Рязанова"
+
+msgid "Sammi Davis"
+msgstr "Сэмми Дэвис"
+
+msgid "Amanda De Cadenet"
+msgstr "Аманда Де Кадене"
+
+msgid "Valeria Golino"
+msgstr "Валерия Голино"
+
+msgid "Madonna"
+msgstr "Мадонна"
+
+msgid "Andrew Garfield"
+msgstr "Эндрю Гарфилд"
+
+msgid "Richard Pyros"
+msgstr "Ричард Пайрос"
+
+msgid "Milo Gibson"
+msgstr "Майло Гибсон"
+
+msgid "Jodie Foster"
+msgstr "Джоди Фостер"
+
+msgid "Graham Greene"
+msgstr "Грэм Грин"
+
+msgid "Gary Sinise"
+msgstr "Гэри Синиз"
+
+msgid "Madeleine Stowe"
+msgstr "Мэделин Стоу"
+
+msgid "Tony Shalhoub"
+msgstr "Тони Шалуб"
+
+msgid "Paul Giamatti"
+msgstr "Пол Джаматти"
+
+msgid "Amy Adams"
+msgstr "Эми Адамс"
+
+msgid "Michael Stuhlbarg"
+msgstr "Майкл Сталберг"
+
+msgid "Will Arnett"
+msgstr "Уилл Арнетт"
+
+msgid "Stephen Amell"
+msgstr "Стивен Амелл"
+
+msgid "Dafne Keen"
+msgstr "Дафни Кин"
+
+msgid "Boyd Holbrook"
+msgstr "Бойд Холбрук"
+
+msgid "Mary Elizabeth Winstead"
+msgstr "Мэри Элизабет Уинстэд"
+
+msgid "John Gallagher Jr."
+msgstr "Джон Галлахер"
+
+msgid "Douglas M. Griffin"
+msgstr "Дуглас М. Гриффин"
+
+msgid "Natalie Martinez"
+msgstr "Натали Мартинес"
+
+msgid "Matthew Goode"
+msgstr "Мэттью Гуд"
+
+msgid "Sharlto Copley"
+msgstr "Шарлто Копли"
+
+msgid "Ninja"
+msgstr "Ниндзя"
+
+msgid "Yo-Landi Visser"
+msgstr "Йоланди Фиссер"
+
+msgid "Penelope Ann Miller"
+msgstr "Пенелопа Энн Миллер"
+
+msgid "Pamela Reed"
+msgstr "Памела Рид"
+
+msgid "Linda Hunt"
+msgstr "Линда Хант"
+
+msgid "Damaine Radcliff"
+msgstr "Дамейн Рэдклифф"
+
+msgid "De'Shawn Washington"
+msgstr "Ди’Шон Вашингтон"
+
+msgid "Melissa George"
+msgstr "Мелисса Джордж"
+
+msgid "Joshua McIvor"
+msgstr "Джошуа Макивор"
+
+msgid "Jack Taylor"
+msgstr "Джек Тейлор"
+
+msgid "Michael Dorman"
+msgstr "Майкл Дорман"
+
+msgid "Jaeden Lieberher"
+msgstr "Джейден Либерер"
+
+msgid "Jeremy Ray Taylor"
+msgstr "Джереми Рэй Тейлор"
+
+msgid "Sophia Lillis"
+msgstr "София Лиллис"
+
+msgid "Finn Wolfhard"
+msgstr "Финн Вулфард"
+
+msgid "Anne Heche"
+msgstr "Энн Хеч"
+
+msgid "David Schwimmer"
+msgstr "Дэвид Швиммер"
+
+msgid "Jacqueline Obradors"
+msgstr "Жаклин Обрадорс"
+
+msgid "Zoey Deutch"
+msgstr "Зои Дойч"
+
+msgid "Halston Sage"
+msgstr "Хелстон Сейдж"
+
+msgid "Logan Miller"
+msgstr "Логан Миллер"
+
+msgid "Kian Lawley"
+msgstr "Киан Лоули"
+
+msgid "Sylvia Hoeks"
+msgstr "Сильвия Хукс"
+
+msgid "Donald Sutherland"
+msgstr "Дональд Сазерленд"
+
+msgid "Ekaterina Guseva"
+msgstr "Екатерина Константиновна Гусева"
+
+msgid "Olga Ostroumova"
+msgstr "Ольга Михайловна Остроумова"
+
+msgid "Evgeniy Mironov"
+msgstr "Евгений Витальевич Миронов"
+
+msgid "Sergey Makhovikov"
+msgstr "Сергей Анатольевич Маховиков"
+
+msgid "Macaulay Culkin"
+msgstr "Маколей Калкин"
+
+msgid "Wendy Crewson"
+msgstr "Венди Крюсон"
+
+msgid "Shailene Woodley"
+msgstr "Шейлин Вудли"
+
+msgid "Theo James"
+msgstr "Тео Джеймс"
+
+msgid "Jai Courtney"
+msgstr "Джей Кортни"
+
+msgid "Michael Papajohn"
+msgstr "Майкл Пападжон"
+
+msgid "Marco Rodríguez"
+msgstr "Марко Родригес"
+
+msgid "Virginia Madsen"
+msgstr "Вирджиния Мэдсен"
+
+msgid "Logan Lerman"
+msgstr "Логан Лерман"
+
+msgid "Robert Downey Jr."
+msgstr "Роберт Дауни — младший"
+
+msgid "Billy Bob Thornton"
+msgstr "Билли Боб Торнтон"
+
+msgid "Tyler Labine"
+msgstr "Тайлер Лэбин"
+
+msgid "Alan Tudyk"
+msgstr "Алан Тудик"
+
+msgid "Katrina Bowden"
+msgstr "Катрина Боуден"
+
+msgid "Jesse Moss"
+msgstr "Джесси Мосс"
+
+msgid "Tangie Ambrose"
+msgstr "Танги Амброз"
+
+msgid "Cedric the Entertainer"
+msgstr "Седрик «Развлекатель»"
+
+msgid "Zac Mattoon O'Brien"
+msgstr "Зак Маттун О’Брайэн"
+
+msgid "Domonkos Németh"
+msgstr "Домонкос Немит"
+
+msgid "Jeremy Ray Taylor"
+msgstr "Джереми Рэй Тейлор"
+
+msgid "Henry Kingsmill"
+msgstr "Генри Кингсмилл"
+
+msgid "Casper Van Dien"
+msgstr "Каспер Ван Дин"
+
+msgid "Dina Meyer"
+msgstr "Дина Мейер"
+
+msgid "Denise Richards"
+msgstr "Дениз Ричардс"
+
+msgid "Jake Busey"
+msgstr "Джейк Бьюзи"
+
+msgid "Xiaogang Feng"
+msgstr "Фэн Сяоган"
+
+msgid "Wah Yuen"
+msgstr "Юэнь Ва"
+
+msgid "Zhihua Dong"
+msgstr "Жи Хуа Донг"
+
+msgid "Elisabeth Harnois"
+msgstr "Элизабет Арнуа"
+
+msgid "Jensen Ackles"
+msgstr "Дженсен Эклс"
+
+msgid "Rory Kinnear"
+msgstr "Рори Киннир"
+
+msgid "Stellan Skarsgård"
+msgstr "Стеллан Скарсгорд"
+
+msgid "John Mighton"
+msgstr "Джон Майтон"
+
+msgid "Anthony Gonzalez"
+msgstr "Энтони Гонсалес"
+
+msgid "Gael García Bernal"
+msgstr "Гаэль Гарсиа Берналь"
+
+msgid "Benjamin Bratt"
+msgstr "Бенджамин Брэтт"
+
+msgid "Alanna Ubach"
+msgstr "Аланна Убах"
+
+msgid "Matthias Schoenaerts"
+msgstr "Маттиас Шонартс"
+
+msgid "Charlotte Rampling"
+msgstr "Шарлотта Рэмплинг"
+
+msgid "Jacob Tremblay"
+msgstr "Джейкоб Трамбле"
+
+msgid "Izabela Vidovic"
+msgstr "Изабела Видович"
+
+msgid "Albert Asadullin"
+msgstr "Альберт Нуруллович Асадуллин"
+
+msgid "Elena Shulman"
+msgstr "Елена Анатольевна Шульман"
+
+msgid "Yevgeniya Igumnova"
+msgstr "Евгения Викторовна Игумнова"
+
+msgid "Natalya Danilova"
+msgstr "Наталья Юрьевна Данилова"
+
+msgid "Hilary Swank"
+msgstr "Хилари Суонк"
+
+msgid "Eion Bailey"
+msgstr "Эйон Бэйли"
+
+msgid "Will Kemp"
+msgstr "Уилл Кемп"
+
+msgid "Chloë Grace Moretz"
+msgstr "Хлоя Грейс Морец"
+
+msgid "Mireille Enos"
+msgstr "Мирей Инос"
+
+msgid "Jamie Blackley"
+msgstr "Джейми Блэкли"
+
+msgid "Joshua Leonard"
+msgstr "Джошуа Леонард"
+
+msgid "Jude Law"
+msgstr "Джуд Лоу"
+
+msgid "Steve Valentine"
+msgstr "Стив Валентайн"
+
+msgid "Daryl Sabara"
+msgstr "Дэрил Сабара"
+
+msgid "Sage Ryan"
+msgstr "Сейдж Райан"
+
+msgid "Jack Gore"
+msgstr "Джек Гор"
+
+msgid "Jet Jurgensmeyer"
+msgstr "Джет Юргенсмейер"
+
+msgid "Nile Diaz"
+msgstr "Найл Диас"
+
+msgid "Colin H. Murphy"
+msgstr "Колин Х. Мерфи"
+
+msgid "Amanda Crew"
+msgstr "Аманда Крю"
+
+msgid "Augustus Prew"
+msgstr "Август Прю"
+
+msgid "Franka Potente"
+msgstr "Франка Потенте"
+
+msgid "Rachel Griffiths"
+msgstr "Рэйчел Гриффитс"
+
+msgid "Andy Samberg"
+msgstr "Энди Сэмберг"
+
+msgid "Selena Gomez"
+msgstr "Селена Гомес"
+
+msgid "Kevin James"
+msgstr "Кевин Джеймс"
+
+msgid "Valerio Mastandrea"
+msgstr "Валерио Мастандреа"
+
+msgid "Marco Giallini"
+msgstr "Марко Джаллини"
+
+msgid "Alessandro Borghi"
+msgstr "Алессандро Борги"
+
+msgid "Silvio Muccino"
+msgstr "Сильвио Муччино"
+
+msgid "Taraji P. Henson"
+msgstr "Тараджи Хенсон"
+
+msgid "Wenwen Han"
+msgstr "Венвен Хань"
+
+msgid "Sam Worthington"
+msgstr "Сэм Уортингтон"
+
+msgid "Sigourney Weaver"
+msgstr "Сигурни Уивер"
+
+msgid "Stephen Lang"
+msgstr "Стивен Лэнг"
+
+msgid "Kevin Hart"
+msgstr "Кевин Харт"
+
+msgid "Karen Gillan"
+msgstr "Карен Гиллан"
+
+msgid "Paapa Essiedu"
+msgstr "Паапа Эссьеду"
+
+msgid "Yassine Zeroual"
+msgstr "Яссин Зеруаль"
+
+msgid "Asan N'Jie"
+msgstr "Асан Н'Джи"
+
+msgid "Michael Rouse"
+msgstr "Майкл Рус"
+
+msgid "Hayley Atwell"
+msgstr "Хейли Этвелл"
+
+msgid "Tommy Lee Jones"
+msgstr "Томми Ли Джонс"
+
+msgid "Scarlett Johansson"
+msgstr "Скарлетт Йоханссон"
+
+msgid "Robert Redford"
+msgstr "Роберт Редфорд"
+
+msgid "Idris Elba"
+msgstr "Идрис Эльба"
+
+msgid "Craig T. Nelson"
+msgstr "Крэйг Нельсон"
+
+msgid "Holly Hunter"
+msgstr "Холли Хантер"
+
+msgid "Jason Lee"
+msgstr "Джейсон Майкл Ли"
+
+msgid "Morena Baccarin"
+msgstr "Морена Баккарин"
+
+msgid "Julian Dennison"
+msgstr "Джулиан Деннисон"
+
+msgid "Zachary Quinto"
+msgstr "Закари Куинто"
+
+msgid "Leonard Nimoy"
+msgstr "Леонард Нимой"
+
+msgid "Eric Bana"
+msgstr "Эрик Бана"
+
+msgid "Mckenna Grace"
+msgstr "МакКенна Грейс"
+
+msgid "Lindsay Duncan"
+msgstr "Линдси Дункан"
+
+msgid "Frances McDormand"
+msgstr "Фрэнсис Макдормэнд"
+
+msgid "Maleah Nipay-Padilla"
+msgstr "Малиа Нипай-Падилья"
+
+msgid "Ryan Teeple"
+msgstr "Райан Типл"
+
+msgid "Louis C.K."
+msgstr "Луи Си Кей"
+
+msgid "Eric Stonestreet"
+msgstr "Эрик Стоунстрит"
+
+msgid "Jenny Slate"
+msgstr "Дженни Слейт"
+
+msgid "Mario Casas"
+msgstr "Марио Касас"
+
+msgid "Ana Wagener"
+msgstr "Ана Вахенер"
+
+msgid "José Coronado"
+msgstr "Хосе Коронадо"
+
+msgid "Bárbara Lennie"
+msgstr "Барбара Ленни"
+
+msgid "Zachary Levi"
+msgstr "Закари Ливай"
+
+msgid "Donna Murphy"
+msgstr "Донна Мерфи"
+
+msgid "Roberto Attias"
+msgstr "Роберто Эттиэс"
+
+msgid "Nelly"
+msgstr "Нелли"
+
+msgid "Richard Macklin"
+msgstr "Ричард Маклин"
+
+msgid "DMX"
+msgstr "DMХ"
+
+msgid "Li Sun"
+msgstr "Сунь Ли"
+
+msgid "Yong Dong"
+msgstr "Юн Дун"
+
+msgid "Yun Qu"
+msgstr "Юн Ку"
+
+msgid "Mauricio Lopez"
+msgstr "Маурицио Лопез"
+
+msgid "Sun-Man Bae"
+msgstr "Сун-Ман Бай"
+
+msgid "Shea Adams"
+msgstr "Ши Адамс"
+
+msgid "Jeremy Owen"
+msgstr "Джереми Оуэн"
+
+msgid "Rebecca Williams"
+msgstr "Ребекка Уильямс"
+
+msgid "Robin Howard"
+msgstr "Робин Куиверс"
+
+msgid "Nick Prideaux"
+msgstr "Ник Придо"
+
+msgid "50 Cent"
+msgstr "Фифти Сент"
+
+msgid "Lærke Winther"
+msgstr "Лерке Винтер Андерсен"
+
+msgid "Keith Anthony"
+msgstr "Кит Энтони"
+
+msgid "Kaiming Chen"
+msgstr "Каймин Чен"
+
+msgid "Wing Cho"
+msgstr "Уинг Чо"
+
+msgid "Darrick Akey"
+msgstr "Дерек Экей"
+
+msgid "Mark Walton"
+msgstr "Марк Уолтон"
+
+msgid "Constance Jones"
+msgstr "Констанс Джонс"
+
+msgid "George Lee"
+msgstr "Джордж Ли"
+
+msgid "Bridget Brown"
+msgstr "Бриджет Браун"
+
+msgid "Catherine An"
+msgstr "Кэтрин Эн"
+
+msgid "Bin Li"
+msgstr "Бин Ли"
+
+msgid "Bin Wu"
+msgstr "Бин Ву"
+
+msgid "Lisa Adam"
+msgstr "Лиза Адам"
+
+msgid "Robert Apel"
+msgstr "Роберт Эпел"
+
+msgid "Richard Marcus"
+msgstr "Ричард Маркус"
+
+msgid "James Blackwell"
+msgstr "Джеймс Блэкуэлл"
+
+msgid "Oleg Rogachyov"
+msgstr "Олег Рогачёв"
+
+msgid "Anna Unigorskaya"
+msgstr "Анна Унигорская"
+
+msgid "Gabe Gomez"
+msgstr "Гейб Гомез"
+
+msgid "Jacob Warner"
+msgstr "Джейкоб Уорнер"
