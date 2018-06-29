@@ -16,7 +16,7 @@
   Drupal.behaviors.imdbGetStringButtonFocus = {
     attach: function (context) {
       $('#imdb-id').on('paste', function () {
-        $('input[name="prepare_string"]').mousedown();
+        $('input[name="prepare_string"], button[name="prepare_string"]').mousedown();
       })
     }
   };
