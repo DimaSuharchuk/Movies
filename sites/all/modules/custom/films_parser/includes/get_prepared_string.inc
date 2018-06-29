@@ -60,7 +60,6 @@ function films_parser_get_prepared_string_ajax_callback($form, $form_state) {
         '#prefix' => '<span class="element-hidden copied">',
         '#suffix' => '</span>',
       ];
-      drupal_add_js(FILMS_PARSER_MODULE_PATH . '/js/copy_text.js');
 
       return '<div id="prepared-string">' . drupal_render($elements) . '</div>';
     }

@@ -12,4 +12,12 @@
       });
     }
   };
+
+  Drupal.behaviors.imdbGetStringButtonFocus = {
+    attach: function (context) {
+      $('#imdb-id').on('paste', function () {
+        $('input[name="prepare_string"]').mousedown();
+      })
+    }
+  };
 })(jQuery);

@@ -61,6 +61,10 @@ function films_parser_permission() {
       'title' => t('Add translations'),
       'description' => t('Access to add translations for films.'),
     ],
+    'translate persons' => [
+      'title' => t('Translate persons'),
+      'description' => t('Access to fetch translations for persons.'),
+    ],
   ];
 }
 
@@ -86,6 +90,8 @@ function films_parser_admin_settings() {
  * Film parser batch form.
  */
 function films_parser_form($form, &$form_state) {
+  drupal_add_library('system', 'drupal.collapse');
+
   $form['fetch_films'] = [
     '#type' => 'fieldset',
     '#title' => t('Fetch new films'),
@@ -102,6 +108,8 @@ function films_parser_form($form, &$form_state) {
     '#name' => 'fetch_films',
   ];
 
+  // Add js for better work with "get eng string" functionality.
+  drupal_add_js(FILMS_PARSER_MODULE_PATH . '/js/copy_text.js');
   $form['get_name_year'] = [
     '#type' => 'fieldset',
     '#title' => t('Get string for search in internet'),
@@ -119,6 +127,7 @@ function films_parser_form($form, &$form_state) {
     '#description' => t('Paste IMDB ID to prepare string for search in internet.'),
     '#attributes' => [
       'autocomplete' => 'off',
+      'id' => 'imdb-id',
     ],
   ];
   $form['get_name_year']['button'] = [
@@ -141,6 +150,12 @@ function films_parser_form($form, &$form_state) {
     '#type' => 'fieldset',
     '#title' => t('Add translations'),
     '#access' => user_access('add translations'),
+    '#attributes' => [
+      'class' => [
+        'collapsible',
+        'collapsed',
+      ],
+    ],
   ];
   $form['add_translations']['csv'] = [
     '#type' => "managed_file",
@@ -177,6 +192,7 @@ function films_parser_form($form, &$form_state) {
   $form['translate_persons'] = [
     '#type' => 'fieldset',
     '#title' => t('Translate persons'),
+    '#access' => user_access('translate persons'),
   ];
   $form['translate_persons']['info_en'] = [
     '#type' => 'item',
