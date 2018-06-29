@@ -102,12 +102,17 @@ function movies_field__taxonomy_term_reference($variables) {
   // Render the items.
   $output .= ($variables['element']['#label_display'] == 'inline') ? '<ul class="links inline">' : '<ul class="links">';
   foreach ($variables['items'] as $delta => $item) {
-    $output .= '<li class="taxonomy-term-reference-' . $delta . '"' . $variables['item_attributes'][$delta] . '>' . t(drupal_render($item)) . '</li>';
+    // Decode quotes from html entity to symbol.
+    $item = html_entity_decode($item['#markup'], ENT_QUOTES);
+
+    $output .= "<li class='taxonomy-term-reference-{$delta}' {$variables['item_attributes'][$delta]}>";
+    $output .= t($item);
+    $output .= '</li>';
   }
   $output .= '</ul>';
 
   // Render the top-level DIV.
-  $output = '<div class="' . $variables['classes'] . (!in_array('clearfix', $variables['classes_array']) ? ' clearfix' : '') . '">' . t($output) . '</div>';
+  $output = '<div class="' . $variables['classes'] . (!in_array('clearfix', $variables['classes_array']) ? ' clearfix' : '') . '">' . $output . '</div>';
 
   return $output;
 }
