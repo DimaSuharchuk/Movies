@@ -20,9 +20,21 @@ function films_parser_add_translated_films($form, &$form_state) {
         drupal_set_message(t('"@id" has wrong string.', ['@id' => $imdb_id]), 'warning');
         continue;
       }
+
+      // Prepare string.
+      $patterns = [
+        '/([.,»:?!—)])([^ .])/ui',
+        '/…/',
+      ];
+      $replacements = [
+        '\1 \2',
+        '...',
+      ];
+
+      // Build finished array of movies translations from file.
       $translations_from_file[trim($imdb_id)] = [
         'title' => trim($title),
-        'description' => trim($description),
+        'description' => trim(preg_replace($patterns, $replacements, $description)),
       ];
     }
   }
