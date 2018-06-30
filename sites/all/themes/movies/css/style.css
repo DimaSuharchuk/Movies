@@ -107,27 +107,57 @@ section .block-locale-language {
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
-  height: calc(100vh - 45px);
+  height: calc(100vh - 145px);
+}
+@supports (display: grid) {
+  .view-cs-views-search .view-content {
+    height: calc(100vh - 45px);
+  }
 }
 .view-cs-views-search .view-content #films-outer-wrapper {
   width: 100%;
-  display: grid;
-  justify-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
+}
+@supports (display: grid) {
+  .view-cs-views-search .view-content #films-outer-wrapper {
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
 }
 .view-cs-views-search .view-content .nano-content {
   border-left: 1px solid rgba(255, 255, 255, .1);
 }
 .view-cs-views-search .view-content #films-inner-wrapper {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  grid-gap: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   padding: 0 30px;
+}
+@supports (display: grid) {
+  .view-cs-views-search .view-content #films-inner-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-gap: 1em;
+    padding: 0 30px;
+  }
 }
 .view-cs-views-search .view-content .nano-content .row {
   margin: 0;
+}
+.view-cs-views-search .view-content .nano-content .views-field-rendered-entity {
+  margin-bottom: 30px;
+}
+@supports (display:grid) {
+  .view-cs-views-search .view-content .nano-content .views-field-rendered-entity {
+    margin-bottom: 0;
+  }
 }
 .node-teaser {
   position: relative;
@@ -176,20 +206,6 @@ section .block-locale-language {
 .views-submit-button {
   clear: both;
 }
-@media screen and (max-width: 972px) {
-  .view-cs-views-search .view-content .nano-content .views-field-rendered-entity {
-    display: grid;
-    justify-content: center;
-  }
-}
-@media screen and (max-width: 430px) {
-  .view-cs-views-search .view-content {
-    padding: 0;
-  }
-  .view-cs-views-search .view-content #films-inner-wrapper {
-    padding: 0;
-  }
-}
 /* Pager. */
 .view-cs-views-search .view-content .pager li:not(.current) a:hover {
   color: black;
@@ -233,34 +249,6 @@ section .block-locale-language {
   transform: scale(1.05, 1.05);
   transition-duration: .3s;
 }
-@media screen and (min-width: 642px) {
-  .filters-collapsed-button {
-    display: none;
-  }
-}
-@media (max-width: 641px) {
-  .view-cs-views-search .view-content .nano-content {
-    border: none;
-  }
-  .block-views-exp-cs-views-search-page {
-    display: none;
-  }
-  .view-cs-views-search .view-content {
-    height: calc(100vh - 130px);
-  }
-}
-@media (max-width: 500px) {
-  #modalContent {
-    top: -3px !important;
-    left: -3px !important;
-  }
-  div.ctools-modal-content {
-    width: calc(100% - 2px) !important;
-  }
-  #modal-content {
-    width: 100% !important;
-  }
-}
 /* Pagination. */
 .pagination-centered {
   margin-top: 20px;
@@ -293,4 +281,56 @@ div.ctools-modal-content .modal-content {
 }
 .popup-film-title {
   width: 85%;
+}
+/**
+* @media
+*/
+@media screen and (max-width: 972px) {
+  @supports (display: grid) {
+    .view-cs-views-search .view-content .nano-content .views-field-rendered-entity {
+      display: grid;
+      justify-content: center;
+    }
+  }
+}
+@media screen and (min-width: 642px) {
+  .filters-collapsed-button {
+    display: none;
+  }
+}
+@media (max-width: 641px) {
+  .view-cs-views-search .view-content .nano-content {
+    border: none;
+  }
+  .block-views-exp-cs-views-search-page {
+    display: none;
+  }
+  .view-cs-views-search .view-content {
+    height: calc(100vh - 270px);
+  }
+  @supports (display:grid) {
+    .view-cs-views-search .view-content {
+      height: calc(100vh - 150px);
+    }
+  }
+}
+@media (max-width: 500px) {
+  #modalContent {
+    top: -3px !important;
+    left: -3px !important;
+  }
+  div.ctools-modal-content {
+    width: calc(100% - 2px) !important;
+  }
+  #modal-content {
+    width: 100% !important;
+  }
+}
+@media screen and (max-width: 430px) {
+  .view-cs-views-search .view-content {
+    padding: 0;
+  }
+  .view-cs-views-search .view-content #films-inner-wrapper {
+    padding: 0;
+  }
 }
