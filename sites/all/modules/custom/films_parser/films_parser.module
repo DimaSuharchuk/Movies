@@ -214,7 +214,7 @@ function films_parser_form($form, &$form_state) {
     '#submit' => ['films_parser_translate_persons'],
     '#name' => 'translate_persons',
   ];
-  if (!$directors['translated_count'] + $actors['translated_count']) {
+  if (!($directors['translated_count'] + $actors['translated_count'])) {
     $form['translate_persons']['translate_button']['#disabled'] = TRUE;
   }
 
