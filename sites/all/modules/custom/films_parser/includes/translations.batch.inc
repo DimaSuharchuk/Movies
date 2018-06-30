@@ -14,7 +14,11 @@ function films_parser_add_translated_films($form, &$form_state) {
 
   $translations_from_file = [];
   foreach ($csv_strings as $string) {
-    @list($imdb_id, $title, $description) = str_getcsv($string);
+    @list($imdb_id, $title, $description, $exception) = str_getcsv($string);
+    if (!$description || $exception) {
+      drupal_set_message(t('"@id" has wrong string.', ['@id' => $imdb_id]), 'warning');
+      continue;
+    }
     if ($imdb_id) {
       $translations_from_file[trim($imdb_id)] = [
         'title' => trim($title),
