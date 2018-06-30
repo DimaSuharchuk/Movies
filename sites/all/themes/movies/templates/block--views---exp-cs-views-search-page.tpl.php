@@ -43,15 +43,11 @@
 ?>
 
 <div class="search-block-left large-3 medium-4 column">
-    <div class="action-buttons">
-        <div class="filters-collapsed-button">
-            <img src="<?php print drupal_get_path('theme', 'movies'); ?>/images/search-icon-white.png">
-        </div>
-      <?php
-      $random_form = drupal_get_form('custom_get_random_form');
-      print drupal_render($random_form);
-      ?>
-    </div>
+  <?php
+  // Action buttons display.
+  $action_buttons = drupal_get_form('custom_action_buttons_form');
+  print drupal_render($action_buttons);
+  ?>
     <section class="<?php print $classes; ?>"<?php print $attributes; ?>>
 
       <?php print render($title_prefix); ?>

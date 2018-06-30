@@ -20,16 +20,35 @@ function custom_menu() {
 }
 
 /**
- * Provides form with button for random movie display.
+ * Provides form with buttons for search and get random movie.
  */
-function custom_get_random_form($form, &$form_state) {
-  $form['container'] = [
+function custom_action_buttons_form($form, &$form_state) {
+  $form['action_buttons'] = [
+    '#type' => 'container',
+    '#attributes' => [
+      'class' => ['action-buttons'],
+    ],
+  ];
+  // Filters button.
+  $form['action_buttons']['search_button_wrapper'] = [
+    '#type' => 'container',
+    '#attributes' => [
+      'class' => ['filters-collapsed-button'],
+    ],
+  ];
+  $form['action_buttons']['search_button_wrapper']['search_button'] = [
+    '#type' => 'image_button',
+    '#button_type' => 'button',
+    '#src' => drupal_get_path('theme', 'movies') . '/images/search-icon-white.png',
+  ];
+  // Get random movie button.
+  $form['action_buttons']['random_button_wrapper'] = [
     '#type' => 'container',
     '#attributes' => [
       'class' => ['get-random-button'],
     ],
   ];
-  $form['container']['random_button'] = [
+  $form['action_buttons']['random_button_wrapper']['random_button'] = [
     '#type' => 'image_button',
     '#button_type' => 'button',
     '#src' => drupal_get_path('theme', 'movies') . '/images/dice.png',

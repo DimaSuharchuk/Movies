@@ -20,6 +20,8 @@
     attach: function (context) {
       $('.filters-collapsed-button', context).bind('click', function (context) {
         $('.block-views-exp-cs-views-search-page').fadeToggle();
+
+        return false;
       })
     }
   };

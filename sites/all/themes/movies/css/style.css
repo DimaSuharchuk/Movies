@@ -225,9 +225,13 @@ section .block-locale-language {
   align-items: center;
   justify-content: center;
   transition-duration: .3s;
+  cursor: pointer;
 }
-.filters-collapsed-button img {
+.filters-collapsed-button input {
   width: 25%;
+}
+.filters-collapsed-button input:focus {
+  outline: none;
 }
 /* Random button. */
 .get-random-button {
