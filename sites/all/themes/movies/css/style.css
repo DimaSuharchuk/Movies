@@ -107,57 +107,30 @@ section .block-locale-language {
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
-  height: calc(100vh - 145px);
-}
-@supports (display: grid) {
-  .view-cs-views-search .view-content {
-    height: calc(100vh - 45px);
-  }
+  height: calc(100vh - 45px);
 }
 .view-cs-views-search .view-content #films-outer-wrapper {
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  justify-items: center;
   align-items: center;
-}
-@supports (display: grid) {
-  .view-cs-views-search .view-content #films-outer-wrapper {
-    width: 100%;
-    display: grid;
-    justify-items: center;
-    align-items: center;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-  }
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
 }
 .view-cs-views-search .view-content .nano-content {
   border-left: 1px solid rgba(255, 255, 255, .1);
 }
 .view-cs-views-search .view-content #films-inner-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-gap: 1em;
   padding: 0 30px;
-}
-@supports (display: grid) {
-  .view-cs-views-search .view-content #films-inner-wrapper {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    grid-gap: 1em;
-    padding: 0 30px;
-  }
 }
 .view-cs-views-search .view-content .nano-content .row {
   margin: 0;
 }
 .view-cs-views-search .view-content .nano-content .views-field-rendered-entity {
-  margin-bottom: 30px;
-}
-@supports (display:grid) {
-  .view-cs-views-search .view-content .nano-content .views-field-rendered-entity {
-    margin-bottom: 0;
-  }
+  margin-bottom: 0;
 }
 .node-teaser {
   position: relative;
@@ -290,11 +263,9 @@ div.ctools-modal-content .modal-content {
 * @media
 */
 @media screen and (max-width: 972px) {
-  @supports (display: grid) {
-    .view-cs-views-search .view-content .nano-content .views-field-rendered-entity {
-      display: grid;
-      justify-content: center;
-    }
+  .view-cs-views-search .view-content .nano-content .views-field-rendered-entity {
+    display: grid;
+    justify-content: center;
   }
 }
 @media screen and (min-width: 642px) {
@@ -310,12 +281,7 @@ div.ctools-modal-content .modal-content {
     display: none;
   }
   .view-cs-views-search .view-content {
-    height: calc(100vh - 270px);
-  }
-  @supports (display:grid) {
-    .view-cs-views-search .view-content {
-      height: calc(100vh - 150px);
-    }
+    height: calc(100vh - 150px);
   }
 }
 @media (max-width: 500px) {
