@@ -58,6 +58,18 @@ function custom_action_buttons_form($form, &$form_state) {
       'progress' => FALSE,
     ],
   ];
+  // Reset button.
+  $form['action_buttons']['reset_button_wrapper'] = [
+    '#type' => 'container',
+    '#attributes' => [
+      'class' => ['reset-button'],
+    ],
+  ];
+  $form['action_buttons']['reset_button_wrapper']['reset_button'] = [
+    '#type' => 'image_button',
+    '#button_type' => 'button',
+    '#src' => drupal_get_path('theme', 'movies') . '/images/reset-white.png',
+  ];
 
   return $form;
 }
@@ -91,6 +103,7 @@ function custom_get_random_film_ajax_callback() {
 
   $commands = [];
   $commands[] = ajax_command_html('#films-outer-wrapper', drupal_render($render));
+  $commands[] = ajax_command_css('.filters-collapsed-button', ['display' => 'none']);
 
   return ['#type' => 'ajax', '#commands' => $commands];
 }

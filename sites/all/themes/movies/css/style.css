@@ -188,7 +188,7 @@ section .block-locale-language {
   display: flex;
   justify-content: space-between;
 }
-.filters-collapsed-button {
+.filters-collapsed-button, .reset-button {
   display: flex;
   width: 80px;
   height: 80px;
@@ -200,10 +200,18 @@ section .block-locale-language {
   transition-duration: .3s;
   cursor: pointer;
 }
+.reset-button {
+  /*background: radial-gradient(circle at top right, #757774 60%, #17222b);*/
+  background: radial-gradient(circle at top right, #c5ccc4 40%, #97929b);
+}
 .filters-collapsed-button input {
   width: 25%;
 }
-.filters-collapsed-button input:focus {
+.reset-button input {
+  width: 50%;
+  height: 50%;
+}
+.filters-collapsed-button input:focus, .reset-button input:focus {
   outline: none;
 }
 /* Random button. */
@@ -222,7 +230,7 @@ section .block-locale-language {
 .get-random-button input {
   width: 60px;
 }
-.filters-collapsed-button:hover, .get-random-button:hover {
+.filters-collapsed-button:hover, .get-random-button:hover, .reset-button:hover {
   transform: scale(1.05, 1.05);
   transition-duration: .3s;
 }

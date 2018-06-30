@@ -18,11 +18,18 @@
   // Button for hide exposed filters for mobile.
   Drupal.behaviors.collapsedButton = {
     attach: function (context) {
-      $('.filters-collapsed-button', context).bind('click', function () {
-        $('.block-views-exp-cs-views-search-page').fadeToggle();
+      $('.filters-collapsed-button', context).on('click', function () {
+        $('.block-views-exp-cs-views-search-page').toggle();
 
         return false;
-      })
+      });
+
+      // Toggle search button hidden for mobiles. Hide exposed filters too.
+      if (window.innerWidth <= 641) {
+        if (!$('.filters-collapsed-button').is(':visible')) {
+          $('.block-views-exp-cs-views-search-page').hide();
+        }
+      }
     }
   };
 })(jQuery);
