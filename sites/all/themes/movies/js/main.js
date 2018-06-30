@@ -18,7 +18,7 @@
   // Button for hide exposed filters for mobile.
   Drupal.behaviors.collapsedButton = {
     attach: function (context) {
-      $('.filters-collapsed-button', context).bind('click', function (context) {
+      $('.filters-collapsed-button', context).bind('click', function () {
         $('.block-views-exp-cs-views-search-page').fadeToggle();
 
         return false;
