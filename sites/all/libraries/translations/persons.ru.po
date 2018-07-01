@@ -5054,3 +5054,12 @@ msgstr "Гейб Гомез"
 
 msgid "Jacob Warner"
 msgstr "Джейкоб Уорнер"
+
+msgid "Jared Bush(co-director)"
+msgstr "Джаред Буш (сорежиcсёр)"
+
+msgid "Rich Moore"
+msgstr "Рич Мур"
+
+msgid "Ginnifer Goodwin"
+msgstr "Джиннифер Гудвин"
