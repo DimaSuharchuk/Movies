@@ -14,6 +14,8 @@ function movies_preprocess_page(&$variables) {
 
 /**
  * Implements template_preprocess_node.
+ *
+ * @throws \Exception
  */
 function movies_preprocess_node(&$variables) {
   if (isset($variables['type']) && $variables['type'] == 'film') {
@@ -45,15 +47,9 @@ function movies_preprocess_node(&$variables) {
         if ($language->language !== 'en') {
           // Get original movie title.
           $imdb_id = $variables['field_imdb_id'][LANGUAGE_NONE][0]['value'];
-          $query = db_select('node', 'n');
-          $query->innerJoin('field_data_field_imdb_id', 'id', 'n.nid = id.entity_id');
-          $query
-            ->fields('n', ['title'])
-            ->condition('id.field_imdb_id_value', $imdb_id)
-            ->condition('n.language', 'en');
-          $en_title = $query->execute()->fetchObject();
+          $node = _get_node_by_imdb_id($imdb_id);
 
-          $title = $variables['title'] . ' / ' . $en_title->title;
+          $title = $variables['title'] . ' / ' . $node->title;
         }
 
         $variables['content']['title'] = [

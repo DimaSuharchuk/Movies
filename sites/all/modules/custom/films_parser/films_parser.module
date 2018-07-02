@@ -484,3 +484,96 @@ function _get_person_rus($en_name) {
 
   return '';
 }
+
+/**
+ * Get exist node ids by imdb ids.
+ *
+ * @param $imdb_ids string|array
+ *  Single IMDB ID or array of IMDB IDs, for example: tt1234567 or
+ *   ['tt1234567', 'tt7654321'].
+ * @param string $language
+ *  Language 2-letters langcode.
+ *
+ * @return array
+ *  [
+ *    imdb_id => node_id,
+ *    ...
+ *  ]
+ * @throws \Exception
+ */
+function _get_node_ids_by_imdb_ids($imdb_ids, $language = 'en') {
+  if (!is_array($imdb_ids)) {
+    $imdb_ids = [$imdb_ids];
+  }
+
+  // Check for valid imdb id format.
+  foreach ($imdb_ids as $imdb_id) {
+    if (!preg_match('@tt\d{7}@', $imdb_id)) {
+      throw new Exception(t('Wrong format of IMDB ID "@id".', ['@id' => $imdb_id]));
+    }
+  }
+
+  // Select all eng films to accordance with ids from file.
+  $query = db_select('node', 'n');
+  $query->innerJoin('field_data_field_imdb_id', 'id', 'n.nid = id.entity_id');
+  $query
+    ->fields('id', ['field_imdb_id_value'])
+    ->fields('n', ['nid'])
+    ->condition('id.field_imdb_id_value', $imdb_ids, 'in')
+    ->condition('n.language', $language);
+
+  $node_ids = $query->execute()->fetchAllKeyed(0, 1);
+
+  // Display message about not found imdb ids.
+  $not_found = array_diff($imdb_ids, array_flip($node_ids));
+  if ($not_found) {
+    throw new Exception(
+      format_plural(count($not_found),
+        'ID "@ids" not found in DB.',
+        'IDs "@ids" not found in DB.',
+        [
+          '@ids' => implode(', ', $not_found),
+        ]
+      )
+    );
+  }
+
+  return $node_ids;
+}
+
+/**
+ * Load movie node by IMDB id.
+ *
+ * @param $imdb_id
+ *  IMDB ID, for example: tt1234567.
+ * @param string $language
+ *  Language 2-letters langcode.
+ *
+ * @return object
+ * @throws \Exception
+ */
+function _get_node_by_imdb_id($imdb_id, $language = 'en') {
+  $nodes = _get_node_ids_by_imdb_ids($imdb_id, $language);
+
+  return node_load(end($nodes));
+}
+
+/**
+ * Get string with movie title and year by IMDB id.
+ *
+ * @param $imdb_id
+ *  IMDB ID, for example: tt1234567.
+ * @param string $language
+ *  Language 2-letters langcode.
+ *
+ * @return string
+ *  "{Movie title} {year}".
+ * @throws \Exception
+ */
+function _get_movie_title_and_year_string_by_imdb_id($imdb_id, $language = 'en') {
+  $node = _get_node_by_imdb_id($imdb_id, $language);
+
+  $year = $node->field_year[LANGUAGE_NONE][0]['value'];
+
+  return "{$node->title} {$year}";
+}
