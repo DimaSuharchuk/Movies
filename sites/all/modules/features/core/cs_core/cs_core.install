@@ -27,6 +27,7 @@ function cs_core_install() {
     user_role_grant_permissions($translator->rid, [
       'fetch films page',
       'add translations',
+      'get trailers',
     ]);
   }
   // Create directory for posters.

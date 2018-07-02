@@ -10,6 +10,7 @@ require_once FILMS_PARSER_MODULE_PATH . '/includes/fetch_films.batch.inc';
 require_once FILMS_PARSER_MODULE_PATH . '/includes/translations.batch.inc';
 require_once FILMS_PARSER_MODULE_PATH . '/includes/get_prepared_string.inc';
 require_once FILMS_PARSER_MODULE_PATH . '/includes/translate_persons.batch.inc';
+require_once FILMS_PARSER_MODULE_PATH . '/includes/trailer_search.inc';
 
 /**
  * Defines OMDB placeholder for unknown records.
@@ -64,6 +65,10 @@ function films_parser_permission() {
     'translate persons' => [
       'title' => t('Translate persons'),
       'description' => t('Access to fetch translations for persons.'),
+    ],
+    'get trailers' => [
+      'title' => t('Get trailers'),
+      'description' => t('Access to "Trailer search" block.'),
     ],
   ];
 }
@@ -142,6 +147,42 @@ function films_parser_form($form, &$form_state) {
     '#states' => [
       'disabled' => [
         'input[name=imdb_id]' => ['filled' => FALSE],
+      ],
+    ],
+  ];
+
+  $form['trailers'] = [
+    '#type' => 'fieldset',
+    '#title' => t('Trailer search'),
+    '#access' => user_access('get trailers'),
+  ];
+  $form['trailers']['exceptions'] = [
+    '#type' => 'container',
+    '#attributes' => [
+      'id' => 'trailer-search-exceptions',
+    ],
+  ];
+  $form['trailers']['trailer_input'] = [
+    '#type' => 'textfield',
+    '#title' => t('IMDB ID'),
+    '#description' => t('Paste IMDB ID for search trailers on Youtube.'),
+    '#attributes' => [
+      'autocomplete' => 'off',
+      'id' => 'trailer-input',
+    ],
+  ];
+  $form['trailers']['button'] = [
+    '#type' => 'button',
+    '#value' => t('Go'),
+    '#name' => 'trailer_button',
+    '#ajax' => [
+      'wrapper' => 'trailer-search-exceptions',
+      'callback' => 'films_parser_youtube_search_ajax_callback',
+      'progress' => '',
+    ],
+    '#states' => [
+      'disabled' => [
+        'input[name=trailer_input]' => ['filled' => FALSE],
       ],
     ],
   ];
