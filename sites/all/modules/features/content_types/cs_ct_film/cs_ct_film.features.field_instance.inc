@@ -473,6 +473,52 @@ function cs_ct_film_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-film-field_trailer'.
+  $field_instances['node-film-field_trailer'] = array(
+    'bundle' => 'film',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 11,
+      ),
+      'popup' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_trailer',
+    'label' => 'Trailer',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 12,
+    ),
+  );
+
   // Exported field_instance: 'node-film-field_year'.
   $field_instances['node-film-field_year'] = array(
     'bundle' => 'film',
@@ -542,6 +588,7 @@ function cs_ct_film_field_default_field_instances() {
   t('IMDB voting');
   t('Poster image');
   t('Runtime');
+  t('Trailer');
   t('Year');
 
   return $field_instances;

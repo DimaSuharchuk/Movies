@@ -10,11 +10,28 @@
  */
 function custom_menu() {
   return [
-    'search/%/%ctools_js' => [
+    'search/%/%/%ctools_js' => [
       'page callback' => 'custom_film_popup',
-      'page arguments' => [1, 2],
+      'page arguments' => [1, 2, 3],
       'access callback' => TRUE,
       'type' => MENU_CALLBACK,
+    ],
+  ];
+}
+
+/**
+ * Implements hook_theme().
+ */
+function custom_theme($existing, $type, $theme, $path) {
+  $templates = drupal_get_path('theme', 'movies') . '/templates';
+
+  return [
+    'trailer' => [
+      'variables' => [
+        'hash' => NULL,
+      ],
+      'path' => $templates,
+      'template' => 'trailer',
     ],
   ];
 }
@@ -89,17 +106,7 @@ function custom_get_random_film_ajax_callback() {
 
   $node = node_load($query->nid);
 
-  $details = [
-    '#type' => 'link',
-    '#title' => t('Details'),
-    '#href' => 'search/' . $query->nid . '/nojs',
-    '#attributes' => [
-      'class' => ['ctools-use-modal', 'ctools-modal-film-popup-style'],
-    ],
-    '#weight' => 10,
-  ];
-
-  $render = node_view($node, 'teaser') + [$details];
+  $render = node_view($node, 'teaser');
 
   $commands = [];
   $commands[] = ajax_command_html('#films-outer-wrapper', drupal_render($render));
@@ -133,26 +140,50 @@ function custom_form_views_exposed_form_alter(&$form, &$form_state) {
 
 /**
  * Implements hook_node_view_alter().
+ *
+ * @throws \Exception
  */
 function custom_node_view_alter(&$build) {
   if ($build['#entity_type'] == 'node' && $build['#bundle'] == 'film' && $build['#view_mode'] == 'teaser') {
-    try {
-      if (!isset($build['field_poster_image'])) {
-        $build['field_poster_image'] = [
-          '#type' => 'container',
-          '#attributes' => [
-            'class' => [
-              'field-name-field-poster-image',
-            ],
+    if (!isset($build['field_poster_image'])) {
+      $build['field_poster_image'] = [
+        '#type' => 'container',
+        '#attributes' => [
+          'class' => [
+            'field-name-field-poster-image',
           ],
-        ];
-        $build['field_poster_image'][] = [
-          '#markup' => theme('image', [
-            'path' => drupal_get_path('theme', 'movies') . '/images/nopicture.gif',
-          ]),
-        ];
-      }
-    } catch (Exception $_) {
+        ],
+      ];
+      $build['field_poster_image'][] = [
+        '#markup' => theme('image', [
+          'path' => drupal_get_path('theme', 'movies') . '/images/nopicture.gif',
+        ]),
+      ];
+    }
+
+    $build['links'] = [
+      '#type' => 'container',
+      '#attributes' => [
+        'class' => ['movie-teaser-links'],
+      ],
+    ];
+    $build['links']['details'] = [
+      '#type' => 'link',
+      '#title' => t('Details'),
+      '#href' => 'search/' . $build["#node"]->nid . '/details/nojs',
+      '#attributes' => [
+        'class' => ['ctools-use-modal', 'ctools-modal-film-popup-style'],
+      ],
+    ];
+    if (!empty($build["#node"]->field_trailer)) {
+      $build['links']['trailer'] = [
+        '#type' => 'link',
+        '#title' => t('Trailer'),
+        '#href' => 'search/' . $build["#node"]->nid . '/trailer/nojs',
+        '#attributes' => [
+          'class' => ['ctools-use-modal', 'ctools-modal-film-popup-style'],
+        ],
+      ];
     }
   }
 }
@@ -162,13 +193,30 @@ function custom_node_view_alter(&$build) {
  *
  * @param $nid
  *  Node ID.
+ * @param $display
+ *  Expected "details" or "trailer".
  * @param $js
  *  Ctools parameter for check is javascript enabled on browser.
  *
  * @return array
+ * @throws \Exception
  */
-function custom_film_popup($nid, $js) {
-  $popup_content = node_view(node_load($nid), 'popup');
+function custom_film_popup($nid, $display, $js) {
+  switch ($display) {
+    case 'details':
+      $popup_content = node_view(node_load($nid), 'popup');
+      break;
+
+    case 'trailer':
+      $node = node_load($nid);
+      $trailer = $node->field_trailer[LANGUAGE_NONE][0]['value'];
+      $popup_content = theme('trailer', ['hash' => $trailer]);
+      break;
+
+    default:
+      throw new Exception(t('Wrong display type "@d".', ['@d' => $display]));
+      break;
+  }
 
   if (!$js) {
     return $popup_content;
@@ -200,7 +248,7 @@ function custom_film_popup_style() {
       'film-popup-style' => [
         'modalSize' => [
           'type' => 'fixed',
-          'width' => 500,
+          'width' => 900,
           'height' => 'auto',
         ],
         'modalOptions' => [

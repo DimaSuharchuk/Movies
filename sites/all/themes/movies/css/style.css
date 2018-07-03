@@ -176,8 +176,10 @@ section .block-locale-language {
   font-family: 'Open Sans Condensed';
   font-size: large;
 }
-.views-submit-button {
-  clear: both;
+.movie-teaser-links {
+  max-width: 230px;
+  display: flex;
+  justify-content: space-between;
 }
 /* Pager. */
 .view-cs-views-search .view-content .pager li:not(.current) a:hover {
@@ -256,6 +258,9 @@ div.ctools-modal-content .modal-content {
   max-height: 99vh;
   padding: 1em;
 }
+div#modal-content {
+  width: 100% !important;
+}
 #modalContent .popup-close {
   position: absolute;
   top: 20px;
@@ -276,6 +281,16 @@ div.ctools-modal-content .modal-content {
     justify-content: center;
   }
 }
+@media (max-width: 900px) {
+  #modalContent {
+    top: -1px !important;
+    left: -1px !important;
+    width: 100%;
+  }
+  div.ctools-modal-content {
+    width: calc(100% - 2px) !important;
+  }
+}
 @media screen and (min-width: 642px) {
   .filters-collapsed-button {
     display: none;
@@ -290,18 +305,6 @@ div.ctools-modal-content .modal-content {
   }
   .view-cs-views-search .view-content {
     height: calc(100vh - 150px);
-  }
-}
-@media (max-width: 500px) {
-  #modalContent {
-    top: -3px !important;
-    left: -3px !important;
-  }
-  div.ctools-modal-content {
-    width: calc(100% - 2px) !important;
-  }
-  #modal-content {
-    width: 100% !important;
   }
 }
 @media screen and (max-width: 430px) {
