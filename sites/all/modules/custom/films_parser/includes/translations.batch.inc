@@ -50,7 +50,7 @@ function films_parser_add_translated_films($form, &$form_state) {
 
   // Already added rus films.
   try {
-    $ru_node_ids = _get_node_ids_by_imdb_ids(array_keys($translations_from_file), 'ru');
+    $ru_node_ids = _get_node_ids_by_imdb_ids(array_keys($translations_from_file), 'ru', FALSE);
   } catch (Exception $e) {
     drupal_set_message($e->getMessage(), 'error');
   }

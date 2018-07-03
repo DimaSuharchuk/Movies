@@ -534,6 +534,9 @@ function _get_person_rus($en_name) {
  *   ['tt1234567', 'tt7654321'].
  * @param string $language
  *  Language 2-letters langcode.
+ * @param bool $not_found_display
+ *  Show message about not found IMDB ids in DB.
+ *  Useful for rus movies search.
  *
  * @return array
  *  [
@@ -542,7 +545,7 @@ function _get_person_rus($en_name) {
  *  ]
  * @throws \Exception
  */
-function _get_node_ids_by_imdb_ids($imdb_ids, $language = 'en') {
+function _get_node_ids_by_imdb_ids($imdb_ids, $language = 'en', $not_found_display = TRUE) {
   if (!is_array($imdb_ids)) {
     $imdb_ids = [$imdb_ids];
   }
@@ -566,17 +569,19 @@ function _get_node_ids_by_imdb_ids($imdb_ids, $language = 'en') {
   $node_ids = $query->execute()->fetchAllKeyed(0, 1);
 
   // Display message about not found imdb ids.
-  $not_found = array_diff($imdb_ids, array_flip($node_ids));
-  if ($not_found) {
-    throw new Exception(
-      format_plural(count($not_found),
-        'ID "@ids" not found in DB.',
-        'IDs "@ids" not found in DB.',
-        [
-          '@ids' => implode(', ', $not_found),
-        ]
-      )
-    );
+  if ($not_found_display) {
+    $not_found = array_diff($imdb_ids, array_flip($node_ids));
+    if ($not_found) {
+      drupal_set_message(
+        format_plural(count($not_found),
+          'ID "@ids" not found in DB.',
+          'IDs "@ids" not found in DB.',
+          [
+            '@ids' => implode(', ', $not_found),
+          ]
+        ), 'warning'
+      );
+    }
   }
 
   return $node_ids;
