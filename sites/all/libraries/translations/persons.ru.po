@@ -5063,3 +5063,18 @@ msgstr "Рич Мур"
 
 msgid "Ginnifer Goodwin"
 msgstr "Джиннифер Гудвин"
+
+msgid "Richard Glatzer"
+msgstr "Ричард Глэтцер"
+
+msgid "Wash Westmoreland"
+msgstr "Уош Вэстмолэнд"
+
+msgid "Shane McRae"
+msgstr "Шэйн МакРей"
+
+msgid "Hunter Parrish"
+msgstr "Хантер Пэрриш"
+
+msgid "Kate Bosworth"
+msgstr "Кейт Босуорт"
