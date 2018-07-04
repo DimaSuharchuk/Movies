@@ -11,6 +11,7 @@ require_once FILMS_PARSER_MODULE_PATH . '/includes/translations.batch.inc';
 require_once FILMS_PARSER_MODULE_PATH . '/includes/get_prepared_string.inc';
 require_once FILMS_PARSER_MODULE_PATH . '/includes/translate_persons.batch.inc';
 require_once FILMS_PARSER_MODULE_PATH . '/includes/trailer_search.inc';
+require_once FILMS_PARSER_MODULE_PATH . '/includes/trailers.batch.inc';
 
 /**
  * Defines OMDB placeholder for unknown records.
@@ -62,6 +63,10 @@ function films_parser_permission() {
       'title' => t('Add translations'),
       'description' => t('Access to add translations for films.'),
     ],
+    'add trailers' => [
+      'title' => t('Add trailers'),
+      'description' => t('Access to add trailers to films.'),
+    ],
     'translate persons' => [
       'title' => t('Translate persons'),
       'description' => t('Access to fetch translations for persons.'),
@@ -96,6 +101,8 @@ function films_parser_admin_settings() {
  */
 function films_parser_form($form, &$form_state) {
   drupal_add_library('system', 'drupal.collapse');
+  // Add js for better work with "get eng string" functionality.
+  drupal_add_js(FILMS_PARSER_MODULE_PATH . '/js/copy_text.js');
 
   $form['fetch_films'] = [
     '#type' => 'fieldset',
@@ -113,8 +120,7 @@ function films_parser_form($form, &$form_state) {
     '#name' => 'fetch_films',
   ];
 
-  // Add js for better work with "get eng string" functionality.
-  drupal_add_js(FILMS_PARSER_MODULE_PATH . '/js/copy_text.js');
+  // Get string with english title and year for search in internet.
   $form['get_name_year'] = [
     '#type' => 'fieldset',
     '#title' => t('Get string for search in internet'),
@@ -151,6 +157,7 @@ function films_parser_form($form, &$form_state) {
     ],
   ];
 
+  // Search trailers set.
   $form['trailers'] = [
     '#type' => 'fieldset',
     '#title' => t('Trailer search'),
@@ -187,6 +194,7 @@ function films_parser_form($form, &$form_state) {
     ],
   ];
 
+  // Add translations set.
   $form['add_translations'] = [
     '#type' => 'fieldset',
     '#title' => t('Add translations'),
@@ -199,14 +207,14 @@ function films_parser_form($form, &$form_state) {
     ],
   ];
   $form['add_translations']['csv'] = [
-    '#type' => "managed_file",
+    '#type' => 'managed_file',
     '#title' => 'CSV file',
     '#description' => t('Load file with translations for films. Fields: IMDB ID, Title, Description.'),
-    "#upload_validators" => [
+    '#upload_validators' => [
       'file_validate_extensions' => ['csv'],
     ],
     '#progress_indicator' => 'bar',
-    '#upload_location' => "public://",
+    '#upload_location' => 'public://',
   ];
   $form['add_translations']['tr_settings'] = [
     '#type' => 'radios',
@@ -224,6 +232,45 @@ function films_parser_form($form, &$form_state) {
     '#name' => 'translate_films',
   ];
 
+  // Add trailers set.
+  $form['add_trailers'] = [
+    '#type' => 'fieldset',
+    '#title' => t('Add trailers'),
+    '#access' => user_access('add trailers'),
+    '#attributes' => [
+      'class' => [
+        'collapsible',
+        'collapsed',
+      ],
+    ],
+  ];
+  $form['add_trailers']['csv_trailer'] = [
+    '#type' => 'managed_file',
+    '#title' => 'CSV file',
+    '#description' => t('Load file with trailers for films. Fields: IMDB ID, Eng trailer, Rus trailer.'),
+    '#upload_validators' => [
+      'file_validate_extensions' => ['csv'],
+    ],
+    '#progress_indicator' => 'bar',
+    '#upload_location' => 'public://',
+  ];
+  $form['add_trailers']['trailer_settings'] = [
+    '#type' => 'radios',
+    '#options' => [
+      'add_update_trailer' => t('Add new trailers and update old.'),
+      'add_new_trailer' => t('Only add new trailers (old trailers will not be affected).'),
+    ],
+    '#default_value' => 'add_new_trailer',
+  ];
+  $form['add_trailers']['start'] = [
+    '#type' => 'submit',
+    '#value' => t('Go'),
+    '#submit' => ['films_parser_add_trailers'],
+    '#validate' => ['films_parser_add_trailers_validate'],
+    '#name' => 'trailers',
+  ];
+
+  // Auto translate persons set.
   $directors = _get_taxonomy_terms_translations_by_vocabulary_name('Directors');
   $actors = _get_taxonomy_terms_translations_by_vocabulary_name('Actors');
   $form['persons'] = [
@@ -396,7 +443,7 @@ function _create_film($json) {
 
     // Save poster.
     if ($json['Poster'] != OMDB_NONAME_PLACEHOLDER) {
-      $file = file_save_data(file_get_contents($json['Poster']), file_default_scheme() . "://posters/" . basename($json['Poster']));
+      $file = file_save_data(file_get_contents($json['Poster']), file_default_scheme() . '://posters/' . basename($json['Poster']));
       $wrapper->field_poster_image->set((array) $file);
     }
 
@@ -527,6 +574,18 @@ function _get_person_rus($en_name) {
 }
 
 /**
+ * Check is IMDB ID is valid.
+ *
+ * @param $id
+ *  IMDB ID, for example: tt1234567.
+ *
+ * @return false|int
+ */
+function _imdb_id_is_valid($id) {
+  return preg_match('@tt\d{7}@', $id);
+}
+
+/**
  * Get exist node ids by imdb ids.
  *
  * @param $imdb_ids string|array
@@ -552,7 +611,7 @@ function _get_node_ids_by_imdb_ids($imdb_ids, $language = 'en', $not_found_displ
 
   // Check for valid imdb id format.
   foreach ($imdb_ids as $imdb_id) {
-    if (!preg_match('@tt\d{7}@', $imdb_id)) {
+    if (!_imdb_id_is_valid($imdb_id)) {
       throw new Exception(t('Wrong format of IMDB ID "@id".', ['@id' => $imdb_id]));
     }
   }
@@ -594,14 +653,16 @@ function _get_node_ids_by_imdb_ids($imdb_ids, $language = 'en', $not_found_displ
  *  IMDB ID, for example: tt1234567.
  * @param string $language
  *  Language 2-letters langcode.
+ * @param bool $not_found_display
+ *  Show message about not found IMDB ids in DB.
  *
- * @return object
+ * @return bool|object
  * @throws \Exception
  */
-function _get_node_by_imdb_id($imdb_id, $language = 'en') {
-  $nodes = _get_node_ids_by_imdb_ids($imdb_id, $language);
+function _get_node_by_imdb_id($imdb_id, $language = 'en', $not_found_display = TRUE) {
+  $nodes = _get_node_ids_by_imdb_ids($imdb_id, $language, $not_found_display);
 
-  return node_load(end($nodes));
+  return $nodes ? node_load(end($nodes)) : FALSE;
 }
 
 /**
@@ -617,9 +678,11 @@ function _get_node_by_imdb_id($imdb_id, $language = 'en') {
  * @throws \Exception
  */
 function _get_movie_title_and_year_string_by_imdb_id($imdb_id, $language = 'en') {
-  $node = _get_node_by_imdb_id($imdb_id, $language);
+  if ($node = _get_node_by_imdb_id($imdb_id, $language, FALSE)) {
+    $year = $node->field_year[LANGUAGE_NONE][0]['value'];
 
-  $year = $node->field_year[LANGUAGE_NONE][0]['value'];
+    return "{$node->title} {$year}";
+  }
 
-  return "{$node->title} {$year}";
+  return '';
 }

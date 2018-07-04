@@ -60,7 +60,6 @@ function films_parser_add_translated_films($form, &$form_state) {
   // Filter from undefined items translations from file.
   foreach ($translations_from_file as $imdb_id => $item) {
     if (!in_array($imdb_id, $isset_en_imdb_ids)) {
-      drupal_set_message(t('IMDB ID "@id" not found in DB.', ['@id' => $imdb_id]), 'warning');
       unset($translations_from_file[$imdb_id]);
     }
   }
@@ -113,6 +112,7 @@ function films_parser_add_translated_films($form, &$form_state) {
 function films_parser_add_translated_films_validate($form, &$form_state) {
   if (!$form_state['values']['csv']) {
     form_set_error('csv', t('Load csv file.'));
+    drupal_add_library('system', 'drupal.collapse');
   }
 }
 
