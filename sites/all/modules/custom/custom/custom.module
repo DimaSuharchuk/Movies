@@ -132,10 +132,27 @@ function custom_form_views_exposed_form_alter(&$form, &$form_state) {
     'field_actors_tid',
   ];
   foreach ($select_list_fields as $field_name) {
+    // Set placeholders to chosen multiple fields.
+    $placeholder = '';
+    switch ($field_name) {
+      case 'field_genre_tid':
+        $placeholder = t('Genres');
+        break;
+
+      case 'field_actors_tid':
+        $placeholder = t('Actors');
+        break;
+    }
+    $form[$field_name]['#attributes'] = ['data-placeholder' => $placeholder];
+
+    // Translate select list values.
     foreach ($form[$field_name]['#options'] as $key => $value) {
       $form[$field_name]['#options'][$key] = t($value);
     }
   }
+
+  // Set "all" option text for chosen single fields.
+  $form['field_director_tid']['#options']['All'] = t('Director') . ' (' . t('- Any -') . ')';
 }
 
 /**
