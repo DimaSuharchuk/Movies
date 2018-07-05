@@ -69,7 +69,7 @@ function translate_person_batch_finished($success, $results, $operations) {
     drupal_set_message(
       format_plural(
         $added_count,
-        '1 person translated.',
+        '@count person translated.',
         '@count persons translated.'
       )
     );

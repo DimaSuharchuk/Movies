@@ -285,15 +285,15 @@ function films_parser_form($form, &$form_state) {
   $form['translate_persons']['info_en'] = [
     '#type' => 'item',
     '#markup' => t('Translated &d and &a.', [
-      '&d' => format_plural($directors['translated_count'], '1 director', '@count directors'),
-      '&a' => format_plural($actors['translated_count'], '1 actor', '@count actors'),
+      '&d' => format_plural($directors['translated_count'], '@count director', '@count directors'),
+      '&a' => format_plural($actors['translated_count'], '@count actor', '@count actors'),
     ]),
   ];
   $form['translate_persons']['info_ru'] = [
     '#type' => 'item',
     '#markup' => t('Non-translated &d and &a.', [
-      '&d' => format_plural(count($directors['non_translated']), '1 director', '@count directors'),
-      '&a' => format_plural(count($actors['non_translated']), '1 actor', '@count actors'),
+      '&d' => format_plural(count($directors['non_translated']), '@count director', '@count directors'),
+      '&a' => format_plural(count($actors['non_translated']), '@count actor', '@count actors'),
     ]),
   ];
   $form['translate_persons']['translate_button'] = [

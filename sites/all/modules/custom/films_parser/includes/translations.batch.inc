@@ -172,12 +172,12 @@ function films_parser_translate_batch_finished($success, $results, $operations) 
 
     $added = format_plural(
       $added_count,
-      '1 translation was created.',
+      '@count translation was created.',
       '@count translations was created.'
     );
     $updated = format_plural(
       $updated_count,
-      '1 translation was updated.',
+      '@count translation was updated.',
       '@count translations was updated.'
     );
     drupal_set_message("$added $updated");

@@ -171,22 +171,22 @@ function films_parser_trailer_batch_finished($success, $results, $operations) {
 
     $added_en = format_plural(
       $added_count_en,
-      '1 english trailer added.',
+      '@count english trailer added.',
       '@count english trailers added.'
     );
     $updated_en = format_plural(
       $updated_count_en,
-      '1 english trailer updated.',
+      '@count english trailer updated.',
       '@count english trailers updated.'
     );
     $added_ru = format_plural(
       $added_count_ru,
-      '1 russian trailer added.',
+      '@count russian trailer added.',
       '@count russian trailers added.'
     );
     $updated_ru = format_plural(
       $updated_count_ru,
-      '1 russian trailer updated.',
+      '@count russian trailer updated.',
       '@count russian trailers updated.'
     );
 

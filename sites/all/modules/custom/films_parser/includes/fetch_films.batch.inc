@@ -73,7 +73,7 @@ function films_parser_batch_finished($success, $results, $operations) {
     drupal_set_message(
       format_plural(
         $results['count'],
-        '1 film was created.',
+        '@count film was created.',
         '@count films was created.'
       )
     );
