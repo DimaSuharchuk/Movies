@@ -5078,3 +5078,21 @@ msgstr "Хантер Пэрриш"
 
 msgid "Kate Bosworth"
 msgstr "Кейт Босуорт"
+
+msgid "Karsten Kiilerich"
+msgstr "Карстен Килерих"
+
+msgid "Richard Claus"
+msgstr "Рихард Клаус"
+
+msgid "Jim Carter"
+msgstr "Джим Картер"
+
+msgid "Joseph Kloska"
+msgstr "Джозеф Клоска"
+
+msgid "Rasmus Hardiker"
+msgstr "Расмус Хардайкер"
+
+msgid "Amy Saville"
+msgstr "Эми Сэвилл"
