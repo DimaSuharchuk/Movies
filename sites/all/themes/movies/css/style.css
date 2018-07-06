@@ -64,7 +64,7 @@ section .block-locale-language {
 .views-exposed-form .views-exposed-widget {
   padding: 0;
 }
-.views-exposed-form .views-exposed-widget input {
+.views-exposed-form .views-exposed-widget input, .views-exposed-form .views-exposed-widget select {
   margin-bottom: 0;
 }
 .views-exposed-form .views-widget {
