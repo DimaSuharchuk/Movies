@@ -149,6 +149,7 @@ function cs_views_search_views_default_views() {
   $handler->display->display_options['filters']['title']['group'] = 1;
   $handler->display->display_options['filters']['title']['exposed'] = TRUE;
   $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Title';
   $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
   $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
   $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
@@ -156,6 +157,7 @@ function cs_views_search_views_default_views() {
     1 => 0,
     3 => 0,
     4 => 0,
+    5 => 0,
   );
   /* Filter criterion: Content: Genres (field_genre) */
   $handler->display->display_options['filters']['field_genre_tid']['id'] = 'field_genre_tid';
@@ -165,6 +167,7 @@ function cs_views_search_views_default_views() {
   $handler->display->display_options['filters']['field_genre_tid']['group'] = 1;
   $handler->display->display_options['filters']['field_genre_tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_genre_tid']['expose']['operator_id'] = 'field_genre_tid_op';
+  $handler->display->display_options['filters']['field_genre_tid']['expose']['label'] = 'Genres';
   $handler->display->display_options['filters']['field_genre_tid']['expose']['operator'] = 'field_genre_tid_op';
   $handler->display->display_options['filters']['field_genre_tid']['expose']['identifier'] = 'field_genre_tid';
   $handler->display->display_options['filters']['field_genre_tid']['expose']['multiple'] = TRUE;
@@ -185,6 +188,7 @@ function cs_views_search_views_default_views() {
   $handler->display->display_options['filters']['field_director_tid']['group'] = 1;
   $handler->display->display_options['filters']['field_director_tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_director_tid']['expose']['operator_id'] = 'field_director_tid_op';
+  $handler->display->display_options['filters']['field_director_tid']['expose']['label'] = 'Director';
   $handler->display->display_options['filters']['field_director_tid']['expose']['operator'] = 'field_director_tid_op';
   $handler->display->display_options['filters']['field_director_tid']['expose']['identifier'] = 'field_director_tid';
   $handler->display->display_options['filters']['field_director_tid']['expose']['remember_roles'] = array(
@@ -205,6 +209,7 @@ function cs_views_search_views_default_views() {
   $handler->display->display_options['filters']['field_actors_tid']['group'] = 1;
   $handler->display->display_options['filters']['field_actors_tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_actors_tid']['expose']['operator_id'] = 'field_actors_tid_op';
+  $handler->display->display_options['filters']['field_actors_tid']['expose']['label'] = 'Actors';
   $handler->display->display_options['filters']['field_actors_tid']['expose']['operator'] = 'field_actors_tid_op';
   $handler->display->display_options['filters']['field_actors_tid']['expose']['identifier'] = 'field_actors_tid';
   $handler->display->display_options['filters']['field_actors_tid']['expose']['multiple'] = TRUE;
@@ -225,6 +230,7 @@ function cs_views_search_views_default_views() {
   $handler->display->display_options['filters']['field_year_value_1']['group'] = 2;
   $handler->display->display_options['filters']['field_year_value_1']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_year_value_1']['expose']['operator_id'] = 'field_year_value_1_op';
+  $handler->display->display_options['filters']['field_year_value_1']['expose']['label'] = 'Single year';
   $handler->display->display_options['filters']['field_year_value_1']['expose']['operator'] = 'field_year_value_1_op';
   $handler->display->display_options['filters']['field_year_value_1']['expose']['identifier'] = 'field_year_single';
   $handler->display->display_options['filters']['field_year_value_1']['expose']['remember_roles'] = array(
@@ -232,6 +238,7 @@ function cs_views_search_views_default_views() {
     1 => 0,
     3 => 0,
     4 => 0,
+    5 => 0,
   );
   /* Filter criterion: Content: Year (field_year) */
   $handler->display->display_options['filters']['field_year_value']['id'] = 'field_year_value';
@@ -241,6 +248,7 @@ function cs_views_search_views_default_views() {
   $handler->display->display_options['filters']['field_year_value']['group'] = 2;
   $handler->display->display_options['filters']['field_year_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_year_value']['expose']['operator_id'] = 'field_year_value_op';
+  $handler->display->display_options['filters']['field_year_value']['expose']['label'] = 'Year range';
   $handler->display->display_options['filters']['field_year_value']['expose']['operator'] = 'field_year_value_op';
   $handler->display->display_options['filters']['field_year_value']['expose']['identifier'] = 'field_year_range';
   $handler->display->display_options['filters']['field_year_value']['expose']['remember_roles'] = array(
@@ -299,6 +307,11 @@ function cs_views_search_views_default_views() {
     t('last »'),
     t('Title'),
     t('Page'),
+    t('Genres'),
+    t('Director'),
+    t('Actors'),
+    t('Single year'),
+    t('Year range'),
     t('Year'),
   );
   $export['cs_views_search'] = $view;
