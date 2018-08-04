@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400|Poiret+One');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@font-face {
+  font-family: 'IcoMoon-Free';
+  src: url('../fonts/IcoMoon-Free.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 a:focus {
   outline: none;
 }
@@ -204,53 +210,56 @@ section .block-locale-language {
   display: flex;
   justify-content: space-between;
 }
-.filters-collapsed-button, .reset-button {
-  display: flex;
+.action-button {
   width: 80px;
   height: 80px;
-  background: radial-gradient(circle at top right, #26a283 10%, #187961);
   box-shadow: inset 1px -1px 1px 0 rgba(0, 0, 0, 0.5);
   border-radius: 100%;
+  display: flex;
   align-items: center;
   justify-content: center;
-  transition-duration: .3s;
-  cursor: pointer;
-}
-.reset-button {
-  /*background: radial-gradient(circle at top right, #757774 60%, #17222b);*/
-  background: radial-gradient(circle at top right, #c5ccc4 40%, #97929b);
-}
-.filters-collapsed-button input {
-  width: 25%;
-}
-.reset-button input {
-  width: 100%;
-  height: 100%;
-  padding: 25%;
-}
-.filters-collapsed-button input:focus, .reset-button input:focus {
-  outline: none;
-}
-/* Random button. */
-.get-random-button {
-  width: 80px;
-  height: 80px;
-  background-color: plum;
-  box-shadow: inset 1px -1px 1px 0 rgba(0, 0, 0, 0.5);
-  border-radius: 100%;
   transition: transform linear .3s;
   cursor: pointer;
-  position: relative;
-  right: 0;
 }
-.get-random-button input {
-  width: 100%;
-  height: 100%;
-  padding: 10%;
-}
-.filters-collapsed-button:hover, .get-random-button:hover, .reset-button:hover {
+.action-button:hover {
   transform: scale(1.05, 1.05);
-  transition-duration: .3s;
+}
+.action-button:focus {
+  outline: none;
+}
+.filters-collapsed-button {
+  background: radial-gradient(circle at top right, #26a283 10%, #187961);
+}
+.get-random-button {
+  background: plum;
+}
+.get-random-button:hover {
+  background: plum;
+}
+.get-random-button[disabled]:hover {
+  background: plum;
+}
+.reset-button {
+  background: radial-gradient(circle at top right, #c5ccc4 40%, #97929b);
+}
+.icon {
+  font-family: 'IcoMoon-Free';
+}
+.icon:before {
+  position: absolute;
+  top: 25px;
+  font-size: 2em;
+  text-shadow: 2px 1px 1px #333;
+  z-index: 2;
+}
+.icon-search:before {
+  content: "\e986";
+}
+.icon-dice:before {
+  content: "\e915";
+}
+.icon-reload:before {
+  content: "\ea2e";
 }
 /* Pagination. */
 .pagination-centered {

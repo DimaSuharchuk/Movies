@@ -47,45 +47,46 @@ function custom_action_buttons_form($form, &$form_state) {
     ],
   ];
   // Filters button.
-  $form['action_buttons']['search_button_wrapper'] = [
+  $form['action_buttons']['search_button'] = [
     '#type' => 'container',
     '#attributes' => [
-      'class' => ['filters-collapsed-button'],
+      'class' => [
+        'action-button',
+        'filters-collapsed-button',
+        'icon',
+        'icon-search',
+      ],
     ],
-  ];
-  $form['action_buttons']['search_button_wrapper']['search_button'] = [
-    '#type' => 'image_button',
-    '#button_type' => 'button',
-    '#src' => drupal_get_path('theme', 'movies') . '/images/search-icon-white.png',
   ];
   // Get random movie button.
-  $form['action_buttons']['random_button_wrapper'] = [
-    '#type' => 'container',
-    '#attributes' => [
-      'class' => ['get-random-button'],
-    ],
-  ];
-  $form['action_buttons']['random_button_wrapper']['random_button'] = [
-    '#type' => 'image_button',
-    '#button_type' => 'button',
-    '#src' => drupal_get_path('theme', 'movies') . '/images/dice.png',
+  $form['action_buttons']['random_button'] = [
+    '#type' => 'button',
+    '#name' => 'get_random',
     '#ajax' => [
       'callback' => 'custom_get_random_film_ajax_callback',
       'wrapper' => 'films-outer-wrapper',
       'progress' => FALSE,
     ],
-  ];
-  // Reset button.
-  $form['action_buttons']['reset_button_wrapper'] = [
-    '#type' => 'container',
     '#attributes' => [
-      'class' => ['reset-button'],
+      'class' => [
+        'action-button',
+        'get-random-button',
+        'icon',
+        'icon-dice',
+      ],
     ],
   ];
-  $form['action_buttons']['reset_button_wrapper']['reset_button'] = [
-    '#type' => 'image_button',
-    '#button_type' => 'button',
-    '#src' => drupal_get_path('theme', 'movies') . '/images/reset-white.png',
+  // Reset button.
+  $form['action_buttons']['reset_button'] = [
+    '#type' => 'submit',
+    '#attributes' => [
+      'class' => [
+        'action-button',
+        'reset-button',
+        'icon',
+        'icon-reload',
+      ],
+    ],
   ];
 
   return $form;
