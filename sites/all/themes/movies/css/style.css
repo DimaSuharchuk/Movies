@@ -247,7 +247,6 @@ section .block-locale-language {
 }
 .icon:before {
   position: absolute;
-  top: 25px;
   font-size: 2em;
   text-shadow: 2px 1px 1px #333;
   z-index: 2;
