@@ -306,6 +306,14 @@ div#modal-content {
   }
 }
 @media (max-width: 900px) {
+  .action-button {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 0;
+  }
+  .icon:before {
+    font-size: 1.5em;
+  }
   #modalContent {
     top: -1px !important;
     left: -1px !important;
@@ -328,7 +336,7 @@ div#modal-content {
     display: none;
   }
   .view-cs-views-search .view-content {
-    height: calc(100vh - 150px);
+    height: calc(100vh - 125px);
   }
 }
 @media screen and (max-width: 430px) {
