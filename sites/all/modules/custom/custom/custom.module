@@ -163,6 +163,19 @@ function custom_node_view_alter(&$build) {
       ];
     }
 
+    // Set poster as link on popup with movie details.
+    $build['field_poster_image'][0]['#path'] = [
+      'path' => 'search/' . $build['#node']->nid . '/details/nojs',
+      'options' => [
+        'attributes' => [
+          'class' => [
+            'ctools-use-modal',
+            'ctools-modal-film-popup-style',
+          ],
+        ],
+      ],
+    ];
+
     $build['links'] = [
       '#type' => 'container',
       '#attributes' => [
