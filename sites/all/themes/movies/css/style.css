@@ -150,7 +150,7 @@ section .block-locale-language {
   margin: 0;
 }
 .view-cs-views-search .view-content .nano-content .views-field-rendered-entity {
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }
 .node-teaser {
   position: relative;
@@ -163,6 +163,9 @@ section .block-locale-language {
   width: calc(100% - 25px);
   max-height: 360px;
   box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.3);
+}
+.field-name-field-poster-image img:hover {
+  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.5);
 }
 .node-teaser .field-name-field-imdb {
   position: absolute;
@@ -195,11 +198,6 @@ section .block-locale-language {
   color: #aaa;
   font-family: 'Open Sans Condensed';
   font-size: large;
-}
-.movie-teaser-links {
-  max-width: 230px;
-  display: flex;
-  justify-content: space-between;
 }
 /* Pager. */
 .view-cs-views-search .view-content .pager li:not(.current) a:hover {
@@ -278,6 +276,10 @@ section .block-locale-language {
   font-size: large;
 }
 /* Popup */
+#modalBackdrop {
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
 div.ctools-modal-content .modal-content {
   max-height: 99vh;
   padding: 1em;
@@ -295,6 +297,10 @@ div#modal-content {
 }
 .popup-film-title {
   width: 85%;
+}
+.ctools-modal-film-popup iframe {
+  width: 100%;
+  margin-top: 20px;
 }
 /**
 * @media

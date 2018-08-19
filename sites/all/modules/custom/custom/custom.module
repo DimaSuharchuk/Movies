@@ -10,9 +10,9 @@
  */
 function custom_menu() {
   return [
-    'search/%/%/%ctools_js' => [
+    'search/%node/%ctools_js' => [
       'page callback' => 'custom_film_popup',
-      'page arguments' => [1, 2, 3],
+      'page arguments' => [1, 2],
       'access callback' => TRUE,
       'type' => MENU_CALLBACK,
     ],
@@ -156,47 +156,36 @@ function custom_node_view_alter(&$build) {
           ],
         ],
       ];
+      // If movie haven't poster set default image and wrap with link on popup.
       $build['field_poster_image'][] = [
-        '#markup' => theme('image', [
-          'path' => drupal_get_path('theme', 'movies') . '/images/nopicture.gif',
-        ]),
+        '#markup' => l(
+          theme('image', [
+            'path' => drupal_get_path('theme', 'movies') . '/images/nopicture.gif',
+          ]),
+          'search/' . $build['#node']->nid . '/nojs',
+          [
+            'attributes' => [
+              'class' => [
+                'ctools-use-modal',
+                'ctools-modal-film-popup-style',
+              ],
+            ],
+            'html' => TRUE,
+          ]
+        ),
       ];
     }
-
-    // Set poster as link on popup with movie details.
-    $build['field_poster_image'][0]['#path'] = [
-      'path' => 'search/' . $build['#node']->nid . '/details/nojs',
-      'options' => [
-        'attributes' => [
-          'class' => [
-            'ctools-use-modal',
-            'ctools-modal-film-popup-style',
+    else {
+      // Set poster as link on popup with movie details.
+      $build['field_poster_image'][0]['#path'] = [
+        'path' => 'search/' . $build['#node']->nid . '/nojs',
+        'options' => [
+          'attributes' => [
+            'class' => [
+              'ctools-use-modal',
+              'ctools-modal-film-popup-style',
+            ],
           ],
-        ],
-      ],
-    ];
-
-    $build['links'] = [
-      '#type' => 'container',
-      '#attributes' => [
-        'class' => ['movie-teaser-links'],
-      ],
-    ];
-    $build['links']['details'] = [
-      '#type' => 'link',
-      '#title' => t('Details'),
-      '#href' => 'search/' . $build["#node"]->nid . '/details/nojs',
-      '#attributes' => [
-        'class' => ['ctools-use-modal', 'ctools-modal-film-popup-style'],
-      ],
-    ];
-    if (!empty($build["#node"]->field_trailer)) {
-      $build['links']['trailer'] = [
-        '#type' => 'link',
-        '#title' => t('Trailer'),
-        '#href' => 'search/' . $build["#node"]->nid . '/trailer/nojs',
-        '#attributes' => [
-          'class' => ['ctools-use-modal', 'ctools-modal-film-popup-style'],
         ],
       ];
     }
@@ -206,32 +195,16 @@ function custom_node_view_alter(&$build) {
 /**
  * Popup's content.
  *
- * @param $nid
- *  Node ID.
- * @param $display
- *  Expected "details" or "trailer".
+ * @param $node
+ *  Node.
  * @param $js
  *  Ctools parameter for check is javascript enabled on browser.
  *
  * @return array
  * @throws \Exception
  */
-function custom_film_popup($nid, $display, $js) {
-  switch ($display) {
-    case 'details':
-      $popup_content = node_view(node_load($nid), 'popup');
-      break;
-
-    case 'trailer':
-      $node = node_load($nid);
-      $trailer = $node->field_trailer[LANGUAGE_NONE][0]['value'];
-      $popup_content = theme('trailer', ['hash' => $trailer]);
-      break;
-
-    default:
-      throw new Exception(t('Wrong display type "@d".', ['@d' => $display]));
-      break;
-  }
+function custom_film_popup($node, $js) {
+  $popup_content = _get_movie_details_and_trailer($node);
 
   if (!$js) {
     return $popup_content;
@@ -279,6 +252,30 @@ function custom_film_popup_style() {
     drupal_add_js($popup_style, 'setting');
     ctools_add_js('film_popup_style', 'custom');
   }
+}
+
+/**
+ * Helper function builds node view "popup" with trailer.
+ *
+ * @param $node
+ *  Loaded node.
+ *
+ * @return array
+ */
+function _get_movie_details_and_trailer($node) {
+  // Add movie's details.
+  $node_details_and_trailer = [];
+  $node_details_and_trailer[] = node_view($node, 'popup');
+  // Add trailer.
+  $trailer = $node->field_trailer[LANGUAGE_NONE][0]['value'];
+  try {
+    $node_details_and_trailer[] = [
+      '#markup' => $trailer ? theme('trailer', ['hash' => $trailer]) : '',
+    ];
+  } catch (Exception $_) {
+  }
+
+  return $node_details_and_trailer;
 }
 
 /**

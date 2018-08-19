@@ -40,5 +40,15 @@
         modalContentClose()
       });
     }
-  }
+  };
+
+  Drupal.behaviors.setVideoHeight = {
+    attach: function () {
+      // Set trailers height in proportion to width.
+      var $frame = $('.ctools-modal-film-popup').find('iframe');
+      if ($frame.length) {
+        $frame.height($frame.width() / 1.9)
+      }
+    }
+  };
 })(jQuery);
