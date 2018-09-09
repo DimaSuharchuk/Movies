@@ -5096,3 +5096,66 @@ msgstr "Расмус Хардайкер"
 
 msgid "Amy Saville"
 msgstr "Эми Сэвилл"
+
+msgid "Clay Kaytis"
+msgstr "Клей Кейтис"
+
+msgid "Fergal Reilly"
+msgstr "Фергал Рейлли"
+
+msgid "John Paragon"
+msgstr "Джон Парагон"
+
+msgid "Marc Forster"
+msgstr "Марк Форстер"
+
+msgid "Peter Weir"
+msgstr "Питер Уир"
+
+msgid "Ryan Coogler"
+msgstr "Райан Куглер"
+
+msgid "Steven S. DeKnight"
+msgstr "Стивен С. ДеНайт"
+
+msgid "Liam Aiken"
+msgstr "Лиам Эйкен"
+
+msgid "Kara Hoffman"
+msgstr "Кара Хофман"
+
+msgid "Peter Paul"
+msgstr "Питер Пол"
+
+msgid "David Paul"
+msgstr "Дэвид Пол"
+
+msgid "Christian Cousins"
+msgstr "Кристиан Казинс"
+
+msgid "Joseph Cousins"
+msgstr "Джозеф Казинс"
+
+msgid "Edith Peters"
+msgstr "Эдит Петерс"
+
+msgid "Pippo Santonastaso"
+msgstr "Пипо Сантонастазо"
+
+msgid "Chadwick Boseman"
+msgstr "Чедвик Боузман"
+
+msgid "Lupita Nyong'o"
+msgstr "Люпита Нионго"
+
+msgid "Danai Gurira"
+msgstr "Данай Джекесай Гурира"
+
+msgid "William H. Macy"
+msgstr "Уильям Мэйси"
+
+msgid "Julie Christie"
+msgstr "Джули Кристи"
+
+msgid "Cailee Spaeny"
+msgstr "Кэйли Спэни"
