@@ -104,9 +104,12 @@ function films_parser_form($form, &$form_state) {
   // Add js for better work with "get eng string" functionality.
   drupal_add_js(FILMS_PARSER_MODULE_PATH . '/js/copy_text.js');
 
+  // Counter for step blocks.
+  $counter = 1;
+
   $form['fetch_films'] = [
     '#type' => 'fieldset',
-    '#title' => t('Fetch new films'),
+    '#title' => $counter++ . '. ' . t('Fetch new eng films'),
     '#access' => user_access('fetch films'),
   ];
   $form['fetch_films']['imdb_ids'] = [
@@ -123,7 +126,7 @@ function films_parser_form($form, &$form_state) {
   // Get string with english title and year for search in internet.
   $form['get_name_year'] = [
     '#type' => 'fieldset',
-    '#title' => t('Get string for search in internet'),
+    '#title' => $counter++ . '. ' . t('Get string for search in internet'),
     '#access' => user_access('add translations'),
   ];
   $form['get_name_year']['field'] = [
@@ -157,47 +160,10 @@ function films_parser_form($form, &$form_state) {
     ],
   ];
 
-  // Search trailers set.
-  $form['trailers'] = [
-    '#type' => 'fieldset',
-    '#title' => t('Trailer search'),
-    '#access' => user_access('get trailers'),
-  ];
-  $form['trailers']['exceptions'] = [
-    '#type' => 'container',
-    '#attributes' => [
-      'id' => 'trailer-search-exceptions',
-    ],
-  ];
-  $form['trailers']['trailer_input'] = [
-    '#type' => 'textfield',
-    '#title' => t('IMDB ID'),
-    '#description' => t('Paste IMDB ID for search trailers on Youtube.'),
-    '#attributes' => [
-      'autocomplete' => 'off',
-      'id' => 'trailer-input',
-    ],
-  ];
-  $form['trailers']['button'] = [
-    '#type' => 'button',
-    '#value' => t('Go'),
-    '#name' => 'trailer_button',
-    '#ajax' => [
-      'wrapper' => 'trailer-search-exceptions',
-      'callback' => 'films_parser_youtube_search_ajax_callback',
-      'progress' => '',
-    ],
-    '#states' => [
-      'disabled' => [
-        'input[name=trailer_input]' => ['filled' => FALSE],
-      ],
-    ],
-  ];
-
   // Add translations set.
   $form['add_translations'] = [
     '#type' => 'fieldset',
-    '#title' => t('Add translations'),
+    '#title' => $counter++ . '. ' . t('Add russian movies translations'),
     '#access' => user_access('add translations'),
     '#attributes' => [
       'class' => [
@@ -232,10 +198,83 @@ function films_parser_form($form, &$form_state) {
     '#name' => 'translate_films',
   ];
 
+  // Auto translate persons set.
+  $directors = _get_taxonomy_terms_translations_by_vocabulary_name('Directors');
+  $actors = _get_taxonomy_terms_translations_by_vocabulary_name('Actors');
+  $form['persons'] = [
+    '#type' => 'value',
+    '#value' => $directors['non_translated'] + $actors['non_translated'],
+  ];
+  $form['translate_persons'] = [
+    '#type' => 'fieldset',
+    '#title' => $counter++ . '. ' . t('Translate persons'),
+    '#access' => user_access('translate persons'),
+  ];
+  $form['translate_persons']['info_en'] = [
+    '#type' => 'item',
+    '#markup' => t('Translated &d and &a.', [
+      '&d' => format_plural($directors['translated_count'], '@count director', '@count directors'),
+      '&a' => format_plural($actors['translated_count'], '@count actor', '@count actors'),
+    ]),
+  ];
+  $form['translate_persons']['info_ru'] = [
+    '#type' => 'item',
+    '#markup' => t('Non-translated &d and &a.', [
+      '&d' => format_plural(count($directors['non_translated']), '@count director', '@count directors'),
+      '&a' => format_plural(count($actors['non_translated']), '@count actor', '@count actors'),
+    ]),
+  ];
+  $form['translate_persons']['translate_button'] = [
+    '#type' => 'submit',
+    '#value' => t('Translate'),
+    '#submit' => ['films_parser_translate_persons'],
+    '#name' => 'translate_persons',
+  ];
+  if (!($directors['translated_count'] + $actors['translated_count'])) {
+    $form['translate_persons']['translate_button']['#disabled'] = TRUE;
+  }
+
+  // Search trailers set.
+  $form['trailers'] = [
+    '#type' => 'fieldset',
+    '#title' => $counter++ . '. ' . t('Trailer search'),
+    '#access' => user_access('get trailers'),
+  ];
+  $form['trailers']['exceptions'] = [
+    '#type' => 'container',
+    '#attributes' => [
+      'id' => 'trailer-search-exceptions',
+    ],
+  ];
+  $form['trailers']['trailer_input'] = [
+    '#type' => 'textfield',
+    '#title' => t('IMDB ID'),
+    '#description' => t('Paste IMDB ID for search trailers on Youtube.'),
+    '#attributes' => [
+      'autocomplete' => 'off',
+      'id' => 'trailer-input',
+    ],
+  ];
+  $form['trailers']['button'] = [
+    '#type' => 'button',
+    '#value' => t('Go'),
+    '#name' => 'trailer_button',
+    '#ajax' => [
+      'wrapper' => 'trailer-search-exceptions',
+      'callback' => 'films_parser_youtube_search_ajax_callback',
+      'progress' => '',
+    ],
+    '#states' => [
+      'disabled' => [
+        'input[name=trailer_input]' => ['filled' => FALSE],
+      ],
+    ],
+  ];
+
   // Add trailers set.
   $form['add_trailers'] = [
     '#type' => 'fieldset',
-    '#title' => t('Add trailers'),
+    '#title' => $counter++ . '. ' . t('Add trailers'),
     '#access' => user_access('add trailers'),
     '#attributes' => [
       'class' => [
@@ -269,42 +308,6 @@ function films_parser_form($form, &$form_state) {
     '#validate' => ['films_parser_add_trailers_validate'],
     '#name' => 'trailers',
   ];
-
-  // Auto translate persons set.
-  $directors = _get_taxonomy_terms_translations_by_vocabulary_name('Directors');
-  $actors = _get_taxonomy_terms_translations_by_vocabulary_name('Actors');
-  $form['persons'] = [
-    '#type' => 'value',
-    '#value' => $directors['non_translated'] + $actors['non_translated'],
-  ];
-  $form['translate_persons'] = [
-    '#type' => 'fieldset',
-    '#title' => t('Translate persons'),
-    '#access' => user_access('translate persons'),
-  ];
-  $form['translate_persons']['info_en'] = [
-    '#type' => 'item',
-    '#markup' => t('Translated &d and &a.', [
-      '&d' => format_plural($directors['translated_count'], '@count director', '@count directors'),
-      '&a' => format_plural($actors['translated_count'], '@count actor', '@count actors'),
-    ]),
-  ];
-  $form['translate_persons']['info_ru'] = [
-    '#type' => 'item',
-    '#markup' => t('Non-translated &d and &a.', [
-      '&d' => format_plural(count($directors['non_translated']), '@count director', '@count directors'),
-      '&a' => format_plural(count($actors['non_translated']), '@count actor', '@count actors'),
-    ]),
-  ];
-  $form['translate_persons']['translate_button'] = [
-    '#type' => 'submit',
-    '#value' => t('Translate'),
-    '#submit' => ['films_parser_translate_persons'],
-    '#name' => 'translate_persons',
-  ];
-  if (!($directors['translated_count'] + $actors['translated_count'])) {
-    $form['translate_persons']['translate_button']['#disabled'] = TRUE;
-  }
 
   if (!variable_get('omdb_api_key')) {
     form_set_error('',
