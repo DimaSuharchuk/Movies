@@ -5159,3 +5159,24 @@ msgstr "Джули Кристи"
 
 msgid "Cailee Spaeny"
 msgstr "Кэйли Спэни"
+
+msgid "Burn Gorman"
+msgstr "Берн Горман"
+
+msgid "John Boyega"
+msgstr "Джон Бойега"
+
+msgid "Josh Charles"
+msgstr "Джош Чарльз"
+
+msgid "Josh Gad"
+msgstr "Джош Гад"
+
+msgid "Philip Baker Hall"
+msgstr "Филип Бейкер Холл"
+
+msgid "Robert Sean Leonard"
+msgstr "Роберт Шон Леонард"
+
+msgid "Scott Eastwood"
+msgstr "Скотт Иствуд"
