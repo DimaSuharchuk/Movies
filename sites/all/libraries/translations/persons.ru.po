@@ -817,7 +817,7 @@ msgid "Wolfgang Petersen"
 msgstr "Вольфганг Петерсен"
 
 msgid "Yoshiaki Kawajiri"
-msgstr "Ёсиаки Кавадзири"
+msgstr "Есиаки Кавадзири"
 
 msgid "Aaliyah"
 msgstr "Алия"
@@ -1930,7 +1930,7 @@ msgid "David Ayer"
 msgstr "Дэвид Эйер"
 
 msgid "David Mackay"
-msgstr "David J. C. MacKay"
+msgstr "Дэвид Маккэй"
 
 msgid "Denis Villeneuve"
 msgstr "Дени Вильнёв"
@@ -3220,7 +3220,7 @@ msgid "Danny Huston"
 msgstr "Дэнни Хьюстон"
 
 msgid "Will.i.am"
-msgstr "will.i.am"
+msgstr "Уильям Адамс"
 
 msgid "Joaquin Phoenix"
 msgstr "Хоакин Феникс"
@@ -4960,7 +4960,7 @@ msgid "Richard Macklin"
 msgstr "Ричард Маклин"
 
 msgid "DMX"
-msgstr "DMХ"
+msgstr "Эрл Симмонс (DMХ)"
 
 msgid "Li Sun"
 msgstr "Сунь Ли"

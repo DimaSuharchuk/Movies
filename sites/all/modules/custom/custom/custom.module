@@ -137,6 +137,8 @@ function custom_form_views_exposed_form_alter(&$form, &$form_state) {
     foreach ($form[$field_name]['#options'] as $key => $value) {
       $form[$field_name]['#options'][$key] = t($value);
     }
+    // Sort values in select list to accordance with translated strings.
+    asort($form[$field_name]['#options']);
   }
 }
 
