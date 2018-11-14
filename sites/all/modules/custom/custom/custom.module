@@ -269,12 +269,15 @@ function _get_movie_details_and_trailer($node) {
   $node_details_and_trailer = [];
   $node_details_and_trailer[] = node_view($node, 'popup');
   // Add trailer.
-  $trailer = $node->field_trailer[LANGUAGE_NONE][0]['value'];
-  try {
-    $node_details_and_trailer[] = [
-      '#markup' => $trailer ? theme('trailer', ['hash' => $trailer]) : '',
-    ];
-  } catch (Exception $_) {
+  $trailer = !empty($node->field_trailer) ? $node->field_trailer[LANGUAGE_NONE][0]['value'] : FALSE;
+
+  if ($trailer) {
+    try {
+      $node_details_and_trailer[] = [
+        '#markup' => theme('trailer', ['hash' => $trailer]),
+      ];
+    } catch (Exception $_) {
+    }
   }
 
   return $node_details_and_trailer;
