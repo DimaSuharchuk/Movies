@@ -224,6 +224,10 @@ function films_parser_form($form, &$form_state) {
       '&a' => format_plural(count($actors['non_translated']), '@count actor', '@count actors'),
     ]),
   ];
+  $form['translate_persons']['help'] = [
+    '#type' => 'item',
+    '#title' => t("Don't use this button on prod!"),
+  ];
   $form['translate_persons']['translate_button'] = [
     '#type' => 'submit',
     '#value' => t('Translate'),
