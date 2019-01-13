@@ -5516,3 +5516,141 @@ msgstr "Адам Скотт"
 
 msgid "Eva G. Cooper"
 msgstr "Эва Дж. Купер"
+
+msgid "Alex Merkin"
+msgstr "Алекс Меркин"
+
+msgid "Amy Heckerling"
+msgstr "Эми Хекерлинг"
+
+msgid "Konstantin Bronzit"
+msgstr "Константин Бронзит"
+
+msgid "Konstantin Feoktistov"
+msgstr "Константин Петрович Феоктистов"
+
+msgid "Kyle Balda"
+msgstr "Кайл Болда"
+
+msgid "Lasse Hallström"
+msgstr "Лассе Халльстрём"
+
+msgid "Matt Reeves"
+msgstr "Мэтт Ривз"
+
+msgid "Pierre Coffin"
+msgstr "Пьер Коффин"
+
+msgid "Rupert Wyatt"
+msgstr "Руперт Уайатт"
+
+msgid "Sergei Glezin"
+msgstr "Сергей Глезин"
+
+msgid "Tom Brady"
+msgstr "Том Брэди"
+
+msgid "Elizaveta Boyarskaya"
+msgstr "Елизавета Михайловна Боярская"
+
+msgid "Eric Christian Olsen"
+msgstr "Эрик Кристиан Олсен"
+
+msgid "George Segal"
+msgstr "Джордж Сигал"
+
+msgid "Jason Clarke"
+msgstr "Джейсон Кларк"
+
+msgid "Jon Hamm"
+msgstr "Джон Хэмм"
+
+msgid "Juliette Lewis"
+msgstr "Джульетт Льюис"
+
+msgid "Karin Konoval"
+msgstr "Карин Коновал"
+
+msgid "Kirstie Alley"
+msgstr "Кёрсти Элли"
+
+msgid "Liya Medvedeva"
+msgstr "Лия Медведева"
+
+msgid "Matthew Lawrence"
+msgstr "Мэттью Лоуренс"
+
+msgid "Michael Keaton"
+msgstr "Майкл Китон"
+
+msgid "Mikhail Chernyak"
+msgstr "Михаил Черняк"
+
+msgid "Oleg Kulikovich"
+msgstr "Олег Борисович Куликович"
+
+msgid "Oleg Tabakov"
+msgstr "Олег Павлович Табаков"
+
+msgid "Olympia Dukakis"
+msgstr "Олимпия Дукакис"
+
+msgid "Richard Ridings"
+msgstr "Ричард Райдингс"
+
+msgid "Sergey Makovetskiy"
+msgstr "Сергей Васильевич Маковецкий"
+
+msgid "Steve Zahn"
+msgstr "Стив Зан"
+
+msgid "Terry Notary"
+msgstr "Терри Нотари"
+
+msgid "Valeriy Solovyov"
+msgstr "Валерий Юрьевич Соловьёв"
+
+msgid "Aleksandr Boyarskiy"
+msgstr "Александр Сергеевич Боярский"
+
+msgid "Allison Janney"
+msgstr "Эллисон Дженни"
+
+msgid "Anatoliy Petrov"
+msgstr "Анатолий Владимирович Петров"
+
+msgid "Andy Serkis"
+msgstr "Энди Серкис"
+
+msgid "Anna Geller"
+msgstr "Анна Владимировна Геллер"
+
+msgid "Billy Zane"
+msgstr "Билли Зейн"
+
+msgid "Dmitriy Bykovskiy-Romashov"
+msgstr "Дмитрий Быковский"
+
+msgid "Dmitriy Nagiev"
+msgstr "Дмитрий Владимирович Нагиев"
+
+msgid "Dmitriy Vysotskiy"
+msgstr "Дмитрий Юрьевич Высоцкий"
+
+msgid "Eileen Essell"
+msgstr "Айлин Эссель"
+
+msgid "Ekaterina Gorokhovskaya"
+msgstr "Екатерина Владимировна Гороховская"
+
+msgid "Hamza Haq"
+msgstr "Хамза Хак"
+
+msgid "Jeni Ross"
+msgstr "Дженни Росс"
+
+msgid "Kathryn Davis"
+msgstr "Кэтрин Дэвис"
+
+msgid "Mark Ghanimé"
+msgstr "Марк Ганиме"
