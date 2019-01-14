@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Films Parser main file.
@@ -12,6 +13,7 @@ require_once FILMS_PARSER_MODULE_PATH . '/includes/get_prepared_string.inc';
 require_once FILMS_PARSER_MODULE_PATH . '/includes/translate_persons.batch.inc';
 require_once FILMS_PARSER_MODULE_PATH . '/includes/trailer_search.inc';
 require_once FILMS_PARSER_MODULE_PATH . '/includes/trailers.batch.inc';
+require_once FILMS_PARSER_MODULE_PATH . '/includes/rating_update.batch.inc';
 
 /**
  * Defines OMDB placeholder for unknown records.
@@ -74,6 +76,10 @@ function films_parser_permission() {
     'get trailers' => [
       'title' => t('Get trailers'),
       'description' => t('Access to "Trailer search" block.'),
+    ],
+    'update rating' => [
+      'title' => t('Update movies rating'),
+      'description' => t('Access to update movies rating batch.'),
     ],
   ];
 }
@@ -313,6 +319,29 @@ function films_parser_form($form, &$form_state) {
     '#name' => 'trailers',
   ];
 
+  // Update films rating set.
+  $form['update_rating_wrapper'] = [
+    '#type' => 'fieldset',
+    '#title' => $counter++ . '. ' . t('Update movies rating'),
+    '#access' => user_access('update rating'),
+    '#attributes' => [
+      'class' => [
+        'collapsible',
+        'collapsed',
+      ],
+    ],
+  ];
+  $form['update_rating_wrapper']['submit'] = [
+    '#type' => 'submit',
+    '#value' => t('Update ratings'),
+    '#submit' => ['films_update_rating_batch_set'],
+  ];
+  $last_rating_update = variable_get('last_films_rating_update', 'never');
+  $form['update_rating_wrapper']['info'] = [
+    '#type' => 'item',
+    '#markup' => t('Not necessary use more than once a month. Last update was %date.', ['%date' => $last_rating_update]),
+  ];
+
   if (!variable_get('omdb_api_key')) {
     form_set_error('',
       t(
@@ -334,11 +363,16 @@ function films_parser_form($form, &$form_state) {
  * @param $id
  *  IMDB film ID.
  *
+ * @param bool $plot_full
+ *  To escape validation use simple boolean check. Load full plot when variable
+ *   is true and short on false.
+ *
  * @return mixed
  *  Decoded JSON with film parameters.
  */
-function _fetch_json_from_omdb($id) {
-  $url = 'http://www.omdbapi.com/?i=' . $id . '&plot=full&apikey=' . variable_get('omdb_api_key');
+function _fetch_json_from_omdb($id, $plot_full = TRUE) {
+  $plot = $plot_full ? 'full' : 'short';
+  $url = "http://www.omdbapi.com/?i={$id}&plot={$plot}&apikey=" . variable_get('omdb_api_key');
 
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
