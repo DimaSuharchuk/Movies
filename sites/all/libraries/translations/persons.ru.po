@@ -5654,3 +5654,183 @@ msgstr "Кэтрин Дэвис"
 
 msgid "Mark Ghanimé"
 msgstr "Марк Ганиме"
+
+msgid "Benny Chan"
+msgstr "Бенни Чан"
+
+msgid "Boris Ivchenko"
+msgstr "Борис Викторович Ивченко"
+
+msgid "Chris Williams(co-director)"
+msgstr "Кристофер Джеймс Уильямс (сорежиcсёр)"
+
+msgid "Darren Lynn Bousman"
+msgstr "Даррен Линн Боусман"
+
+msgid "David Hackl"
+msgstr "Дэвид Хакл"
+
+msgid "Don Hall(co-director)"
+msgstr "Дон Холл (сорежиcсёр)"
+
+msgid "Kevin Greutert"
+msgstr "Кевин Гротерт"
+
+msgid "Lana Wachowski"
+msgstr "Лана Вачовски"
+
+msgid "Lilly Wachowski"
+msgstr "Лилли Вачовски"
+
+msgid "Michael Spierig"
+msgstr "Майкл Спириг"
+
+msgid "Peter Spierig"
+msgstr "Питер Спириг"
+
+msgid "Roman Polanski"
+msgstr "Роман Полански"
+
+msgid "Travis Knight"
+msgstr "Трэвис Найт"
+
+msgid "Emmanuelle Seigner"
+msgstr "Эмманюэль Сенье"
+
+msgid "Erik Knudsen"
+msgstr "Эрик Кнудсен"
+
+msgid "Frank Langella"
+msgstr "Фрэнк Ланджелла"
+
+msgid "Fyodor Strigun"
+msgstr "Фёдор Николаевич Стригун"
+
+msgid "Hannah Emily Anderson"
+msgstr "Ханна Эмили Андерсон"
+
+msgid "Helmut Bakaitis"
+msgstr "Хельмут Бакайтис"
+
+msgid "Ivan Mykolaichuk"
+msgstr "Иван Васильевич Миколайчук"
+
+msgid "Jason Momoa"
+msgstr "Джейсон Момоа"
+
+msgid "Kate Beahan"
+msgstr "Кейт Бихан"
+
+msgid "Ken Leung"
+msgstr "Кен Люн"
+
+msgid "Leigh Whannell"
+msgstr "Ли Уоннелл"
+
+msgid "Lidiya Belozyorova"
+msgstr "Лидия Алексеевна Белозёрова"
+
+msgid "Mackenzie Foy"
+msgstr "Маккензи Фой"
+
+msgid "Mark Rolston"
+msgstr "Марк Ролстон"
+
+msgid "Mary Alice"
+msgstr "Мэри Элис"
+
+msgid "Matt Passmore"
+msgstr "Мэтт Пассмор"
+
+msgid "Matthew McConaughey"
+msgstr "Мэттью Макконехи"
+
+msgid "Michelle Ferre"
+msgstr "Мишель Ферре"
+
+msgid "Mirai Yamamoto"
+msgstr "Мираи Ямамото"
+
+msgid "Piper Perabo"
+msgstr "Пайпер Перабо"
+
+msgid "Rachel House"
+msgstr "Рэйчел Хаус"
+
+msgid "Ray Anthony"
+msgstr "Рей Энтони"
+
+msgid "Ron Smerczak"
+msgstr "Рон Смержак"
+
+msgid "Scott Patterson"
+msgstr "Скотт Паттерсон"
+
+msgid "Shawnee Smith"
+msgstr "Шоуни Смит"
+
+msgid "Tanveer K. Atwal"
+msgstr "Танвир К. Атвал"
+
+msgid "Temuera Morrison"
+msgstr "Темуэра Моррисон"
+
+msgid "Tobin Bell"
+msgstr "Тобин Белл"
+
+msgid "Zemfira Tsakhilova"
+msgstr "Земфира Аврамовна Цахилова"
+
+msgid "Angus Macfadyen"
+msgstr "Ангус Макфэдьен"
+
+msgid "Auli'i Cravalho"
+msgstr "Аулии Кравалхо"
+
+msgid "Bahar Soomekh"
+msgstr "Бахар Сумех"
+
+msgid "Betsy Russell"
+msgstr "Бетси Расселл"
+
+msgid "Brenda Vaccaro"
+msgstr "Бренда Ваккаро"
+
+msgid "Callum Keith Rennie"
+msgstr "Каллум Кит Ренни"
+
+msgid "Cary-Hiroyuki Tagawa"
+msgstr "Кэри-Хироюки Тагава"
+
+msgid "Christine Anu"
+msgstr "Кристин Ану"
+
+msgid "Costas Mandylor"
+msgstr "Костас Мэндилор"
+
+msgid "Danny Glover"
+msgstr "Дэнни Гловер"
+
+msgid "Donnie Wahlberg"
+msgstr "Донни Уолберг"
+
+msgid "F.A. Brabec"
+msgstr "Франтишек Антонин Брабец"
+
+msgid "Alima Ashton-Sheibu"
+msgstr "Алима Эштон-Шейбу"
+
+msgid "Andy Arness"
+msgstr "Энди Арнесс"
+
+msgid "Anna Bezousková"
+msgstr "Анна Безоушкова"
+
+msgid "Martina Bezousková"
+msgstr "Мартина Безоушкова"
+
+msgid "Sára Vorísková"
+msgstr "Сара Воржишкова"
+
+msgid "Sylvie Kraslová"
+msgstr "Сильви Краслова"
