@@ -5834,3 +5834,105 @@ msgstr "Сара Воржишкова"
 
 msgid "Sylvie Kraslová"
 msgstr "Сильви Краслова"
+
+msgid "Aaron Sorkin"
+msgstr "Аарон Соркин"
+
+msgid "David Lowery"
+msgstr "Дэвид Лоури"
+
+msgid "Jared Hess"
+msgstr "Джаред Хесс"
+
+msgid "Jennifer Lee"
+msgstr "Дженнифер Ли"
+
+msgid "Steve McQueen"
+msgstr "Стив Маккуин"
+
+msgid "Bryan Batt"
+msgstr "Брайан Батт"
+
+msgid "Cole Sprouse"
+msgstr "Коул Спроус"
+
+msgid "Darius Rose"
+msgstr "Дарюс Роуз"
+
+msgid "David Aston"
+msgstr "Дэвид Эстон"
+
+msgid "Dickie Gravois"
+msgstr "Дики Грейвуа"
+
+msgid "Dwight Henry"
+msgstr "Дуайт Генри"
+
+msgid "Eiza González"
+msgstr "Эйса Гонсалес"
+
+msgid "F. Murray Abraham"
+msgstr "Ф. Мюррей Абрахам"
+
+msgid "Héctor Jiménez"
+msgstr "Эктор Хименес"
+
+msgid "Idina Menzel"
+msgstr "Идина Мензел"
+
+msgid "Joey Lauren Adams"
+msgstr "Джой Лорен Адамс"
+
+msgid "John Bach"
+msgstr "Джон Бах"
+
+msgid "Jon Stewart"
+msgstr "Джон Стюарт"
+
+msgid "Jonathan Groff"
+msgstr "Джонатан Грофф"
+
+msgid "Kevin Nealon"
+msgstr "Кевин Нилон"
+
+msgid "Kristen Bell"
+msgstr "Кристен Белл"
+
+msgid "Mahershala Ali"
+msgstr "Махершала Али"
+
+msgid "Michael Peña"
+msgstr "Майкл Пенья"
+
+msgid "Noel Appleby"
+msgstr "Ноэль Эпплби"
+
+msgid "Oakes Fegley"
+msgstr "Оакс Фегли"
+
+msgid "Rosa Salazar"
+msgstr "Роза Салазар"
+
+msgid "Sala Baker"
+msgstr "Сала Бэйкер"
+
+msgid "Alan Howard"
+msgstr "Алан Ховард"
+
+msgid "Ali Astin"
+msgstr "Александра Астин"
+
+msgid "Ana de la Reguera"
+msgstr "Ана де ла Регера"
+
+msgid "Anya Taylor-Joy"
+msgstr "Аня Тейлор-Джой"
+
+msgid "Bruce Allpress"
+msgstr "Брюс Олпресс"
+
+msgid "Chris Buck"
+msgstr "Крис Бак"
+
+msgid "Adam Brody"
+msgstr "Адам Броди"
