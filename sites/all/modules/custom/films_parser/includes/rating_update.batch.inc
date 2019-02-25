@@ -55,26 +55,29 @@ function films_update_rating_batch_set() {
 function films_update_rating_batch($imdb_id, $en_node_id, $ru_node_ids, &$context) {
   // Fetch IMDB rating for single movie.
   $new_rating_value = (float) _fetch_json_from_omdb($imdb_id, FALSE)['imdbRating'];
-  // Get ENG node wrapper and get old movie's rating.
-  $en_wrapper = entity_metadata_wrapper('node', $en_node_id);
-  $old_rating_value = (float) $en_wrapper->field_imdb->value();
 
-  // Compare old rating and new. If different - update for ENG and RU versions.
-  if ($new_rating_value !== $old_rating_value) {
-    $en_wrapper->field_imdb->set($new_rating_value);
-    $en_wrapper->save();
-    // Update for russian version.
-    $ru_wrapper = entity_metadata_wrapper('node', $ru_node_ids[$imdb_id]);
-    $ru_wrapper->field_imdb->set($new_rating_value);
-    $ru_wrapper->save();
+  if ($new_rating_value > 0) {
+    // Get ENG node wrapper and get old movie's rating.
+    $en_wrapper = entity_metadata_wrapper('node', $en_node_id);
+    $old_rating_value = (float) $en_wrapper->field_imdb->value();
 
-    // Save some useful info to context when movie has been updated.
-    $context['results']['count']++;
-    $context['results']['films'][] = [
-      'name' => $ru_wrapper->label(),
-      'old' => $old_rating_value,
-      'new' => $new_rating_value,
-    ];
+    // Compare old rating and new. If different - update for ENG and RU versions.
+    if ($new_rating_value !== $old_rating_value) {
+      $en_wrapper->{'field_imdb'}->set($new_rating_value);
+      $en_wrapper->save();
+      // Update for russian version.
+      $ru_wrapper = entity_metadata_wrapper('node', $ru_node_ids[$imdb_id]);
+      $ru_wrapper->{'field_imdb'}->set($new_rating_value);
+      $ru_wrapper->save();
+
+      // Save some useful info to context when movie has been updated.
+      $context['results']['count']++;
+      $context['results']['films'][] = [
+        'name' => $ru_wrapper->label(),
+        'old' => $old_rating_value,
+        'new' => $new_rating_value,
+      ];
+    }
   }
 }
 
