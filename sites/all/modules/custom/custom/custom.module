@@ -1,9 +1,12 @@
 <?php
+
 /**
  * @file
  *
  * Different custom configs for Cinema Search site.
  */
+
+module_load_include('inc', 'custom', 'visitors');
 
 /**
  * Implements hook_menu().
@@ -15,6 +18,12 @@ function custom_menu() {
       'page arguments' => [1, 2],
       'access callback' => TRUE,
       'type' => MENU_CALLBACK,
+    ],
+    'visitors/people' => [
+      'title' => 'People visitors',
+      'page callback' => 'drupal_get_form',
+      'page arguments' => ['custom_people_visitors_form'],
+      'access arguments' => ['access visitors'],
     ],
   ];
 }
