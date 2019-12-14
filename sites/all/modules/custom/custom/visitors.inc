@@ -13,24 +13,16 @@
  * @throws \Exception
  */
 function custom_people_visitors_form($form, &$form_state) {
-  if (isset($form_state['input']['date'])) {
-    $a = sprintf('%d-%d-%d', $form_state['input']['date']['year'], $form_state['input']['date']['month'], 1);
-    $startTime = new DateTime($a);
-    $endTime = (clone $startTime)->modify('last day of')->setTime(23, 59, 59);
-  }
-  else {
-    $startTime = (new DateTime('first day of this month'))->setTime(0, 0);
-    $endTime = (new DateTime('last day of this month'))->setTime(23, 59, 59);
-  }
+  $now = new DateTime();
 
   $form['date'] = [
     '#title' => t('Select month to view statistics'),
     '#type' => 'date',
     '#date_format' => 'Y-m',
     '#default_value' => [
-      'year' => $startTime->format('Y'),
-      'month' => $startTime->format('m'),
-      'day' => $startTime->format('d'),
+      'year' => $now->format('Y'),
+      'month' => $now->format('m'),
+      'day' => $now->format('d'),
     ],
     '#after_build' => ['_date_field_alter'],
   ];
@@ -39,11 +31,17 @@ function custom_people_visitors_form($form, &$form_state) {
   $form['actions']['submit'] = [
     '#type' => 'submit',
     '#value' => t('Submit'),
+    '#ajax' => [
+      'callback' => 'custom_people_visitors_form_ajax_callback',
+      'wrapper' => 'custom-content',
+    ],
   ];
 
   $form['content'] = [
-    '#type' => 'item',
-    '#markup' => custom_people_visitors($startTime, $endTime),
+    '#type' => 'container',
+    '#attributes' => [
+      'id' => 'custom-content',
+    ],
     '#weight' => 100,
   ];
 
@@ -64,6 +62,23 @@ function _date_field_alter($element, $form_state) {
   $element['year']['#options'] = array_combine($years, $years);
 
   return $element;
+}
+
+/**
+ * Show tables of visitors via ajax.
+ *
+ * {@inheritDoc}
+ *
+ * @throws \Exception
+ */
+function custom_people_visitors_form_ajax_callback($form, &$form_state) {
+  $dateString = sprintf('%d-%d-%d', $form_state['input']['date']['year'], $form_state['input']['date']['month'], 1);
+  $startTime = new DateTime($dateString);
+  $endTime = (clone $startTime)->modify('last day of')->setTime(23, 59, 59);
+
+  $commands = [];
+  $commands[] = ajax_command_html('#custom-content', custom_people_visitors($startTime, $endTime));
+  return ['#type' => 'ajax', '#commands' => $commands];
 }
 
 /**
