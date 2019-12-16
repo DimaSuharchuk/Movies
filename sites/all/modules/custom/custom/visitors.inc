@@ -244,10 +244,10 @@ function get_country_by_ip($ip, $short = TRUE) {
 
     if ($short) {
       return [
-        'country_name' => $data->country_name,
-        'region_name' => $data->region_name,
-        'city' => $data->city,
-        'country_flag' => $data->location->country_flag,
+        'country_name' => $data->country_name ?? '',
+        'region_name' => $data->region_name ?? '',
+        'city' => $data->city ?? '',
+        'country_flag' => $data->location->country_flag ?? '',
       ];
     }
     return $data;
