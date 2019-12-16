@@ -72,6 +72,11 @@ function _date_field_alter($element, $form_state) {
  * @throws \Exception
  */
 function custom_people_visitors_form_ajax_callback($form, &$form_state) {
+  // Remove records of my PC (Triolan).
+  db_delete('visitors')
+    ->condition('visitors_ip', '2996188432')
+    ->execute();
+
   $dateString = sprintf('%d-%d-%d', $form_state['input']['date']['year'], $form_state['input']['date']['month'], 1);
   $startTime = new DateTime($dateString);
   $endTime = (clone $startTime)->modify('last day of')->setTime(23, 59, 59);
