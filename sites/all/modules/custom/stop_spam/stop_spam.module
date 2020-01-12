@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * @file
+ * Module's main file.
+ */
+
+/**
+ * Implements hook_init().
+ */
+function stop_spam_init() {
+  $now = $_SERVER['REQUEST_TIME'];
+  $ip = ip_address();
+
+  // Add every current user to table.
+  db_insert('stop_spam_ips')
+    ->fields(['ip' => $ip, 'timestamp' => $now])
+    ->execute();
+
+  // If more than 5 requests per second were made, then block IP until the next
+  // cron.
+  if (db_query('SELECT * FROM {stop_spam_ips} WHERE timestamp = :t AND ip = :ip', [
+      ':t' => $now,
+      ':ip' => $ip,
+    ])->rowCount() >= 5) {
+    db_insert('blocked_ips')
+      ->fields(['ip' => $ip])
+      ->execute();
+
+    watchdog('stop_spam', 'IP %ip has been blocked.', ['%ip' => $ip], WATCHDOG_INFO);
+  }
+}
+
+/**
+ * Implements hook_cron().
+ */
+function stop_spam_cron() {
+  db_truncate('stop_spam_ips')->execute();
+  db_truncate('blocked_ips')->execute();
+}

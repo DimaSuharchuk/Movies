@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @file
+ * Install and update hooks.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function stop_spam_schema() {
+  $schema = [];
+
+  $schema['stop_spam_ips'] = [
+    'description' => 'Stores blocked IP addresses.',
+    'fields' => [
+      'iid' => [
+        'description' => 'Primary Key: unique ID for IP addresses.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'ip' => [
+        'description' => 'IP address.',
+        'type' => 'varchar',
+        'length' => 40,
+        'not null' => TRUE,
+        'default' => '',
+      ],
+      'timestamp' => [
+        'description' => 'UNIX timestamp for when the entry was added.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+    ],
+    'primary key' => ['iid'],
+  ];
+
+  return $schema;
+}

@@ -1,0 +1,4 @@
+name = Stop spam
+description = Ban some IPs who send requests too often.
+core = 7.x
+package = CS custom
