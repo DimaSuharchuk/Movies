@@ -11,23 +11,26 @@
 function stop_spam_init() {
   $now = $_SERVER['REQUEST_TIME'];
   $ip = ip_address();
+  $white_ips = variable_get('white_ips', []); // Add IPs in settings.php.
 
-  // Add every current user to table.
-  db_insert('stop_spam_ips')
-    ->fields(['ip' => $ip, 'timestamp' => $now])
-    ->execute();
-
-  // If more than 5 requests per second were made, then block IP until the next
-  // cron.
-  if (db_query('SELECT * FROM {stop_spam_ips} WHERE timestamp = :t AND ip = :ip', [
-      ':t' => $now,
-      ':ip' => $ip,
-    ])->rowCount() >= 5) {
-    db_insert('blocked_ips')
-      ->fields(['ip' => $ip])
+  // Add every unknown user to table.
+  if (!in_array($ip, $white_ips)) {
+    db_insert('stop_spam_ips')
+      ->fields(['ip' => $ip, 'timestamp' => $now])
       ->execute();
 
-    watchdog('stop_spam', 'IP %ip has been blocked.', ['%ip' => $ip], WATCHDOG_INFO);
+    // If more than 5 requests per second were made, then block IP until the
+    // next cron.
+    if (db_query('SELECT * FROM {stop_spam_ips} WHERE timestamp = :t AND ip = :ip', [
+        ':t' => $now,
+        ':ip' => $ip,
+      ])->rowCount() >= 5) {
+      db_insert('blocked_ips')
+        ->fields(['ip' => $ip])
+        ->execute();
+
+      watchdog('stop_spam', 'IP %ip has been blocked.', ['%ip' => $ip], WATCHDOG_INFO);
+    }
   }
 }
 
@@ -35,6 +38,10 @@ function stop_spam_init() {
  * Implements hook_cron().
  */
 function stop_spam_cron() {
-  db_truncate('stop_spam_ips')->execute();
+  // "Unblock" all IPs. There is not necessary to block IPs forever, because
+  // spammers usually using VPN and we only need to stop their current
+  // activities from the current IP..
   db_truncate('blocked_ips')->execute();
+  // Clear the table for performance.
+  db_truncate('stop_spam_ips')->execute();
 }
