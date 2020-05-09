@@ -19,12 +19,12 @@ function stop_spam_init() {
       ->fields(['ip' => $ip, 'timestamp' => $now])
       ->execute();
 
-    // If more than 5 requests per second were made, then block IP until the
+    // If more than 2 requests per second were made, then block IP until the
     // next cron.
     if (db_query('SELECT * FROM {stop_spam_ips} WHERE timestamp = :t AND ip = :ip', [
         ':t' => $now,
         ':ip' => $ip,
-      ])->rowCount() >= 5) {
+      ])->rowCount() >= 2) {
       db_insert('blocked_ips')
         ->fields(['ip' => $ip])
         ->execute();
